@@ -1,0 +1,43 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerWalkState : PlayerGroundedState
+{
+    private BaseMovement baseMovement;
+
+    public PlayerWalkState(BasePlayer _player, StateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
+    {
+        baseMovement = player.baseMovement;
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if (xInput == 0)
+            stateMachine.ChangeState(player.idleState);
+
+        if (xInput < 0 && player.facingRight)
+            player.Flip();
+        else if (xInput > 0 && !player.facingRight)
+            player.Flip();
+    }
+
+    public override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        baseMovement.SetVelocity(xInput, rb.linearVelocity.y, rb);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+}
