@@ -6,9 +6,10 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private int rows = 5; // Y-Axis (vertical)
     [SerializeField] private int columns = 5; // X-Axis (horizontal)
     [SerializeField] private float distance = 1f; // Distance between prefabs
+    [SerializeField] private Vector2 startPosition = Vector2.zero; // Starting position of the first level prefab
 
     [Header("Prefabs")]
-    [SerializeField] private GameObject[] levelPrefabs; // Array of level prefabs
+    [SerializeField] private GameObject[] levelPrefabs;  
 
     private void Start()
     {
@@ -25,7 +26,11 @@ public class LevelGenerator : MonoBehaviour
                 GameObject selectedPrefab = levelPrefabs[Random.Range(0, levelPrefabs.Length)];
 
                 // Calculate position for the prefab (X and Y axes only)
-                Vector3 position = new Vector3(col * distance, row * distance, 0);
+                Vector3 position = new Vector3(
+                    startPosition.x + col * distance, // X position
+                    startPosition.y - row * distance, // Y position (negative to go downward)
+                    0
+                );
 
                 // Instantiate the prefab at the calculated position
                 GameObject tile = Instantiate(selectedPrefab, position, Quaternion.identity);
