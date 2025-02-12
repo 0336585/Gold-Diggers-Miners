@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class RandomSpawnObject : MonoBehaviour 
+public class RandomSpawnObject : MonoBehaviour
 {
     [SerializeField] private GameObject[] spawnObjects;
     [SerializeField] private float[] weights;
@@ -15,7 +15,8 @@ public class RandomSpawnObject : MonoBehaviour
         }
         else
         {
-            Instantiate(spawnObjects[GetRandomSpawn()], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+            GameObject spawnedObject = Instantiate(spawnObjects[GetRandomSpawn()], transform.position, Quaternion.identity);
+            spawnedObject.transform.parent = this.transform;  
         }
     }
 
