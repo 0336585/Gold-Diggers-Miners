@@ -2,25 +2,29 @@ using UnityEngine;
 
 public class ProjectileShooter : MonoBehaviour
 {
-    [SerializeField] private GameObject projectilePrefab;  
+    [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
-    [SerializeField] private bool automaticFiring = false;
-    [SerializeField] private float projectileSpeed = 50f;
+    [SerializeField] private bool automaticFire;
+    [SerializeField] private float projectileSpeed = 25f;
     [SerializeField] private float projectileLifetime = 0.3f;
+    [SerializeField] private float fireRate = 0.4f;  
+    private float nextFireTime = 0f;
 
     private void Update()
     {
-        if (automaticFiring)
+        if (automaticFire)
         {
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
             {
+                nextFireTime = Time.time + fireRate;
                 Shoot();
             }
         }
         else
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && Time.time >= nextFireTime)
             {
+                nextFireTime = Time.time + fireRate;
                 Shoot();
             }
         }
