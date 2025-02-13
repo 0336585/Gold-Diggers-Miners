@@ -413,9 +413,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8523178760352380018, guid: 9d3cc9ffd47053c449f4719a4dfd2e70, type: 3}
   firePoint: {fileID: 1607421263}
+  automaticFire: 0
+  multishotFire: 0
   projectileSpeed: 25
   projectileLifetime: 0.3
   fireRate: 0.4
+  randomFireVariation: 0.1
+  bulletsPerShot: 5
+  spreadAngle: 25
 --- !u!212 &1372503529
 SpriteRenderer:
   m_ObjectHideFlags: 0
