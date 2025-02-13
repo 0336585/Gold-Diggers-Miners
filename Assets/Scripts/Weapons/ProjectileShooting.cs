@@ -8,9 +8,8 @@ public class ProjectileShooter : MonoBehaviour
     [SerializeField] private float projectileSpeed = 25f;
     [SerializeField] private float projectileLifetime = 0.3f;
     [SerializeField] private float fireRate = 0.4f;
+    [SerializeField] private float randomFireVariation = 0.1f;   
     private float nextFireTime = 0f;
-
-    // TODO: Random delay when firing automatic
 
     private void Update()
     {
@@ -20,7 +19,9 @@ public class ProjectileShooter : MonoBehaviour
 
         if (shouldFire && Time.time >= nextFireTime)
         {
-            nextFireTime = Time.time + fireRate;
+            // An random range between -0.1 and 0.1, too simulate irregularities in these old guns
+            float randomDelay = Random.Range(-randomFireVariation, randomFireVariation);
+            nextFireTime = Time.time + fireRate + randomDelay;
             Shoot();
         }
     }
