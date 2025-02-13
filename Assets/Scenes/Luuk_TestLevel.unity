@@ -384,15 +384,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1216701e2e6fa2749a42c5786dd35cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 2800000, guid: 8a22a8e37949af245ba25e99b5fce740, type: 3}
+  image: {fileID: 2800000, guid: 98f621dcbb677c442a08fc5ea596185f, type: 3}
   gameobjects:
   - pixel: {r: 0, g: 0, b: 0, a: 1}
     gameObject: {fileID: 6427573645077266397, guid: fc1792c38e26b36489845c8ad58ca73b, type: 3}
-  - pixel: {r: 0, g: 1, b: 0.8745098, a: 1}
+  - pixel: {r: 1, g: 0.7800359, b: 0, a: 1}
     gameObject: {fileID: 7587463488130791971, guid: 9b873bda06220e64287c8b59da2d079f, type: 3}
   exit:
     pixel: {r: 0.19703305, g: 1, b: 0, a: 0}
-    gameObject: {fileID: 9092259164009821389, guid: 4bcc7e9d36926a346aa856c122e4cb98, type: 3}
+    gameObject: {fileID: 8461447859615413672, guid: 11869427ecb483144be00e1eff162cd3, type: 3}
   gridSize: 1
   xOffset: 0
   yOffset: 0
@@ -444,10 +444,9 @@ MonoBehaviour:
   columns: 5
   startPosition: {x: 0, y: 0}
   levelPrefabs:
-  - {fileID: 2453594425784610046, guid: c10224c6ac35b474c92e7501e83b03a5, type: 3}
-  - {fileID: 2453594425784610046, guid: c10224c6ac35b474c92e7501e83b03a5, type: 3}
-  - {fileID: 2453594425784610046, guid: c10224c6ac35b474c92e7501e83b03a5, type: 3}
-  - {fileID: 2453594425784610046, guid: c10224c6ac35b474c92e7501e83b03a5, type: 3}
+  - {fileID: 1946271948313558189, guid: c10224c6ac35b474c92e7501e83b03a5, type: 3}
+  - {fileID: 4860097960746834932, guid: ec5848a13c9d46a4386be1d5c58e60af, type: 3}
+  - {fileID: 1554717123543461305, guid: 13c3da643ed25144a8b317a3c181eb80, type: 3}
 --- !u!1 &1154817812
 GameObject:
   m_ObjectHideFlags: 0
