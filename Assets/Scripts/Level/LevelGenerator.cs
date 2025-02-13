@@ -9,6 +9,7 @@ public class LevelGenerator : MonoBehaviour
 
     [Header("Prefabs")]
     [SerializeField] private GameObject[] levelPrefabs;
+    [SerializeField] private GameObject introPrefab;  
 
     private void Start()
     {
@@ -19,9 +20,20 @@ public class LevelGenerator : MonoBehaviour
     {
         Vector2 currentPosition = startPosition;
 
+        // Spawn the intro prefab to the left of the first tile
+        if (introPrefab != null)
+        {
+            GameObject introTile = Instantiate(introPrefab, currentPosition, Quaternion.identity);
+            introTile.transform.parent = this.transform;
+
+            // Get intro prefab size and adjust start position
+            Bounds introBounds = GetPrefabBounds(introTile);
+            currentPosition.x += introBounds.size.x; // Shift to the right
+        }
+
         for (int row = 0; row < rows; row++)
         {
-            Vector2 rowStartPosition = currentPosition;  
+            Vector2 rowStartPosition = currentPosition;
 
             for (int col = 0; col < columns; col++)
             {
@@ -30,11 +42,9 @@ public class LevelGenerator : MonoBehaviour
 
                 // Instantiate the prefab
                 GameObject tile = Instantiate(selectedPrefab, currentPosition, Quaternion.identity);
-
-                // Parent the tile to the generator for organization
                 tile.transform.parent = this.transform;
 
-                // Get the prefab's size dynamically
+                // Get prefab size dynamically
                 Bounds tileBounds = GetPrefabBounds(tile);
 
                 // Move to the right by the width of the current prefab
@@ -49,7 +59,6 @@ public class LevelGenerator : MonoBehaviour
 
     private Bounds GetPrefabBounds(GameObject prefab)
     {
-        // Create a temporary object to measure bounds
         GameObject temp = Instantiate(prefab);
         Bounds bounds = new Bounds(temp.transform.position, Vector3.zero);
 
@@ -58,7 +67,7 @@ public class LevelGenerator : MonoBehaviour
             bounds.Encapsulate(renderer.bounds);
         }
 
-        Destroy(temp); // Clean up temporary object
+        Destroy(temp);
         return bounds;
     }
 }
