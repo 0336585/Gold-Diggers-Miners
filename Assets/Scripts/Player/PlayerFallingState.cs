@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerFallingState : PlayerAirState
 {
-    private bool facingRight;
-
     public PlayerFallingState(BasePlayer _player, StateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }

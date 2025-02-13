@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerJumpState : PlayerState
+public class PlayerJumpState : PlayerAirState
 {
     private float jumpForce;
 
@@ -24,6 +24,11 @@ public class PlayerJumpState : PlayerState
 
         if (rb.linearVelocity.y < 0)
             stateMachine.ChangeState(player.fallingState);
+    }
+
+    public override void FixedUpdate()
+    {
+        base.FixedUpdate();
     }
 
     public override void Exit()
