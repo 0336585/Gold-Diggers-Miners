@@ -15,20 +15,22 @@ public class PlayerJumpState : PlayerAirState
     {
         base.Enter();
 
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        
     }
 
     public override void Update()
     {
         base.Update();
 
+        for (int i = 0; i < 50; i++)
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            if (rb.linearVelocityY > 5)
+                break;
+        }
+
         if (rb.linearVelocity.y < 0)
             stateMachine.ChangeState(player.fallingState);
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 
     public override void Exit()

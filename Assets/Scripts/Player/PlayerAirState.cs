@@ -15,6 +15,7 @@ public class PlayerAirState : PlayerState
     {
         base.Update();
 
+
         if (player.IsGroundDetected())
             stateMachine.ChangeState(player.idleState);
 
@@ -28,6 +29,6 @@ public class PlayerAirState : PlayerState
     {
         base.FixedUpdate();
 
-        baseMovement.SetVelocity(xInput, rb.linearVelocity.y, rb);
+        baseMovement.SetVelocityX(xInput, rb);
     }
 }
