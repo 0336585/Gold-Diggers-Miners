@@ -26,7 +26,7 @@ public class Entity : MonoBehaviour
     public virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
         baseMovement = GetComponent<BaseMovement>();
         healthScript = GetComponent<BaseHealth>();
     }

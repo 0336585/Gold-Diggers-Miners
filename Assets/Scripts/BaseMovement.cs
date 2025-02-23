@@ -10,4 +10,14 @@ public class BaseMovement : MonoBehaviour
     {
         _rb.linearVelocity = new Vector2(_x * xSpeed, _y * ySpeed);
     }
+
+    public void SetVelocityX(float _x, Rigidbody2D _rb)
+    {
+        _rb.linearVelocityX = _x * xSpeed;
+    }
+
+    public void SetVelocityY(float _y, Rigidbody2D _rb)
+    {
+        _rb.linearVelocityY = _y * xSpeed;
+    }
 }

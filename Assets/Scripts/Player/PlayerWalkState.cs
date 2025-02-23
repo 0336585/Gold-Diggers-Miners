@@ -33,7 +33,7 @@ public class PlayerWalkState : PlayerGroundedState
     {
         base.FixedUpdate();
 
-        baseMovement.SetVelocity(xInput, rb.linearVelocity.y, rb);
+        baseMovement.SetVelocityX(xInput, rb);
     }
 
     public override void Exit()

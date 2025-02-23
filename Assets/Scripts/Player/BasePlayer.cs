@@ -44,11 +44,10 @@ public class BasePlayer : Entity
     {
         stateMachine.currentState.Update();
 
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Clamp(rb.linearVelocity.y, -25, 25));
-
         Debug.Log(stateMachine.currentState.GetType().Name);
 
         DashCheck();
+
     }
 
     private void FixedUpdate()
