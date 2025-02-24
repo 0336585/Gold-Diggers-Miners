@@ -6,6 +6,7 @@ public class ProjectileThrowing : MonoBehaviour
     [Header("Projectile Settings")]
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform throwPoint;
+    [SerializeField] private float damage = 25f;
     [SerializeField] private float throwForce = 10f;
     [SerializeField] private float throwAngle = 45f;
     [SerializeField] private float throwDelay = 0.5f;  
@@ -75,9 +76,16 @@ public class ProjectileThrowing : MonoBehaviour
             // Apply velocity
             rb.linearVelocity = new Vector2(xVelocity, yVelocity);
 
+            // Pass the damage value to the ExplosiveDamage script
+            ExplosiveDamage explosiveDamage = projectile.GetComponent<ExplosiveDamage>();
+            if (explosiveDamage != null)
+            {
+                explosiveDamage.SetDamage(damage);
+            }
+
             // Reduce ammo after throwing
             currentAmmo--;
-            Debug.Log(gameObject + " Ammo left: " + currentAmmo);
+            Debug.Log(gameObject.name + " Ammo left: " + currentAmmo);
         }
         else
         {
