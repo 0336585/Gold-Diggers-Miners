@@ -12,7 +12,6 @@ public class ProjectileShooter : MonoBehaviour
     [SerializeField] private bool multishotMode = false;
 
     [Header("General Settings")]
-    //TODO: Damage doesn't do anything yet
     [SerializeField] private float damagePerShot = 20f;
     [SerializeField] private float projectileSpeed = 25f;
     [SerializeField] private float projectileLifetime = 0.3f;
@@ -35,7 +34,7 @@ public class ProjectileShooter : MonoBehaviour
 
     private void Start()
     {
-        currentAmmo = ammoInGun;  
+        currentAmmo = ammoInGun;
     }
 
     private void Update()
@@ -50,11 +49,11 @@ public class ProjectileShooter : MonoBehaviour
         {
             if (currentAmmo > 0)
             {
-                //An random range between - 0.1 and 0.1, too simulate irregularities in these old guns
+                // An random range between - 0.1 and 0.1, too simulate irregularities in these old guns
                 float randomDelay = Random.Range(-randomFireVariation, randomFireVariation);
                 nextFireTime = Time.time + fireRate + randomDelay;
                 Shoot();
-                currentAmmo--;  
+                currentAmmo--;
             }
             else
             {
@@ -82,14 +81,16 @@ public class ProjectileShooter : MonoBehaviour
             // Shotgun mode: Fire multiple bullets in a spread
             for (int i = 0; i < bulletsPerShot; i++)
             {
-                float randomAngle = Random.Range(-spreadAngle / 2, spreadAngle / 2); // Random angle within the spread
-                Quaternion spreadRotation = Quaternion.Euler(0, 0, randomAngle); // Create a rotation offset
-                Quaternion bulletRotation = firePoint.rotation * spreadRotation; // Apply offset to the firePoint rotation
+                float randomAngle = Random.Range(-spreadAngle / 2, spreadAngle / 2);
+                Quaternion spreadRotation = Quaternion.Euler(0, 0, randomAngle);
+                Quaternion bulletRotation = firePoint.rotation * spreadRotation;
 
                 GameObject projectile = Instantiate(projectilePrefab, firePoint.position, bulletRotation);
+                SetProjectileDamage(projectile);
+
                 if (projectile.TryGetComponent(out Rigidbody2D rb))
                 {
-                    rb.linearVelocity = bulletRotation * Vector2.right * projectileSpeed; // Apply spread rotation to velocity
+                    rb.linearVelocity = bulletRotation * Vector2.right * projectileSpeed;
                 }
                 Destroy(projectile, projectileLifetime);
             }
@@ -98,11 +99,21 @@ public class ProjectileShooter : MonoBehaviour
         {
             // Rifle mode: Fire a single bullet
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            SetProjectileDamage(projectile);
+
             if (projectile.TryGetComponent(out Rigidbody2D rb))
             {
-                rb.linearVelocity = firePoint.right * projectileSpeed;
+                rb.linearVelocity = firePoint.right * projectileSpeed; // Apply spread rotation to velocity
             }
             Destroy(projectile, projectileLifetime);
+        }
+    }
+
+    private void SetProjectileDamage(GameObject projectile)
+    {
+        if (projectile.TryGetComponent(out ProjectileDamage projectileDamage))
+        {
+            projectileDamage.SetDamage(damagePerShot);
         }
     }
 
@@ -110,7 +121,7 @@ public class ProjectileShooter : MonoBehaviour
     {
         isReloading = true;
         Debug.Log("Reloading...");
-        yield return new WaitForSeconds(reloadTime);  
+        yield return new WaitForSeconds(reloadTime);
 
         int ammoNeeded = ammoInGun - currentAmmo; // How many bullets we need to refill
         int ammoToReload = Mathf.Min(ammoNeeded, reserveAmmo); // Take from total ammo
