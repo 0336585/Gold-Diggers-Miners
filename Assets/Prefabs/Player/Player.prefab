@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 5451790446802834903}
   - component: {fileID: 4897978521847787704}
   - component: {fileID: 6244489027050304768}
+  - component: {fileID: 3101721586023358553}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -448,6 +449,18 @@ MonoBehaviour:
   itemHolder: {fileID: 3112717761231546705}
   pickaxe: {fileID: 8268255958864661807, guid: dbf4bf4445acf9d44a8de3561949b813, type: 3}
   revolver: {fileID: 7777505889801214277, guid: 45a5d130706c392459046757af185067, type: 3}
+--- !u!114 &3101721586023358553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6490688001680501119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7e55ee0b30df7438a02bac2ff09713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8866460569551919964
 GameObject:
   m_ObjectHideFlags: 0
