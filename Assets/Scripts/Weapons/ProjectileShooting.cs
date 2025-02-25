@@ -21,6 +21,11 @@ public class ProjectileShooter : MonoBehaviour
     [Header("Ammo Settings")]
     [SerializeField] private int ammoInGun = 6;
     [SerializeField] private int reserveAmmo = 30;
+    public int ReserveAmmo
+    {
+        get { return reserveAmmo; }
+        private set { reserveAmmo = value; }
+    }
     //TODO: Add private max ammo that's a check for reserveAmmo while being the same amount 
     [SerializeField] private float reloadTime = 2f;
 
@@ -29,6 +34,11 @@ public class ProjectileShooter : MonoBehaviour
     [SerializeField, Range(0f, 360f)] private float spreadAngle = 20f;
 
     private int currentAmmo;
+    public int CurrentAmmo
+    {
+        get { return currentAmmo; }
+        private set { currentAmmo = value; }
+    }
     private bool isReloading = false;
     public bool IsReloading
     {
