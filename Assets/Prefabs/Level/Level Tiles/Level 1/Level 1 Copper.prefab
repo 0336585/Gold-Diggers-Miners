@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1420215767912361451}
   - component: {fileID: 416127571826628167}
   - component: {fileID: 6667505209997819559}
-  - component: {fileID: 4460551658732240302}
   - component: {fileID: -2322797847646518622}
+  - component: {fileID: 4549989456675357323}
   m_Layer: 3
   m_Name: Level 1 Copper
   m_TagString: Untagged
@@ -136,19 +136,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.6, y: 1.6}
   m_EdgeRadius: 0
---- !u!114 &4460551658732240302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8432384930664869714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3273b24a254069346b766f9026b53124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  noteHealth: 3
 --- !u!114 &-2322797847646518622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,3 +150,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mineralType: 1
   dropAmount: 1
+--- !u!114 &4549989456675357323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8432384930664869714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 103ecdeecafa8a54ea915103561dc010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteHealth: 3

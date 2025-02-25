@@ -25,6 +25,7 @@ public class ProjectileThrowing : MonoBehaviour
     {
         // Initialize ammo count to max at start
         currentAmmo = maxAmmo;
+        player = BasePlayer.Instance.transform;
     }
 
     private void Update()

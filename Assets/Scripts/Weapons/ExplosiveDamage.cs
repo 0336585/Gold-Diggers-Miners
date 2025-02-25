@@ -36,12 +36,12 @@ public class ExplosiveDamage : MonoBehaviour
         foreach (Collider2D collider in colliders)
         {
             // Check if the collider has the NoteHealth component
-            NoteHealth noteHealth = collider.GetComponent<NoteHealth>();
+            NodeHealth noteHealth = collider.GetComponent<NodeHealth>();
 
             if (noteHealth != null)
             {
                 // Apply damage to the note
-                noteHealth.DamageNote(damage);
+                noteHealth.DamageNode(damage);
             }
         }
     }

@@ -26,9 +26,9 @@ Transform:
   m_GameObject: {fileID: 3130459444772633118}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.70835996, y: 0.09272194, z: -0.03307779}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9092416313982273691}
   - {fileID: 1751488864998030573}
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 5764546839407945625, guid: 7397d67486183ca4d9af58cd149f36c4, type: 3}
   throwPoint: {fileID: 2273693477504340815}
+  damage: 25
   throwForce: 10
   throwAngle: 45
   throwDelay: 0.5

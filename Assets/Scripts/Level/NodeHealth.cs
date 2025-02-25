@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NoteHealth : MonoBehaviour
+public class NodeHealth : MonoBehaviour
 {
     [SerializeField] private float noteHealth = 1;
 
@@ -12,18 +12,18 @@ public class NoteHealth : MonoBehaviour
         if (projectileDamage != null)
         {
             // Call the DamageNote method and pass the damage amount
-            DamageNote(projectileDamage.GetDamage());
+            DamageNode(projectileDamage.GetDamage());
         }
     }
 
-    public void DamageNote(float _damage)
+    public void DamageNode(float _damage)
     {
         noteHealth -= _damage;
 
         if (noteHealth <= 0)
         {
             Destroy(gameObject);
-            Debug.Log("Note Destroyed");
+            Debug.Log("Node Destroyed");
         }
     }
 }
