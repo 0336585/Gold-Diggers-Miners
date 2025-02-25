@@ -33,7 +33,7 @@ public class PlayerMining : MonoBehaviour
         Vector3 direction = (mousePosition - arm.transform.parent.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        arm.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+        arm.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     private void PerformRaycast()

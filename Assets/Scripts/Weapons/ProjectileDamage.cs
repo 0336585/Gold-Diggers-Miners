@@ -4,7 +4,7 @@ public class ProjectileDamage : MonoBehaviour
 {
     private float damageAmount;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collider2D collision)
     {
         // Check if the colliding object has the NoteHealth component
         NoteHealth noteHealth = collision.GetComponent<NoteHealth>();
