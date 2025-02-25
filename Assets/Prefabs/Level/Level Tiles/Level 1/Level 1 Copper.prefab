@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6667505209997819559}
   - component: {fileID: -7225946466407424086}
   - component: {fileID: 4460551658732240302}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Level 1 Copper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
