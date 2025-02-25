@@ -5,6 +5,9 @@ public class PlayerMining : MonoBehaviour
     private Camera mainCamera;
     private GameObject lastOutlineObject = null; // Tracks the last outline object
 
+    private bool miningEnabled = true;
+    private bool armIsFlipped = false;
+
     [Header("References")]
     [SerializeField] private GameObject arm;
     [SerializeField] private GameObject outlinePrefab; // Prefab for the outline effect
@@ -21,8 +24,11 @@ public class PlayerMining : MonoBehaviour
     void Update()
     {
         ArmRotation();
-        PerformRaycast(); // Always check for outlining
-        CheckMining();    // Checks for mining when clicking
+        if (miningEnabled)
+        {
+            PerformRaycast(); // Always check for outlining
+            CheckMining();    // Checks for mining when clicking
+        }
     }
 
     private void ArmRotation()
@@ -33,8 +39,34 @@ public class PlayerMining : MonoBehaviour
         Vector3 direction = (mousePosition - arm.transform.parent.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
+
+        // Check if the parent is flipped (rotated 180 degrees on Y-axis)
+        if (arm.transform.parent.localRotation.y < 0)
+        {
+            if (!armIsFlipped)
+            {
+                armIsFlipped = true;
+                arm.transform.localScale = new Vector3(arm.transform.localScale.x * -1, arm.transform.localScale.y, arm.transform.localScale.z);
+            }
+
+            angle = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg; ;
+        }
+        else
+        {
+            if (armIsFlipped)
+            {
+                armIsFlipped = false;
+                arm.transform.localScale = new Vector3(arm.transform.localScale.x * -1, arm.transform.localScale.y, arm.transform.localScale.z);
+            }
+        }
+
+        angle = Mathf.Clamp(angle, -90f, 90f);
+
+
         arm.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
+
+
 
     private void PerformRaycast()
     {
@@ -111,5 +143,10 @@ public class PlayerMining : MonoBehaviour
             Destroy(lastOutlineObject);
             lastOutlineObject = null;
         }
+    }
+
+    public void EnableMining(bool _canMine)
+    {
+        miningEnabled = _canMine;
     }
 }

@@ -25,6 +25,7 @@ public class PlayerJumpState : PlayerAirState
         for (int i = 0; i < 50; i++)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
             if (rb.linearVelocityY > 5)
                 break;
         }
