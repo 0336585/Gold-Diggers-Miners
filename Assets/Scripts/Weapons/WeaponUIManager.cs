@@ -4,10 +4,10 @@ public class WeaponUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject reloadText;
     [SerializeField] private GameObject weapon;
-    private ProjectileShooter _projectileShooter;
+    private ProjectileShooter projectileShooter;
     void Start()
     {
-        _projectileShooter = weapon.GetComponent<ProjectileShooter>();
+        projectileShooter = weapon.GetComponent<ProjectileShooter>();
         reloadText.SetActive(false);
     }
     void Update()
@@ -17,6 +17,6 @@ public class WeaponUIManager : MonoBehaviour
     }
     public void ShowReloadingText()
     {
-        reloadText.SetActive(true);
+        reloadText.SetActive(projectileShooter.IsReloading);
     }
 }

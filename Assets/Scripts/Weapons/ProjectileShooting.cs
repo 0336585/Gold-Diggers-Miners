@@ -30,6 +30,12 @@ public class ProjectileShooter : MonoBehaviour
 
     private int currentAmmo;
     private bool isReloading = false;
+    public bool IsReloading
+    {
+        get { return isReloading; }
+        private set { isReloading = value; }
+    }
+
     private float nextFireTime = 0f;
 
     private void Start()
