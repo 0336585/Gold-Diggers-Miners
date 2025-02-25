@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 416127571826628167}
   - component: {fileID: 6667505209997819559}
   - component: {fileID: 4460551658732240302}
+  - component: {fileID: -2322797847646518622}
   m_Layer: 3
   m_Name: Level 1 Copper
   m_TagString: Untagged
@@ -148,3 +149,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteHealth: 3
+--- !u!114 &-2322797847646518622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8432384930664869714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98fc3850f544d3e4bb38d061fc698c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mineralType: 1
+  dropAmount: 1
