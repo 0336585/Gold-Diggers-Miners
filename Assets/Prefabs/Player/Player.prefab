@@ -256,7 +256,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8a90091260b7b924cb6fc4e1793ec70e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -433,6 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadText: {fileID: 0}
+  ammoText: {fileID: 0}
   weapon: {fileID: 0}
 --- !u!114 &6244489027050304768
 MonoBehaviour:
@@ -446,7 +447,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1213902dcc62910449517ce325c39a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipedItem: {fileID: 0}
+  hotbarItems:
+  - {fileID: 11400000, guid: e84dabe4baddcdc4d88ec4c2ce333577, type: 2}
+  - {fileID: 11400000, guid: 003d47c99669b7944afac30707491265, type: 2}
+  - {fileID: 11400000, guid: 70d0b1e7e6131ac4c906a8cb67fd5061, type: 2}
+  hotbarSlots: []
   itemHolder: {fileID: 3112717761231546705}
+  hotbarUI: {fileID: 0}
   pickaxe: {fileID: 8268255958864661807, guid: dbf4bf4445acf9d44a8de3561949b813, type: 3}
   revolver: {fileID: 7777505889801214277, guid: 45a5d130706c392459046757af185067, type: 3}
 --- !u!114 &3101721586023358553

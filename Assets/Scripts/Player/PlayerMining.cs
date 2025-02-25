@@ -80,7 +80,7 @@ public class PlayerMining : MonoBehaviour
 
         if (hit.collider != null)
         {
-            NoteHealth noteHealth = hit.collider.GetComponent<NoteHealth>();
+            NodeHealth noteHealth = hit.collider.GetComponent<NodeHealth>();
 
             if (noteHealth != null) // Only outline tiles with NoteHealth
             {
@@ -115,11 +115,11 @@ public class PlayerMining : MonoBehaviour
             {
                 Debug.Log("Raycast hit something");
 
-                NoteHealth noteHealth = hit.collider.GetComponent<NoteHealth>();
+                NodeHealth noteHealth = hit.collider.GetComponent<NodeHealth>();
                 if (noteHealth != null)
                 {
                     Debug.Log("Hit an object with NoteHealth: " + hit.collider.gameObject.name);
-                    noteHealth.DamageNote(1);
+                    noteHealth.DamageNode(1);
                 }
             }
 

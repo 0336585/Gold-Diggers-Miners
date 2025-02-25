@@ -5,6 +5,8 @@ public class BasePlayer : Entity
 {
     private StateMachine stateMachine;
 
+    public static BasePlayer Instance;
+
     [Header("Movement info")]
     [SerializeField] private float jumpForce;
     [SerializeField] private float dashSpeed;
@@ -26,6 +28,15 @@ public class BasePlayer : Entity
     public override void Awake()
     {
         base.Awake();
+
+        // Ensure only one instance exists
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Destroy duplicate inventory instances
+            return;
+        }
+
+        Instance = this;
 
         healthScript = GetComponent<PlayerHealth>();
 

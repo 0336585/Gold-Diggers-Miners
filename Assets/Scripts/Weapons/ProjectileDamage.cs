@@ -4,14 +4,14 @@ public class ProjectileDamage : MonoBehaviour
 {
     private float damageAmount;
 
-    private void OnCollisionEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if the colliding object has the NoteHealth component
-        NoteHealth noteHealth = collision.GetComponent<NoteHealth>();
+        // Check if the colliding object has the NodeHealth component
+        NodeHealth nodeHealth = collision.GetComponent<NodeHealth>();
 
-        if (noteHealth != null)
+        if (nodeHealth != null)
         {
-            noteHealth.DamageNote(damageAmount);
+            nodeHealth.DamageNode(damageAmount);
         }
 
         // Destroy the projectile after hitting something
