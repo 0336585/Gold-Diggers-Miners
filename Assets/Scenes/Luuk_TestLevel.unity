@@ -446,10 +446,11 @@ MonoBehaviour:
   columns: 5
   startPosition: {x: 0, y: 0}
   levelPrefabs:
-  - {fileID: 6301459882411948988, guid: 9861c36e5e8b8c540b381a843f5b83a6, type: 3}
-  - {fileID: 7440087818058741185, guid: ca7fe49f0821ada40a029163b5cf800a, type: 3}
-  - {fileID: 5636360569238432167, guid: 7aa35567ef7e6b14fa11920a47413fd8, type: 3}
-  introPrefab: {fileID: 5683345264262711360, guid: 7b2c9fe5bc4ce7f4997ca6a737894604, type: 3}
+  - {fileID: 4020096614101219292, guid: 9861c36e5e8b8c540b381a843f5b83a6, type: 3}
+  - {fileID: 3184633847080351613, guid: ca7fe49f0821ada40a029163b5cf800a, type: 3}
+  - {fileID: 996635960749546307, guid: 7aa35567ef7e6b14fa11920a47413fd8, type: 3}
+  introPrefab: {fileID: 1352888761607147453, guid: 7b2c9fe5bc4ce7f4997ca6a737894604, type: 3}
+  deathTriggerPrefab: {fileID: 6699474028103373676, guid: 543cbee583b44aa439165994724e7a38, type: 3}
 --- !u!1 &1154817812
 GameObject:
   m_ObjectHideFlags: 0
