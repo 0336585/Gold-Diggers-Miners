@@ -104,6 +104,11 @@ public class ProjectileShooter : MonoBehaviour
                 GameObject projectile = Instantiate(projectilePrefab, firePoint.position, bulletRotation);
                 SetProjectileDamage(projectile);
 
+                if (transform.lossyScale.x < 0) // If facing left
+                {
+                    projectile.transform.Rotate(0f, 180f, 0f); // Flip the sprite
+                }
+
                 if (projectile.TryGetComponent(out Rigidbody2D rb))
                 {
                     rb.linearVelocity = (firePoint.right * transform.lossyScale.x) * projectileSpeed;
@@ -116,6 +121,11 @@ public class ProjectileShooter : MonoBehaviour
             // Rifle mode: Fire a single bullet
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
             SetProjectileDamage(projectile);
+
+            if (transform.lossyScale.x < 0) // If facing left
+            {
+                projectile.transform.Rotate(0f, 180f, 0f); // Flip the sprite
+            }
 
             if (projectile.TryGetComponent(out Rigidbody2D rb))
             {
