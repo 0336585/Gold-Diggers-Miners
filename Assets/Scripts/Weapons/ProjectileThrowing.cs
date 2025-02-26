@@ -8,22 +8,18 @@ public class ProjectileThrowing : MonoBehaviour
     [SerializeField] private Transform throwPoint;
     [SerializeField] private float damage = 25f;
     [SerializeField] private float throwForce = 10f;
-    [SerializeField] private float throwAngle = 45f;
-    [SerializeField] private float throwDelay = 0.5f;  
+    [SerializeField] private float throwDelay = 0.5f;
 
     [Header("Ammo Settings")]
-    [SerializeField] private int maxAmmo = 5;  
-    private int currentAmmo;  
+    [SerializeField] private int maxAmmo = 5;
+    private int currentAmmo;
 
-    private Transform player; // Reference to the player to determine direction
     private bool canThrow = true;
-    private bool firstThrow = true;  
+    private bool firstThrow = true;
 
     private void Start()
     {
-        // Initialize ammo count to max at start
         currentAmmo = maxAmmo;
-        player = BasePlayer.Instance.transform;
     }
 
     private void Update()
@@ -61,19 +57,15 @@ public class ProjectileThrowing : MonoBehaviour
 
         if (rb != null)
         {
-            // Determine the direction the player is facing (1 for right, -1 for left)
-            float direction = transform.lossyScale.x > 0 ? 1f : -1f;
-            // Convert the throw angle from degrees to radians for trigonometric calculations (basically SosCasToa)
-            float angleInRadians = throwAngle * Mathf.Deg2Rad;
+            // Get the aim direction from mouse position (or right stick on a controller)
+            Vector3 aimDirection = (GetAimDirection() - throwPoint.position).normalized;
 
-            // Calculate the initial velocity components based on the throw angle and force
-            // xVelocity determines the horizontal movement, adjusting for player direction
-            // yVelocity determines the vertical movement, creating the arc effect
-            float xVelocity = Mathf.Cos(angleInRadians) * throwForce * direction;
-            float yVelocity = Mathf.Sin(angleInRadians) * throwForce;
+            // Apply velocity based on aim direction and throw force
+            rb.linearVelocity = aimDirection * throwForce;
 
-            // Apply velocity
-            rb.linearVelocity = new Vector2(xVelocity, yVelocity);
+            // Rotate projectile to match throw direction
+            float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+            projectile.transform.rotation = Quaternion.Euler(0, 0, angle);
 
             // Pass the damage value to the ExplosiveDamage script
             ExplosiveDamage explosiveDamage = projectile.GetComponent<ExplosiveDamage>();
@@ -90,5 +82,14 @@ public class ProjectileThrowing : MonoBehaviour
         {
             Debug.Log("Add a Rigidbody to the prefab, dipshit >:(");
         }
+    }
+
+    private Vector3 GetAimDirection()
+    {
+        // Convert mouse position to world space
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f; // Keep it in 2D
+
+        return mousePos;
     }
 }
