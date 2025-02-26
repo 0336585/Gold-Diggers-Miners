@@ -12,12 +12,12 @@ public class ProjectileThrowing : MonoBehaviour
     [SerializeField] private float throwDelay = 0.5f;  
 
     [Header("Ammo Settings")]
-    [SerializeField] private int maxAmmo = 5; // Maximum amount of ammo
-    private int currentAmmo; // Tracks the current ammo count
+    [SerializeField] private int maxAmmo = 5;  
+    private int currentAmmo;  
 
     private Transform player; // Reference to the player to determine direction
     private bool canThrow = true;
-    private bool firstThrow = true; // Tracks if it's the first throw
+    private bool firstThrow = true;  
 
     private void Start()
     {
@@ -62,7 +62,7 @@ public class ProjectileThrowing : MonoBehaviour
         if (rb != null)
         {
             // Determine the direction the player is facing (1 for right, -1 for left)
-            float direction = player.localScale.x > 0 ? 1f : -1f;
+            float direction = transform.lossyScale.x > 0 ? 1f : -1f;
             // Convert the throw angle from degrees to radians for trigonometric calculations (basically SosCasToa)
             float angleInRadians = throwAngle * Mathf.Deg2Rad;
 
