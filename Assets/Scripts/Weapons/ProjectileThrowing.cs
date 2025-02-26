@@ -15,9 +15,7 @@ public class ProjectileThrowing : MonoBehaviour
     [SerializeField] private int maxAmmo = 5; // Maximum amount of ammo
     private int currentAmmo; // Tracks the current ammo count
 
-    [Header("Player Settings")]
-    [SerializeField] private Transform player; // Reference to the player to determine direction
-
+    private Transform player; // Reference to the player to determine direction
     private bool canThrow = true;
     private bool firstThrow = true; // Tracks if it's the first throw
 

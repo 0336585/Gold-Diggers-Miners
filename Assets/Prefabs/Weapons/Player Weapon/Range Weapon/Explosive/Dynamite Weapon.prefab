@@ -103,8 +103,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5764546839407945625, guid: 7397d67486183ca4d9af58cd149f36c4, type: 3}
   throwPoint: {fileID: 2273693477504340815}
   damage: 25
-  throwForce: 12
-  throwAngle: 45
+  throwForce: 8
+  throwAngle: 25
   throwDelay: 0.5
   maxAmmo: 10
-  player: {fileID: 0}
