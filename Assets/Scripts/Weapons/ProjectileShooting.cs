@@ -106,7 +106,7 @@ public class ProjectileShooter : MonoBehaviour
 
                 if (projectile.TryGetComponent(out Rigidbody2D rb))
                 {
-                    rb.linearVelocity = bulletRotation * Vector2.right * projectileSpeed;
+                    rb.linearVelocity = (firePoint.right * transform.lossyScale.x) * projectileSpeed;
                 }
                 Destroy(projectile, projectileLifetime);
             }
@@ -119,7 +119,7 @@ public class ProjectileShooter : MonoBehaviour
 
             if (projectile.TryGetComponent(out Rigidbody2D rb))
             {
-                rb.linearVelocity = firePoint.right * projectileSpeed; // Apply spread rotation to velocity
+                rb.linearVelocity = (firePoint.right * transform.lossyScale.x) * projectileSpeed;
             }
             Destroy(projectile, projectileLifetime);
         }
