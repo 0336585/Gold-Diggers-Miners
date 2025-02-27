@@ -23,18 +23,20 @@ public class LevelGenerator : MonoBehaviour
         float totalWidth = 0f;
         float totalHeight = 0f;
 
-        // Spawn the intro prefab to the left of the first tile
+        // Spawn the intro prefab at the center-top
         if (introPrefab != null)
         {
             GameObject introTile = Instantiate(introPrefab, currentPosition, Quaternion.identity);
             introTile.transform.parent = this.transform;
 
-            // Get intro prefab size and adjust start position
+            // Get intro prefab size
             Bounds introBounds = GetPrefabBounds(introTile);
-            currentPosition.x += introBounds.size.x; // Shift to the right
+            totalWidth = introBounds.size.x * columns; // Estimate total width based on columns
+            currentPosition.x = startPosition.x - (totalWidth / 2) + (introBounds.size.x / 2); // Centering intro
+            currentPosition.y -= introBounds.size.y; // Move down to start level generation
         }
 
-        float levelStartX = currentPosition.x; // Store the leftmost X position
+        float levelStartX = currentPosition.x;
 
         for (int row = 0; row < rows; row++)
         {
@@ -51,7 +53,6 @@ public class LevelGenerator : MonoBehaviour
 
                 // Get prefab size dynamically
                 Bounds tileBounds = GetPrefabBounds(tile);
-                // Move to the right by the width of the current prefab
                 rowWidth += tileBounds.size.x;
                 currentPosition.x += tileBounds.size.x;
             }
@@ -70,7 +71,7 @@ public class LevelGenerator : MonoBehaviour
     {
         if (deathTriggerPrefab != null)
         {
-            Vector2 spawnPosition = new Vector2(levelStartX + width / 2, yPos - 1f); // Ensure it aligns with the level start
+            Vector2 spawnPosition = new Vector2(levelStartX + width / 2, yPos - 1f);
             GameObject deathTrigger = Instantiate(deathTriggerPrefab, spawnPosition, Quaternion.identity);
             deathTrigger.transform.localScale = new Vector3(width * 4, 1f, 1f); // Adjust width to be 4x the level width
         }
