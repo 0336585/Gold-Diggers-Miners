@@ -136,7 +136,7 @@ public class PlayerMining : MonoBehaviour
         lastOutlineObject.transform.SetParent(target.transform); // Attach it to the target
     }
 
-    private void RemoveOutline()
+    public void RemoveOutline()
     {
         if (lastOutlineObject != null)
         {

@@ -78,9 +78,14 @@ public class Hotbar : MonoBehaviour
             Destroy(equipedItemGO);
 
         if (_item.itemType == ItemType.Tool)
+        {
             playerMining.EnableMining(true);
+        }
         else
+        {
             playerMining.EnableMining(false);
+            playerMining.RemoveOutline();
+        }
 
 
         equipedItemGO = Instantiate(_item.prefab, itemHolder.transform);
