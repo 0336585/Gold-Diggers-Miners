@@ -3,15 +3,14 @@ using UnityEngine;
 public class MineralObject : MonoBehaviour
 {
     [Header("Mineral Settings")]
-    [SerializeField] private MineralType mineralType;
-    [SerializeField] private int dropAmount = 1;  
+    [SerializeField] private InventoryMineral mineralType;
 
     private void OnDestroy()
     {
         if (Inventory.Instance != null)
         {
-            Inventory.Instance.AddMineral(mineralType, dropAmount);
-            Debug.Log($"{dropAmount} {mineralType} added to inventory.");
+            Inventory.Instance.AddMineral(mineralType, mineralType.dropAmount);
+            Debug.Log($"{mineralType.dropAmount} {mineralType.mineralType} added to inventory.");
         }
         else
         {

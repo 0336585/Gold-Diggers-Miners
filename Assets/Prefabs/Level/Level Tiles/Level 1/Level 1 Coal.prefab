@@ -148,8 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98fc3850f544d3e4bb38d061fc698c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mineralType: 0
-  dropAmount: 1
+  mineralType: {fileID: 11400000, guid: 62636263536db3b438edbdaca0c6683e, type: 2}
 --- !u!114 &5140400061731602759
 MonoBehaviour:
   m_ObjectHideFlags: 0
