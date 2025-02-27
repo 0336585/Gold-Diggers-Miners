@@ -5,11 +5,16 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory Instance;
 
+    [Header("References")]
+    [SerializeField] private GameObject inventory;
     [SerializeField] private GameObject inventoryItemHolder;
     [SerializeField] private GameObject inventoryItem;
 
     // Dictionary to store minerals and their quantities
     private Dictionary<InventoryMineral, int> minerals = new Dictionary<InventoryMineral, int>();
+    private List<GameObject> itemsShowing = new List<GameObject> ();
+
+    private bool inventoryIsOpen = false;
 
     private void Awake()
     {
@@ -75,7 +80,12 @@ public class Inventory : MonoBehaviour
 
     private void OpenInventory()
     {
+        if (inventoryIsOpen) return;
+
         Debug.Log("Opening Inventory...");
+
+        inventoryIsOpen = true;
+        inventory.SetActive(true);
 
         // Loop through the minerals dictionary
         foreach (KeyValuePair<InventoryMineral, int> entry in minerals)
@@ -90,11 +100,27 @@ public class Inventory : MonoBehaviour
             if (inventoryItemHolder != null)
             {
                 // Create a new UI element for each mineral
-                GameObject itemUI = Instantiate(inventoryItem);
-                itemUI.transform.SetParent(inventoryItemHolder.transform);
+                GameObject itemUI = Instantiate(inventoryItem, inventoryItemHolder.transform);
 
                 itemUI.GetComponent<InventorySlot>().SetMineralSlot(mineral, amount);
             }
+        }
+    }
+
+    public void CloseInventory()
+    {
+        if (!inventoryIsOpen) return;
+
+        inventoryIsOpen = false;
+        inventory.SetActive(false);
+
+        // Get all the InventorySlot components in the children of inventoryItemHolder
+        InventorySlot[] showingGO = inventoryItemHolder.GetComponentsInChildren<InventorySlot>();
+
+        // Loop through and destroy each game object
+        for (int i = 0; i < showingGO.Length; i++)
+        {
+            Destroy(showingGO[i].gameObject);
         }
     }
 }

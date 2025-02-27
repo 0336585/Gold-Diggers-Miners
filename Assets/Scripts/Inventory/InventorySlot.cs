@@ -17,7 +17,7 @@ public class InventorySlot : MonoBehaviour
         stackText = GetComponentInChildren<TextMeshProUGUI>();
         background = GetComponent<Image>();
 
-        inventoryUIManager = GetComponentInParent<InventoryUIManager>();
+        inventoryUIManager = gameObject.transform.parent.transform.parent.GetComponentInParent<InventoryUIManager>();
     }
 
     public void SetMineralSlot(InventoryMineral _mineral, int _amount)
