@@ -136,6 +136,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1292698591}
     - target: {fileID: 4897978521847787704, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897978521847787704, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: reloadText
       value: 
       objectReference: {fileID: 1473974418}
