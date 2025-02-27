@@ -3,13 +3,16 @@ using UnityEngine;
 
 public class WeaponUIManager : MonoBehaviour
 {
+    // TEHCNICALLY THIS SCRIPT NEEDS TO BE REWRITTEN WITH THE FUNCTIONALITY OF WEAPONS, THROUGH THE HOTBAR
     [SerializeField] private GameObject reloadText;
+    [SerializeField] private GameObject ammoGO;
     [SerializeField] private TMP_Text ammoText;
-    [SerializeField] private GameObject weapon;
+    [SerializeField] private Hotbar hotbar;
+    private GameObject weapon;
     private ProjectileShooter projectileShooter;
     void Start()
     {
-        projectileShooter = weapon.GetComponent<ProjectileShooter>();
+        hotbar = GetComponent<Hotbar>();
         reloadText.SetActive(false);
     }
     void Update()
@@ -22,8 +25,25 @@ public class WeaponUIManager : MonoBehaviour
     {
         reloadText.SetActive(projectileShooter.IsReloading);
     }
+    public void ChangeToolUI(InventoryItem item)
+    {
+        if(item.itemType == ItemType.RangedWeapon)
+        {
+            ammoGO.SetActive(true);
+            projectileShooter = GetComponentInChildren<ProjectileShooter>();
+        }
+        else
+        {
+            ammoGO.SetActive(false);
+        }
+    }
     private void UpdateAmmoText()
     {
-        ammoText.text = $"{projectileShooter.CurrentAmmo}|{projectileShooter.ReserveAmmo}";
+
+        if(hotbar.EquipedItem.itemType == ItemType.RangedWeapon)
+        {
+            ammoText.text = $"{projectileShooter.CurrentAmmo}|{projectileShooter.ReserveAmmo}";
+        }
+        
     }
 }

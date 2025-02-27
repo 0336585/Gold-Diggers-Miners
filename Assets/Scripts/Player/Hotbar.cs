@@ -5,13 +5,14 @@ using UnityEngine.UI;
 public class Hotbar : MonoBehaviour
 {
     private GameObject equipedItemGO;
-    public InventoryItem equipedItem;
+    private InventoryItem equipedItem;
     public InventoryItem EquipedItem
     {
         get { return equipedItem; }
         private set { equipedItem = value; }
     }
     private PlayerMining playerMining;
+    private WeaponUIManager weaponUIManager;
 
     [SerializeField] private List<InventoryItem> hotbarItems = new List<InventoryItem>();
     [SerializeField] private List<Image> hotbarSlots;
@@ -28,6 +29,7 @@ public class Hotbar : MonoBehaviour
     void Start()
     {
         playerMining = GetComponent<PlayerMining>();
+        weaponUIManager = GetComponent<WeaponUIManager>(); 
 
         for (int i = 0; i < hotbarUI.transform.childCount; i++)
         {
@@ -86,5 +88,6 @@ public class Hotbar : MonoBehaviour
         equipedItemGO = Instantiate(_item.prefab, itemHolder.transform);
         equipedItem = _item;
 
+        weaponUIManager.ChangeToolUI(equipedItem);
     }
 }
