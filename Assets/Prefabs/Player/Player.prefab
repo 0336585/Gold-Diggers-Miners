@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 7233721711882435501}
   - component: {fileID: 5215567944020753159}
   - component: {fileID: 8534139512419881096}
-  - component: {fileID: 5424759955983864231}
+  - component: {fileID: 8640782388693717745}
   - component: {fileID: 3753800915485459920}
   - component: {fileID: 4807778553067711302}
   - component: {fileID: 8884112163569212621}
@@ -251,8 +251,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 0.910361
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -265,10 +265,10 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &5424759955983864231
-BoxCollider2D:
+--- !u!70 &8640782388693717745
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -301,18 +301,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.00011560321}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.02, y: 1.6}
-    newSize: {x: 1.02, y: 1.6}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.6004474}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.05308172, y: 0.0075831413}
+  m_Size: {x: 0.60616344, y: 1.6319246}
+  m_Direction: 0
 --- !u!114 &3753800915485459920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,6 +318,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xSpeed: 5
   ySpeed: 1
+  stairClimbForce: 5
+  stairLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &4807778553067711302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +422,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6490688001680501119}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46fd40e479ed0314abccd262a3622ec2, type: 3}
   m_Name: 

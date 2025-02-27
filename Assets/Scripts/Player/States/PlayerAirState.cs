@@ -29,6 +29,6 @@ public class PlayerAirState : PlayerState
     {
         base.FixedUpdate();
 
-        baseMovement.SetVelocityX(xInput, rb);
+        baseMovement.SetVelocityX(xInput);
     }
 }
