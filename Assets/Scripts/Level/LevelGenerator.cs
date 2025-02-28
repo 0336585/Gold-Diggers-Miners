@@ -5,7 +5,7 @@ public class LevelGenerator : MonoBehaviour
     [Header("Grid Settings")]
     [SerializeField] private int rows = 5; // Y-Axis (vertical)
     [SerializeField] private int columns = 5; // X-Axis (horizontal)
-    [SerializeField] private Vector2 startPosition = Vector2.zero; // Starting position of the first level prefab
+    [SerializeField] private Vector2 startPosition = Vector2.zero; // Center position of the grid
 
     [Header("Prefabs")]
     [SerializeField] private GameObject[] levelPrefabs;
@@ -19,52 +19,63 @@ public class LevelGenerator : MonoBehaviour
 
     private void GenerateLevel()
     {
-        Vector2 currentPosition = startPosition;
-        float totalWidth = 0f;
-        float totalHeight = 0f;
-
-        // Spawn the intro prefab at the center-top
-        if (introPrefab != null)
+        // Determine a reference tile size (using the first level prefab as reference)
+        float tileWidth = 1f;
+        float tileHeight = 1f;
+        if (levelPrefabs.Length > 0)
         {
-            GameObject introTile = Instantiate(introPrefab, currentPosition, Quaternion.identity);
-            introTile.transform.parent = this.transform;
-
-            // Get intro prefab size
-            Bounds introBounds = GetPrefabBounds(introTile);
-            totalWidth = introBounds.size.x * columns; // Estimate total width based on columns
-            currentPosition.x = startPosition.x - (totalWidth / 2) + (introBounds.size.x / 2); // Centering intro
-            currentPosition.y -= introBounds.size.y; // Move down to start level generation
+            tileWidth = GetPrefabBounds(levelPrefabs[0]).size.x;
+            tileHeight = GetPrefabBounds(levelPrefabs[0]).size.y;
         }
 
-        float levelStartX = currentPosition.x;
+        // Calculate total row width and adjust starting x so that the row is centered
+        float totalWidth = tileWidth * columns;
+        Vector2 currentPosition = new Vector2(startPosition.x - totalWidth / 2 + tileWidth / 2, startPosition.y);
 
-        for (int row = 0; row < rows; row++)
+        // First row: Place the intro prefab in the center and random level prefabs on the sides  
+        int introColumn = columns / 2; // choose center column index for the intro
+        for (int col = 0; col < columns; col++)
         {
-            Vector2 rowStartPosition = currentPosition;
-            float rowWidth = 0f;
+            GameObject tile;
+            if (col == introColumn && introPrefab != null)
+            {
+                // Spawn intro prefab in the center
+                tile = Instantiate(introPrefab, currentPosition, Quaternion.identity);
+            }
+            else
+            {
+                // Spawn a random level prefab
+                GameObject selectedPrefab = levelPrefabs[Random.Range(0, levelPrefabs.Length)];
+                tile = Instantiate(selectedPrefab, currentPosition, Quaternion.identity);
+            }
+            tile.transform.parent = transform;
 
+            // Move to the next column position
+            currentPosition.x += tileWidth;
+        }
+
+        // Additional rows: Spawn random level prefabs 
+        // Reset x-position to the start of the row and move one row down
+        currentPosition.x = startPosition.x - totalWidth / 2 + tileWidth / 2;
+        currentPosition.y -= tileHeight;
+
+        for (int row = 1; row < rows; row++)
+        {
             for (int col = 0; col < columns; col++)
             {
-                // Randomly select a prefab from the array
                 GameObject selectedPrefab = levelPrefabs[Random.Range(0, levelPrefabs.Length)];
-                // Instantiate the prefab
                 GameObject tile = Instantiate(selectedPrefab, currentPosition, Quaternion.identity);
-                tile.transform.parent = this.transform;
+                tile.transform.parent = transform;
 
-                // Get prefab size dynamically
-                Bounds tileBounds = GetPrefabBounds(tile);
-                rowWidth += tileBounds.size.x;
-                currentPosition.x += tileBounds.size.x;
+                currentPosition.x += tileWidth;
             }
-
-            // Reset X position to row start and move downward by row height
-            totalWidth = Mathf.Max(totalWidth, rowWidth);
-            currentPosition = rowStartPosition;
-            currentPosition.y -= GetPrefabBounds(levelPrefabs[0]).size.y; // Assuming consistent row height
+            // Reset x to the start and move down one row
+            currentPosition.x = startPosition.x - totalWidth / 2 + tileWidth / 2;
+            currentPosition.y -= tileHeight;
         }
 
-        totalHeight = Mathf.Abs(currentPosition.y - startPosition.y);
-        SpawnDeathTrigger(totalWidth * 2, currentPosition.y, levelStartX); // Death trigger is 2x the size of the level
+        // Spawn a death trigger below the level
+        SpawnDeathTrigger(totalWidth, currentPosition.y, startPosition.x - totalWidth / 2);
     }
 
     private void SpawnDeathTrigger(float width, float yPos, float levelStartX)
@@ -73,20 +84,19 @@ public class LevelGenerator : MonoBehaviour
         {
             Vector2 spawnPosition = new Vector2(levelStartX + width / 2, yPos - 1f);
             GameObject deathTrigger = Instantiate(deathTriggerPrefab, spawnPosition, Quaternion.identity);
-            deathTrigger.transform.localScale = new Vector3(width * 4, 1f, 1f); // Adjust width to be 4x the level width
+            deathTrigger.transform.localScale = new Vector3(width * 4, 1f, 1f); // The DeathTrigger is 4x times the size of the level
         }
     }
 
     private Bounds GetPrefabBounds(GameObject prefab)
     {
+        // Instantiate a temporary object to measure its bounds
         GameObject temp = Instantiate(prefab);
         Bounds bounds = new Bounds(temp.transform.position, Vector3.zero);
-
         foreach (Renderer renderer in temp.GetComponentsInChildren<Renderer>())
         {
             bounds.Encapsulate(renderer.bounds);
         }
-
         Destroy(temp);
         return bounds;
     }
