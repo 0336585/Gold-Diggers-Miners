@@ -41,7 +41,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BorderThickness: 0.04
+    - _BorderWaveAmplitude: 0.005
+    - _BorderWaveFrequency: 1
+    - _DotSizeMax: 0.4
+    - _DotSizeMin: 0.2
+    - _DotSpacingMax: 0.2
+    - _DotSpacingMin: 0.05
     - _EnableExternalAlpha: 0
+    - _OutlineThickness: 0.02
     - _WaveAmplitude: 0.3
     - _WaveSpeed: 3
     - _ZWrite: 0
