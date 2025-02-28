@@ -19,4 +19,11 @@ public class PlayerHealth : BaseHealth
 
         healthBar.value = currentHealth;
     }
+
+    public override void TakeDamageWithFloat(CharacterStats _entityTakingDamage, float _damage)
+    {
+        base.TakeDamageWithFloat(_entityTakingDamage, _damage);
+
+        healthBar.value = currentHealth;
+    }
 }

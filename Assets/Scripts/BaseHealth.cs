@@ -29,4 +29,9 @@ public class BaseHealth : MonoBehaviour
 
         currentHealth -= totalDamage;
     }
+
+    public virtual void TakeDamageWithFloat(CharacterStats _entityTakingDamage, float _damage)
+    {
+        currentHealth -= _damage;
+    }
 }
