@@ -31,6 +31,12 @@ public class Inventory : MonoBehaviour
     // Method to add minerals to the inventory
     public void AddMineral(InventoryMineral mineral, int amount)
     {
+        if (minerals.ContainsKey(mineral) && (minerals[mineral] + amount) >= mineral.maxStack)
+        {
+            minerals[mineral] = mineral.maxStack;
+            return;
+        }
+
         if (minerals.ContainsKey(mineral))
         {
             minerals[mineral] += amount;
@@ -74,7 +80,10 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            OpenInventory();
+            if (!inventoryIsOpen)
+                OpenInventory();
+            else
+                CloseInventory();
         }
     }
 
