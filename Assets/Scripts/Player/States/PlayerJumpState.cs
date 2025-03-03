@@ -14,8 +14,6 @@ public class PlayerJumpState : PlayerAirState
     public override void Enter()
     {
         base.Enter();
-
-        
     }
 
     public override void Update()
@@ -24,7 +22,11 @@ public class PlayerJumpState : PlayerAirState
 
         for (int i = 0; i < 50; i++)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            if (rb.linearVelocityY > 5)
+                break;
+
+            if (player.IsGroundDetected())
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
             if (rb.linearVelocityY > 5)
                 break;
