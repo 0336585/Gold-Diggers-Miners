@@ -11,14 +11,23 @@ public class PlayerMining : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject arm;
     [SerializeField] private GameObject outlinePrefab; // Prefab for the outline effect
+    private BasePlayer player;
+    private CustomCursor customCursor;
 
     [Header("Mining Info")]
     [SerializeField] private float raycastDistance = 2f; // Distance of the raycast
     [SerializeField] private LayerMask ignoredLayer;
 
+    private void Awake()
+    {
+        customCursor = GetComponent<CustomCursor>();
+    }
+
     void Start()
     {
         mainCamera = Camera.main;
+
+        player = GetComponent<BasePlayer>();
     }
 
     void Update()
@@ -39,32 +48,26 @@ public class PlayerMining : MonoBehaviour
         Vector3 direction = (mousePosition - arm.transform.parent.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-
-        // Check if the parent is flipped (rotated 180 degrees on Y-axis)
-        if (arm.transform.parent.localRotation.y < 0)
+        // Flip player if the mouse is behind them
+        bool shouldFlip = mousePosition.x < arm.transform.parent.position.x;
+        if (shouldFlip != armIsFlipped)
         {
-            if (!armIsFlipped)
-            {
-                armIsFlipped = true;
-                arm.transform.localScale = new Vector3(arm.transform.localScale.x * -1, arm.transform.localScale.y, arm.transform.localScale.z);
-            }
-
-            angle = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg; ;
-        }
-        else
-        {
-            if (armIsFlipped)
-            {
-                armIsFlipped = false;
-                arm.transform.localScale = new Vector3(arm.transform.localScale.x * -1, arm.transform.localScale.y, arm.transform.localScale.z);
-            }
+            armIsFlipped = shouldFlip;
+            player.Flip();
+            arm.transform.localScale = new Vector3(-arm.transform.localScale.x, arm.transform.localScale.y, arm.transform.localScale.z);
         }
 
+        // Adjust angle when flipped
+        if (armIsFlipped)
+        {
+            angle = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+        }
+
+        // Clamp angle to prevent unnatural rotations
         angle = Mathf.Clamp(angle, -90f, 90f);
-
-
         arm.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
+
 
 
 
@@ -131,6 +134,8 @@ public class PlayerMining : MonoBehaviour
     {
         if (outlinePrefab == null) return;
 
+        customCursor.SelectMiningCursor();
+
         lastOutlineObject = Instantiate(outlinePrefab, target.transform.position, Quaternion.identity);
         //lastOutlineObject.transform.localScale = target.transform.localScale * 1.1f; // Slightly bigger for the outline effect
         lastOutlineObject.transform.SetParent(target.transform); // Attach it to the target
@@ -143,6 +148,8 @@ public class PlayerMining : MonoBehaviour
             Destroy(lastOutlineObject);
             lastOutlineObject = null;
         }
+
+        customCursor.SelectStandardCursor();
     }
 
     public void EnableMining(bool _canMine)

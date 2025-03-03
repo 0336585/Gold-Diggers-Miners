@@ -33,13 +33,19 @@ public class Entity : MonoBehaviour
 
     public virtual void Flip()
     {
-        facingDir *= -1;
-        facingRight = !facingRight;
-        transform.Rotate(0, 180, 0);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        bool shouldFaceRight = mousePosition.x > transform.position.x;
 
-        if (onFlipped != null)
-            onFlipped();
+        if (shouldFaceRight != facingRight) // Flip only if necessary
+        {
+            facingDir *= -1;
+            facingRight = shouldFaceRight; // Now it always faces the mouse
+            transform.Rotate(0, 180, 0);
+
+            onFlipped?.Invoke();
+        }
     }
+
 
     public void ZeroVelocity() => rb.linearVelocity = Vector2.zero;
 
