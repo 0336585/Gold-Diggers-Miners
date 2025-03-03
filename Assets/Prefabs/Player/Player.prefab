@@ -190,9 +190,8 @@ GameObject:
   - component: {fileID: 5451790446802834903}
   - component: {fileID: 4897978521847787704}
   - component: {fileID: 6244489027050304768}
-  - component: {fileID: 3101721586023358553}
-  - component: {fileID: 4783061242740681109}
   - component: {fileID: 3234258329588101976}
+  - component: {fileID: 3524487131577954572}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -440,22 +439,22 @@ MonoBehaviour:
   hotbarUI: {fileID: 0}
   pickaxe: {fileID: 8268255958864661807, guid: dbf4bf4445acf9d44a8de3561949b813, type: 3}
   revolver: {fileID: 7777505889801214277, guid: 45a5d130706c392459046757af185067, type: 3}
---- !u!114 &3101721586023358553
+--- !u!114 &3234258329588101976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6490688001680501119}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce7e55ee0b30df7438a02bac2ff09713, type: 3}
+  m_Script: {fileID: 11500000, guid: edbb1f1c4a07eef4b862e03e49a9715b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  inventoryItemHolder: {fileID: 0}
-  inventoryItem: {fileID: 4476342170786214394, guid: 43f295f7261f3b54bb94f45db5921d2f, type: 3}
---- !u!114 &4783061242740681109
+  <maxHealth>k__BackingField: 0
+  <currentHealth>k__BackingField: 0
+  healthBar: {fileID: 0}
+--- !u!114 &3524487131577954572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -507,21 +506,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!114 &3234258329588101976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6490688001680501119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edbb1f1c4a07eef4b862e03e49a9715b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <maxHealth>k__BackingField: 0
-  <currentHealth>k__BackingField: 0
-  healthBar: {fileID: 0}
 --- !u!1 &8866460569551919964
 GameObject:
   m_ObjectHideFlags: 0
