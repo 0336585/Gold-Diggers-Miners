@@ -122,4 +122,37 @@ public class Hotbar : MonoBehaviour
 
         weaponUIManager.ChangeToolUI(equipedItem);
     }
+
+    public void AddItemToHotbar(InventoryItem _item)
+    {
+        for (int i = 0; i < hotbarItems.Count; i++)
+        {
+            if (hotbarItems[i].itemType == _item.itemType)
+                hotbarItems[i] = _item;
+        }
+
+        for (int i = 0; i < instantiatedItems.Count; i++)
+        {
+            Destroy(instantiatedItems[i].gameObject);
+        }
+
+        instantiatedItems.Clear();
+
+        // Instantiate all items in the hotbar and store them in a list
+        foreach (var item in hotbarItems)
+        {
+            if (item != null)
+            {
+                GameObject instantiatedItem = Instantiate(item.prefab, itemHolder.transform);
+                instantiatedItem.SetActive(false); // Deactivate all items initially
+                instantiatedItems.Add(instantiatedItem);
+            }
+        }
+
+        // Equip the first item in the list
+        if (hotbarItems.Count > 0 && hotbarItems[0] != null)
+        {
+            EquipItem(hotbarItems[0]);
+        }
+    }
 }

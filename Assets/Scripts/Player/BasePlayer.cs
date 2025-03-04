@@ -7,6 +7,8 @@ public class BasePlayer : Entity
 
     public static BasePlayer Instance;
 
+    [SerializeField] private GameObject gambleMenu;
+
     [Header("Movement info")]
     [SerializeField] private float jumpForce;
     [SerializeField] private float dashSpeed;
@@ -59,6 +61,8 @@ public class BasePlayer : Entity
 
         DashCheck();
 
+        if (Input.GetKeyDown(KeyCode.G))
+            gambleMenu.SetActive(true);
     }
 
     private void FixedUpdate()
