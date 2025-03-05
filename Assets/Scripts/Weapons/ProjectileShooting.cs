@@ -92,27 +92,31 @@ public class ProjectileShooter : MonoBehaviour
             return;
         }
 
+        bool isFlipped = firePoint.lossyScale.x < 0; // Check if arm (fire point) is flipped
+
         if (multishotMode)
         {
             // Shotgun mode: Fire multiple bullets in a spread
             for (int i = 0; i < bulletsPerShot; i++)
             {
                 float randomAngle = Random.Range(-spreadAngle / 2, spreadAngle / 2);
+                if (isFlipped)
+                {
+                    randomAngle = -randomAngle; // Flip the spread angle if the arm is flipped
+                }
+
                 Quaternion spreadRotation = Quaternion.Euler(0, 0, randomAngle);
                 Quaternion bulletRotation = firePoint.rotation * spreadRotation;
 
                 GameObject projectile = Instantiate(projectilePrefab, firePoint.position, bulletRotation);
                 SetProjectileDamage(projectile);
 
-                if (transform.lossyScale.x < 0) // If facing left
-                {
-                    projectile.transform.Rotate(0f, 180f, 0f); // Flip the sprite
-                }
-
                 if (projectile.TryGetComponent(out Rigidbody2D rb))
                 {
-                    rb.linearVelocity = (firePoint.right * transform.lossyScale.x) * projectileSpeed;
+                    Vector2 shootDirection = bulletRotation * Vector2.right * (isFlipped ? -1 : 1);
+                    rb.linearVelocity = shootDirection * projectileSpeed;
                 }
+
                 Destroy(projectile, projectileLifetime);
             }
         }
@@ -122,15 +126,12 @@ public class ProjectileShooter : MonoBehaviour
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
             SetProjectileDamage(projectile);
 
-            if (transform.lossyScale.x < 0) // If facing left
-            {
-                projectile.transform.Rotate(0f, 180f, 0f); // Flip the sprite
-            }
-
             if (projectile.TryGetComponent(out Rigidbody2D rb))
             {
-                rb.linearVelocity = (firePoint.right * transform.lossyScale.x) * projectileSpeed;
+                Vector2 shootDirection = firePoint.right * (isFlipped ? -1 : 1);
+                rb.linearVelocity = shootDirection * projectileSpeed;
             }
+
             Destroy(projectile, projectileLifetime);
         }
     }
