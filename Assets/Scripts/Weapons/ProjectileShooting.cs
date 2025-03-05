@@ -111,6 +111,9 @@ public class ProjectileShooter : MonoBehaviour
                 GameObject projectile = Instantiate(projectilePrefab, firePoint.position, bulletRotation);
                 SetProjectileDamage(projectile);
 
+                // Set the shooter reference on the projectile
+                projectile.GetComponent<ProjectileDamage>().SetShooter(this);
+
                 // Correct the projectile rotation when flipped
                 if (isFlipped)
                 {
@@ -134,6 +137,9 @@ public class ProjectileShooter : MonoBehaviour
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
             SetProjectileDamage(projectile);
 
+            // Set the shooter reference on the projectile
+            projectile.GetComponent<ProjectileDamage>().SetShooter(this);
+
             // Correct the projectile rotation when flipped
             if (isFlipped)
             {
@@ -151,6 +157,7 @@ public class ProjectileShooter : MonoBehaviour
             Destroy(projectile, projectileLifetime);
         }
     }
+
 
     private void SetProjectileDamage(GameObject projectile)
     {
