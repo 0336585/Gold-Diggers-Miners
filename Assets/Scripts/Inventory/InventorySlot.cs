@@ -11,6 +11,14 @@ public class InventorySlot : MonoBehaviour
 
     private InventoryUIManager inventoryUIManager;
 
+    private InventoryMineral mineral;
+
+    public InventoryMineral Mineral
+    {
+        get { return mineral;  }
+        private set { mineral = value;  }
+    }
+
     private void Awake()
     {
         icon = gameObject.transform.GetChild(0).GetComponent<Image>();
@@ -47,6 +55,7 @@ public class InventorySlot : MonoBehaviour
         icon.sprite = _mineral.icon;
         stackText.text = _amount.ToString();
         background.material = rarityMat;
+        mineral = _mineral;
     }
 
 

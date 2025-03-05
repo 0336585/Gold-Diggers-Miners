@@ -128,10 +128,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4807778553067711302, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
-      propertyPath: jumpForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807778553067711302, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: gambleMenu
       value: 
       objectReference: {fileID: 1564134781}
@@ -327,6 +323,18 @@ PrefabInstance:
     - target: {fileID: 1512492504733169716, guid: 62dff775c5b425343b885bc62efbce40, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984855577442533793, guid: 62dff775c5b425343b885bc62efbce40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984855577442533793, guid: 62dff775c5b425343b885bc62efbce40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Scroll
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984855577442533793, guid: 62dff775c5b425343b885bc62efbce40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4888765535936863654, guid: 62dff775c5b425343b885bc62efbce40, type: 3}
       propertyPath: m_Pivot.x
