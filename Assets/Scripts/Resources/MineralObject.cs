@@ -12,9 +12,5 @@ public class MineralObject : MonoBehaviour
             Inventory.Instance.AddMineral(mineralType, mineralType.dropAmount);
             Debug.Log($"{mineralType.dropAmount} {mineralType.mineralType} added to inventory.");
         }
-        else
-        {
-            Debug.LogError("Inventory instance not found!");
-        }
     }
 }
