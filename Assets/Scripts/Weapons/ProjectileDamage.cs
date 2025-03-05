@@ -4,6 +4,7 @@ public class ProjectileDamage : MonoBehaviour
 {
     private float damageAmount;
     private float spawnTime;
+    [SerializeField] private float nonCollisionSeconds = 0.001f;
 
     private void Start()
     {
@@ -12,8 +13,8 @@ public class ProjectileDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Ignore collisions for the first millisecond (0.001s)
-        if (Time.time - spawnTime < 1f)
+        // Ignore collisions for the first seconds
+        if (Time.time - spawnTime < nonCollisionSeconds)
             return;
 
         // Check if the colliding object has the NodeHealth component

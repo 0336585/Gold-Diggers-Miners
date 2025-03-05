@@ -137,7 +137,7 @@ MonoBehaviour:
   automaticFire: 0
   multishotMode: 0
   damagePerShot: 50
-  projectileSpeed: 65
+  projectileSpeed: 35
   projectileLifetime: 0.5
   fireRate: 0.2
   randomFireVariation: 0.1
