@@ -102,7 +102,7 @@ public class ProjectileShooter : MonoBehaviour
                 float randomAngle = Random.Range(-spreadAngle / 2, spreadAngle / 2);
                 if (isFlipped)
                 {
-                    randomAngle = -randomAngle; // Flip the spread angle if the arm is flipped
+                    randomAngle = -randomAngle; // Flip the spread angle when facing left
                 }
 
                 Quaternion spreadRotation = Quaternion.Euler(0, 0, randomAngle);
@@ -111,8 +111,16 @@ public class ProjectileShooter : MonoBehaviour
                 GameObject projectile = Instantiate(projectilePrefab, firePoint.position, bulletRotation);
                 SetProjectileDamage(projectile);
 
+                // Correct the projectile rotation when flipped
+                if (isFlipped)
+                {
+                    projectile.transform.Rotate(0f, 180f, 0f); // Flip the bullet sprite if needed
+                }
+
                 if (projectile.TryGetComponent(out Rigidbody2D rb))
                 {
+                    // If the firePoint is flipped (facing left), multiply by -1 to invert the direction.
+                    // Otherwise, multiply by 1 to keep the normal direction (facing right).
                     Vector2 shootDirection = bulletRotation * Vector2.right * (isFlipped ? -1 : 1);
                     rb.linearVelocity = shootDirection * projectileSpeed;
                 }
@@ -126,8 +134,16 @@ public class ProjectileShooter : MonoBehaviour
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
             SetProjectileDamage(projectile);
 
+            // Correct the projectile rotation when flipped
+            if (isFlipped)
+            {
+                projectile.transform.Rotate(0f, 180f, 0f); // Flip the bullet sprite
+            }
+
             if (projectile.TryGetComponent(out Rigidbody2D rb))
             {
+                // If the firePoint is flipped (facing left), multiply by -1 to invert the direction.
+                // Otherwise, multiply by 1 to keep the normal direction (facing right).
                 Vector2 shootDirection = firePoint.right * (isFlipped ? -1 : 1);
                 rb.linearVelocity = shootDirection * projectileSpeed;
             }
