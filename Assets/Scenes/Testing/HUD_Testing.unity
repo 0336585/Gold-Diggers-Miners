@@ -128,37 +128,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: heartHolder
       value: 
       objectReference: {fileID: 1604130940}
-    - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
-      propertyPath: heartPrefab
-      value: 
-      objectReference: {fileID: 6242354773705134471, guid: 844adfdd486318a4ca1daeaa63776916, type: 3}
-    - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
-      propertyPath: hearts.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
-      propertyPath: 'hearts.Array.data[0]'
-      value: 
-      objectReference: {fileID: 6242354773705134471, guid: 844adfdd486318a4ca1daeaa63776916, type: 3}
-    - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
-      propertyPath: 'hearts.Array.data[1]'
-      value: 
-      objectReference: {fileID: 6242354773705134471, guid: 844adfdd486318a4ca1daeaa63776916, type: 3}
-    - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
-      propertyPath: 'hearts.Array.data[2]'
-      value: 
-      objectReference: {fileID: 6242354773705134471, guid: 844adfdd486318a4ca1daeaa63776916, type: 3}
-    - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
-      propertyPath: protectedHeartPrefab
-      value: 
-      objectReference: {fileID: 6242354773705134471, guid: b2a8652959c22e64ca4ce053b2530709, type: 3}
     - target: {fileID: 4807778553067711302, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: gambleMenu
       value: 
@@ -175,10 +147,6 @@ PrefabInstance:
       propertyPath: reloadText
       value: 
       objectReference: {fileID: 1473974418}
-    - target: {fileID: 5850940400311483312, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
-      propertyPath: maxHealth.baseValue
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6244489027050304768, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: hotbarUI
       value: 

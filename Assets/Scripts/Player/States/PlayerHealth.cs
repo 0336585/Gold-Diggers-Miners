@@ -14,7 +14,8 @@ public class PlayerHealth : BaseHealth
     {
         base.Start();
 
-        UpdateHearts((int)maxHealth);
+        currentHealth = 3;
+        UpdateHearts((int)currentHealth);
     }
 
     public override void TakeDamage(CharacterStats _entityTakingDamage, CharacterStats _entityDoingDamage)
@@ -22,7 +23,7 @@ public class PlayerHealth : BaseHealth
         base.TakeDamage(_entityTakingDamage, _entityDoingDamage);
 
         UpdateHearts((int)currentHealth);
-
+        Die();
     }
 
     public override void TakeDamageWithInt(CharacterStats _entityTakingDamage, int _damage)
@@ -30,11 +31,21 @@ public class PlayerHealth : BaseHealth
         base.TakeDamageWithInt(_entityTakingDamage, _damage);
 
         UpdateHearts((int)currentHealth);
+        Die();
     }
 
-    void UpdateHearts(int _heartsToShow)
+    private void Die()
     {
-        int heartsToShow = _heartsToShow; // Default to showing 5 hearts
+        if (currentHealth <= 0)
+            Destroy(gameObject);
+    }
+
+    public void UpdateHearts(int _currentHealth)
+    {
+        int heartsToShow = 5;  // Always show 5 hearts
+
+        if (_currentHealth < 5)
+            heartsToShow = _currentHealth;
 
         // Clear previous hearts to avoid duplicates
         foreach (GameObject heart in hearts)
@@ -43,12 +54,16 @@ public class PlayerHealth : BaseHealth
         }
         hearts.Clear();
 
+        // Calculate how many protected hearts should be displayed based on the excess health
+        int protectedHeartsCount = Mathf.Min((_currentHealth - 5), 5); // max of 3 protected hearts, if health exceeds 5
+
+        // Display the hearts
         for (int i = 0; i < heartsToShow; i++)
         {
             GameObject newHeart = null;
 
-            // If maxHealth is greater than 5, replace the rightmost hearts with protected hearts
-            if (maxHealth > 5 && i >= heartsToShow - (maxHealth - 5))
+            // If health exceeds 5, show protected hearts first (rightmost hearts are protected)
+            if (i >= heartsToShow - protectedHeartsCount)
             {
                 newHeart = Instantiate(protectedHeartPrefab, heartHolder.transform);
             }
@@ -60,6 +75,7 @@ public class PlayerHealth : BaseHealth
             hearts.Add(newHeart);
         }
     }
+
 
 
 }
