@@ -3,10 +3,10 @@ using System.Collections;
 
 public class EnemyTargeting : MonoBehaviour
 {
-    [SerializeField] private float detectionRange = 10f; // The detection range
-    [SerializeField] private float detectionDelay = 1f; // Delay between checks (in seconds)
+    [SerializeField] private float detectionRange = 10f;  
+    [SerializeField] private float detectionDelay = 1f;  
 
-    [SerializeField] private BasePlayer targetPlayer; // The current target player
+    private BasePlayer targetPlayer;  
     private BasePlayer[] allPlayers; // Array to store all players in the scene
 
     private void Start()
