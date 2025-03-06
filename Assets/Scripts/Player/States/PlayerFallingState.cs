@@ -8,7 +8,7 @@ public class PlayerFallingState : PlayerAirState
     {
     }
 
-    private int fallDamageThreshold = 4; // Minimum fall distance to take damage
+    private int fallDamageThreshold = 8; // Minimum fall distance to take damage
     private int baseFallDamage = 1; // Base damage for falling
     private float damageMultiplier = 0.5f; // Lower multiplier to reduce harsh fall damage
     private int maxFallDamage = 3; // Prevents instant death from extreme falls
