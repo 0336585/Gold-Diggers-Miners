@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: heartHolder
       value: 
       objectReference: {fileID: 1662190017}
+    - target: {fileID: 4807778553067711302, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: gambleMenu
+      value: 
+      objectReference: {fileID: 698161369}
     - target: {fileID: 4897978521847787704, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: ammoGO
       value: 
@@ -894,7 +898,7 @@ PrefabInstance:
     - target: {fileID: 834105435902539755, guid: 62dff775c5b425343b885bc62efbce40, type: 3}
       propertyPath: hotbar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 14664889}
     - target: {fileID: 1512492504733169716, guid: 62dff775c5b425343b885bc62efbce40, type: 3}
       propertyPath: m_Name
       value: CaseMenu
@@ -1254,6 +1258,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665964693}
   m_CullTransparentMesh: 1
+--- !u!1 &698161369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1512492504733169716, guid: 62dff775c5b425343b885bc62efbce40, type: 3}
+  m_PrefabInstance: {fileID: 604407895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &828327180
 GameObject:
   m_ObjectHideFlags: 0
