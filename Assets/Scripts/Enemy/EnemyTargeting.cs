@@ -3,10 +3,12 @@ using System.Collections;
 
 public class EnemyTargeting : MonoBehaviour
 {
-    [SerializeField] private float detectionRange = 10f;  
-    [SerializeField] private float detectionDelay = 1f;  
+    [SerializeField] private float detectionRange = 10f;
+    [SerializeField] private float detectionDelay = 1f;
+    [SerializeField] private float lookAroundIntervalMin = 2f;  
+    [SerializeField] private float lookAroundIntervalMax = 5f;  
 
-    private BasePlayer targetPlayer;  
+    private BasePlayer targetPlayer;
     private BasePlayer[] allPlayers; // Array to store all players in the scene
 
     private void Start()
@@ -16,9 +18,11 @@ public class EnemyTargeting : MonoBehaviour
 
         // Start the coroutine to check for players with a delay
         StartCoroutine(CheckForPlayerWithDelay());
+
+        // Start coroutine to make the enemy look around randomly
+        StartCoroutine(LookAround());
     }
 
-    // Coroutine to check for players with a delay between checks
     private IEnumerator CheckForPlayerWithDelay()
     {
         while (true)
@@ -61,6 +65,71 @@ public class EnemyTargeting : MonoBehaviour
             {
                 targetPlayer = value;
             }
+        }
+    }
+    
+    private void Update()
+    {
+        if (targetPlayer != null)
+        {
+            FlipTowardsTarget(); // Continuously update facing direction when targeting a player
+        }
+    }
+
+    private void FlipTowardsTarget()
+    {
+        if (targetPlayer == null) return; // No target to flip towards
+
+        // Determine the direction to the player
+        float direction = targetPlayer.transform.position.x - transform.position.x;
+
+        // Flip the enemy sprite based on the direction
+        if (direction > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1); // Facing right
+        }
+        else if (direction < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1); // Facing left
+        }
+    }
+
+    private IEnumerator LookAround()
+    {
+        while (true)
+        {
+            // If no target, flip randomly after a delay
+            if (targetPlayer == null)
+            {
+                // Random delay before flipping
+                float delay = Random.Range(lookAroundIntervalMin, lookAroundIntervalMax);
+                yield return new WaitForSeconds(delay);
+
+                // Randomly flip the enemy to the left or right
+                FlipRandomly();
+            }
+            else
+            {
+                // If the enemy is targeting a player, ensure it faces the player
+                FlipTowardsTarget();
+            }
+
+            yield return null; // Wait until next frame
+        }
+    }
+
+    // Flips the enemy randomly to the left or right
+    private void FlipRandomly()
+    {
+        int randomDirection = Random.Range(0, 2); // Randomly pick 0 (left) or 1 (right)
+
+        if (randomDirection == 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1); // Facing left
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1); // Facing right
         }
     }
 
