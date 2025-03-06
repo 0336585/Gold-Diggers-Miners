@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 1473974418}
     - target: {fileID: 5850940400311483312, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: maxHealth.baseValue
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6244489027050304768, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: hotbarUI
