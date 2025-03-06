@@ -76,6 +76,9 @@ public class PlayerHealth : BaseHealth
         }
     }
 
-
+    public int GetCurrentHealth()
+    {
+        return (int)currentHealth;
+    }
 
 }

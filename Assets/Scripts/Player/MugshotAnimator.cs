@@ -4,87 +4,77 @@ using UnityEngine.UI;
 
 public class MugshotAnimator : MonoBehaviour
 {
-    [SerializeField] private Sprite[] forwardSprites;  // Array for forward health sprites (3 states for health)
-    [SerializeField] private Sprite[] leftSprites;     // Array for left-facing health sprites
-    [SerializeField] private Sprite[] rightSprites;    // Array for right-facing health sprites
+    [SerializeField] private Image characterImage;
+    [SerializeField] private PlayerHealth playerHealth;
+
+    [Header("Health Sprites")]
+    [SerializeField] private Sprite[] lowHealthSprites;   // Array for low health (3 hearts or less)
+    [SerializeField] private Sprite[] mediumHealthSprites; // Array for medium health (4-5 hearts)
+    [SerializeField] private Sprite[] highHealthSprites;   // Array for high health (6-7 hearts)
 
     [Header("Settings")]
-    [SerializeField] private float initialHoldTime = 2f;  // Time to hold the initial forward sprite
+    [SerializeField] private float initialHoldTime = 0.2f;  // Time to hold the initial forward sprite
 
-    private Image characterImage;
-    private bool isLookingForward = true;
-    private PlayerHealth playerHealth;
-    private int currentHealthIndex = 0;
-
-    private void OnEnable()
+    private void Start()
     {
-        characterImage = GetComponent<Image>();
-        characterImage.sprite = forwardSprites[0];  // Set initial full health sprite
-
-        playerHealth = GetComponentInParent<PlayerHealth>();
-
-        // Start with the player looking forward
+        // Start by updating the sprite immediately
         UpdateSprite();
 
-        // Start the random head direction switching with an initial hold time
+        // Start the random sprite swapping after an initial hold time
         StartCoroutine(StartWithHoldTime());
     }
 
     private IEnumerator StartWithHoldTime()
     {
-        // Hold the initial forward-facing sprite for a few seconds
+        // Hold the initial sprite for a few seconds
         yield return new WaitForSeconds(initialHoldTime);
 
-        // Start the random head direction switching
-        StartCoroutine(SwitchHeadDirection());
+        // Start the random sprite switching
+        StartCoroutine(SwitchHealthSprite());
     }
 
-    private IEnumerator SwitchHeadDirection()
+    private IEnumerator SwitchHealthSprite()
     {
         while (true)
         {
             // Update health-based sprite if needed
             UpdateSprite();
 
-            // Randomize time interval between switches
-            float switchInterval = Random.Range(0.5f, 2f);
+            // Randomize the time interval between switching the sprite
+            float switchInterval = Random.Range(0.5f, 1f);
             yield return new WaitForSeconds(switchInterval);
-
-            // Toggle head direction randomly
-            isLookingForward = !isLookingForward;
-            UpdateSprite();
         }
     }
 
     private void UpdateSprite()
     {
-        /*
         int currentHealth = playerHealth.GetCurrentHealth();
+        Sprite[] selectedSpriteArray = null;
 
-        // Set the sprite based on the current health
-        if (currentHealth == 3)
+        // Determine which health category to use for the sprite
+        if (currentHealth >= 6) // High health (6 or 7)
         {
-            currentHealthIndex = 0;  // Full health sprite
+            selectedSpriteArray = highHealthSprites;
         }
-        else if (currentHealth == 2)
+        else if (currentHealth >= 4) // Medium health (4 or 5)
         {
-            currentHealthIndex = 1;  // Half health sprite
+            selectedSpriteArray = mediumHealthSprites;
+        }
+        else if (currentHealth >= 1) // Low health (3 or fewer)
+        {
+            selectedSpriteArray = lowHealthSprites;
         }
         else
         {
-            currentHealthIndex = 2;  // Low health sprite
+            selectedSpriteArray = lowHealthSprites; // Handle case for 0 health (critical)
         }
 
-        // Update sprite based on current health index and direction
-        if (isLookingForward)
-        {
-            characterImage.sprite = forwardSprites[currentHealthIndex];
-        }
-        else
-        {
-            // Randomize left or right facing sprites
-            characterImage.sprite = Random.Range(0, 2) == 0 ? leftSprites[currentHealthIndex] : rightSprites[currentHealthIndex];
-        }
-        */
+        // Randomly pick a sprite from the selected array based on health
+        int randomIndex = Random.Range(0, selectedSpriteArray.Length);
+
+        // Update the sprite with the randomly chosen sprite from the selected array
+        characterImage.sprite = selectedSpriteArray[randomIndex];
+
+        Debug.Log(playerHealth.GetCurrentHealth());
     }
 }
