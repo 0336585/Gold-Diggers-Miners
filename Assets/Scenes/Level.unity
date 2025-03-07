@@ -161,11 +161,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7233721711882435501, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -1.15
       objectReference: {fileID: 0}
     - target: {fileID: 7233721711882435501, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12
+      value: -12.63
       objectReference: {fileID: 0}
     - target: {fileID: 7233721711882435501, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: m_LocalPosition.z
@@ -198,6 +198,10 @@ PrefabInstance:
     - target: {fileID: 7233721711882435501, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516646652801624763, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -676,7 +680,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.24
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -701,7 +705,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: -12, z: -10}
+  m_LocalPosition: {x: -1.15, y: -12.63, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1530,14 +1534,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1216701e2e6fa2749a42c5786dd35cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 2800000, guid: 98f621dcbb677c442a08fc5ea596185f, type: 3}
+  image: {fileID: 2800000, guid: 9b809b00434be39459c73fa7d314a25a, type: 3}
   gameobjects:
   - pixel: {r: 0, g: 0, b: 0, a: 1}
     gameObject: {fileID: 6427573645077266397, guid: fc1792c38e26b36489845c8ad58ca73b, type: 3}
   - pixel: {r: 0, g: 1, b: 0.9137255, a: 1}
     gameObject: {fileID: 7587463488130791971, guid: 9b873bda06220e64287c8b59da2d079f, type: 3}
-  - pixel: {r: 1, g: 0, b: 0, a: 1}
-    gameObject: {fileID: 6490688001680501119, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+  - pixel: {r: 1, g: 0, b: 0.9764706, a: 1}
+    gameObject: {fileID: 8168295519652068970, guid: 050bfe7c5619e0449a347b1b32be35d8, type: 3}
   exit:
     pixel: {r: 0.19703305, g: 1, b: 0, a: 0}
     gameObject: {fileID: 8461447859615413672, guid: 11869427ecb483144be00e1eff162cd3, type: 3}
@@ -1592,10 +1596,15 @@ MonoBehaviour:
   columns: 5
   startPosition: {x: 0, y: 0}
   levelPrefabs:
-  - {fileID: 6712089176510477310, guid: 9861c36e5e8b8c540b381a843f5b83a6, type: 3}
-  - {fileID: 3102671062611900486, guid: ca7fe49f0821ada40a029163b5cf800a, type: 3}
-  - {fileID: 8825238259192484185, guid: 7aa35567ef7e6b14fa11920a47413fd8, type: 3}
-  introPrefab: {fileID: 2342692194441471798, guid: 7b2c9fe5bc4ce7f4997ca6a737894604, type: 3}
+  - {fileID: 902035592186911839, guid: 9861c36e5e8b8c540b381a843f5b83a6, type: 3}
+  - {fileID: 1877270246035466021, guid: ca7fe49f0821ada40a029163b5cf800a, type: 3}
+  - {fileID: 5336488181429159566, guid: 7aa35567ef7e6b14fa11920a47413fd8, type: 3}
+  - {fileID: 3710601038737887640, guid: 9e95f73a4b14f1641bfdaf9937965e55, type: 3}
+  - {fileID: 228131738554807853, guid: a33e82be23bdc1947867c10d925dcc79, type: 3}
+  - {fileID: 9130422263073675730, guid: 7e7ebec11c6d2514aacb65c20c022e9c, type: 3}
+  - {fileID: 3360961331956188518, guid: 8b577a6defef7f84599936a9355218ba, type: 3}
+  - {fileID: 983448794499325111, guid: 06708bb20012bc14684ef05d0488de37, type: 3}
+  introPrefab: {fileID: 7890861065252850388, guid: 7b2c9fe5bc4ce7f4997ca6a737894604, type: 3}
   deathTriggerPrefab: {fileID: 6699474028103373676, guid: 543cbee583b44aa439165994724e7a38, type: 3}
 --- !u!1 &1154817812
 GameObject:
@@ -1988,7 +1997,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 6.24
+    OrthographicSize: 7
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -2015,7 +2024,7 @@ Transform:
   m_GameObject: {fileID: 1489939874}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: -12, z: -10}
+  m_LocalPosition: {x: -1.15, y: -12.63, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
