@@ -1,28 +1,56 @@
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.Build;
 using UnityEngine;
 
 public class SleepingBehaviour : MonoBehaviour
 {
-    uint survivedDaysAmount;
-    [SerializeField] TMP_Text DaysUI;
-    void Update()
+    private uint survivedDaysAmount;
+    [SerializeField] GameObject keyPressPopUp;
+    [SerializeField] TMP_Text daysUI;
+    private bool inSleepRange = false;
+    private void Start()
+    {
+        keyPressPopUp.SetActive(false);
+    }
+    private void Update()
+    {
+        if (inSleepRange)
+            SleepableState();
+    }
+    void SleepableState()
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
             Sleep();
         }
     }
-
-    public void Sleep()
+    void Sleep()
     {
         survivedDaysAmount++;
         if(survivedDaysAmount == 1)
         {
-            DaysUI.text = $"you have survived {survivedDaysAmount} days";
+            daysUI.text = $"you have survived {survivedDaysAmount} day";
         }
         else
         {
-            DaysUI.text = $"you have survived {survivedDaysAmount} days";
+            daysUI.text = $"you have survived {survivedDaysAmount} days";
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.GetComponent<BasePlayer>())
+        {
+            inSleepRange = true;
+            keyPressPopUp.SetActive(true);
+        }
+    }    
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<BasePlayer>())
+        {
+            inSleepRange = false;
+            keyPressPopUp.SetActive(false);
         }
     }
 }
