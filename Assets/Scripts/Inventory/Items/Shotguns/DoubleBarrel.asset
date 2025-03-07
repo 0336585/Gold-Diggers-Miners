@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301cd0e92d5a43c43853370c6d5363ab, type: 3}
+  m_Name: DoubleBarrel
+  m_EditorClassIdentifier: 
+  itemName: Double Barrel
+  icon: {fileID: 4887961830948674737, guid: 48de542b9bdeebe4c88973c67f60567e, type: 3}
+  prefab: {fileID: 6012019817404269406, guid: 3ec5cf830db43674e81d8be1c22f5c4e, type: 3}
+  itemType: 0
