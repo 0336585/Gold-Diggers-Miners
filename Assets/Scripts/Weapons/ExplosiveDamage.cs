@@ -3,7 +3,7 @@ using UnityEngine;
 public class ExplosiveDamage : MonoBehaviour
 {
     [Header("Explosion Settings")]
-    [SerializeField] private bool hasDetonationTime = true;
+    [SerializeField] private bool directInpact = false;
     [SerializeField] private float detonationTime = 2f;
     [SerializeField] private float explosionRadius = 2f; 
 
@@ -16,16 +16,23 @@ public class ExplosiveDamage : MonoBehaviour
 
     private void Update()
     {
-        if (hasDetonationTime)
+        if (!directInpact)
         {
             detonationTime -= Time.deltaTime;
 
             if (detonationTime <= 0)
             {
                 Explode();
-                Destroy(gameObject);
             }
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!directInpact)
+            return;
+
+        Explode();
     }
 
     private void Explode()
@@ -37,13 +44,22 @@ public class ExplosiveDamage : MonoBehaviour
         {
             // Check if the collider has the NoteHealth component
             NodeHealth noteHealth = collider.GetComponent<NodeHealth>();
+            BaseHealth baseHealth = collider.GetComponent<BaseHealth>();
 
             if (noteHealth != null)
             {
                 // Apply damage to the note
                 noteHealth.DamageNode(damage);
             }
+
+            if (baseHealth != null)
+            {
+                CharacterStats characterStats = collider.GetComponent<CharacterStats>();
+                baseHealth.TakeDamageWithInt(characterStats, (int)damage);
+            }
         }
+
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()

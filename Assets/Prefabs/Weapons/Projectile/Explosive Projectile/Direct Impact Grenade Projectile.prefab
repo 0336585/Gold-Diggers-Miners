@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -2507864638667141842}
   - component: {fileID: 1318870552811772225}
   m_Layer: 0
-  m_Name: Dynamite Prefab
+  m_Name: Direct Impact Grenade Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4003982261762975687, guid: 262b5651606827c46b4941544991cd7f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 583e26ae3437b984c9680333a66893ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,7 +130,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.22, y: 1.6}
+    oldSize: {x: 2.5, y: 2.5}
     newSize: {x: 1.22, y: 1.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

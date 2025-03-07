@@ -225,6 +225,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 02f02527917faf6479c1d0e1ee142756, type: 2}
   - inventoryItem:
     - {fileID: 11400000, guid: c2d9b77591dc9614dabf3d28d7c79834, type: 2}
+    - {fileID: 11400000, guid: 2d90c1075057fec498e2104147b3a31b, type: 2}
   - inventoryItem:
     - {fileID: 11400000, guid: 251c591443478774583aba1573bd8c6c, type: 2}
   chances: 320000001e0000000a000000060000000300000001000000
