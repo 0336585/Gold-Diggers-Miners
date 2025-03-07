@@ -9,9 +9,11 @@ public class SleepingBehaviour : MonoBehaviour
     [SerializeField] GameObject keyPressPopUp;
     [SerializeField] TMP_Text daysUI;
     private bool inSleepRange = false;
+    private AudioSource sleepSFX;
     private void Start()
     {
         keyPressPopUp.SetActive(false);
+        sleepSFX = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -27,6 +29,7 @@ public class SleepingBehaviour : MonoBehaviour
     }
     void Sleep()
     {
+        sleepSFX.Play();
         survivedDaysAmount++;
         if(survivedDaysAmount == 1)
         {
