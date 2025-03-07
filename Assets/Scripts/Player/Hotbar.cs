@@ -154,5 +154,14 @@ public class Hotbar : MonoBehaviour
         {
             EquipItem(hotbarItems[0]);
         }
+
+        // Update the hotbar UI
+        for (int i = 0; i < hotbarItems.Count; i++)
+        {
+            if (hotbarItems[i] == null) break;
+
+            if (hotbarSlots[i].transform.name.Contains("Item"))
+                hotbarSlots[i].sprite = hotbarItems[i].icon;
+        }
     }
 }
