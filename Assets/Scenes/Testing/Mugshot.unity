@@ -1853,7 +1853,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 081b3c0d08782124cb2df1964f1133ac, type: 3}
   - {fileID: 21300000, guid: 7339e5f6533829344901867e68189794, type: 3}
   - {fileID: 21300000, guid: f5a57f9ebc770964e8da7efd607ff46c, type: 3}
-  initialHoldTime: 0.2
+  minSwitchTime: 0.5
+  maxSwitchTime: 0.5
+  initialHoldTime: 0.5
 --- !u!114 &1383036535
 MonoBehaviour:
   m_ObjectHideFlags: 0

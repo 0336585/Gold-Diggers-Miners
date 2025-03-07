@@ -8,16 +8,18 @@ public class MugshotAnimator : MonoBehaviour
     [SerializeField] private PlayerHealth playerHealth;
 
     [Header("Health Sprites")]
-    [SerializeField] private Sprite[] lowHealthSprites;   // Array for low health (3 hearts or less)
-    [SerializeField] private Sprite[] mediumHealthSprites; // Array for medium health (4-5 hearts)
-    [SerializeField] private Sprite[] highHealthSprites;   // Array for high health (6-7 hearts)
+    [SerializeField] private Sprite[] lowHealthSprites;
+    [SerializeField] private Sprite[] mediumHealthSprites;
+    [SerializeField] private Sprite[] highHealthSprites;
 
     [Header("Settings")]
-    [SerializeField] private float initialHoldTime = 0.2f;  // Time to hold the initial forward sprite
+    [SerializeField] private float minSwitchTime = 0.5f;
+    [SerializeField] private float maxSwitchTime = 0.5f;
+    [SerializeField] private float initialHoldTime = 0.2f;  // Time to hold the initial sprite for
 
     private void Start()
     {
-        // Start by updating the sprite immediately
+        // Make sure the sprite starts from the correct health state (high health)
         UpdateSprite();
 
         // Start the random sprite swapping after an initial hold time
@@ -26,7 +28,7 @@ public class MugshotAnimator : MonoBehaviour
 
     private IEnumerator StartWithHoldTime()
     {
-        // Hold the initial sprite for a few seconds
+        // Hold the initial sprite for a short period of time
         yield return new WaitForSeconds(initialHoldTime);
 
         // Start the random sprite switching
@@ -41,7 +43,7 @@ public class MugshotAnimator : MonoBehaviour
             UpdateSprite();
 
             // Randomize the time interval between switching the sprite
-            float switchInterval = Random.Range(0.5f, 1f);
+            float switchInterval = Random.Range(minSwitchTime, maxSwitchTime);
             yield return new WaitForSeconds(switchInterval);
         }
     }
@@ -52,21 +54,21 @@ public class MugshotAnimator : MonoBehaviour
         Sprite[] selectedSpriteArray = null;
 
         // Determine which health category to use for the sprite
-        if (currentHealth >= 6) // High health (6 or 7)
+        if (currentHealth >= 3)   
         {
             selectedSpriteArray = highHealthSprites;
         }
-        else if (currentHealth >= 4) // Medium health (4 or 5)
+        else if (currentHealth >= 2)   
         {
             selectedSpriteArray = mediumHealthSprites;
         }
-        else if (currentHealth >= 1) // Low health (3 or fewer)
+        else if (currentHealth >= 1)   
         {
             selectedSpriteArray = lowHealthSprites;
         }
         else
         {
-            selectedSpriteArray = lowHealthSprites; // Handle case for 0 health (critical)
+            selectedSpriteArray = lowHealthSprites; 
         }
 
         // Randomly pick a sprite from the selected array based on health
@@ -74,7 +76,5 @@ public class MugshotAnimator : MonoBehaviour
 
         // Update the sprite with the randomly chosen sprite from the selected array
         characterImage.sprite = selectedSpriteArray[randomIndex];
-
-        Debug.Log(playerHealth.GetCurrentHealth());
     }
 }
