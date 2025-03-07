@@ -17,6 +17,8 @@ public class PlayerMining : MonoBehaviour
     [Header("Mining Info")]
     [SerializeField] private float raycastDistance = 2f; // Distance of the raycast
     [SerializeField] private LayerMask ignoredLayer;
+    private float mineCooldown = 0.2f; // Delay between jumps
+    private float lastMineTime = 0f;  // Time of the last jump
 
     private void Awake()
     {
@@ -104,8 +106,10 @@ public class PlayerMining : MonoBehaviour
 
     private void CheckMining()
     {
-        if (Input.GetMouseButtonDown(0)) // Left mouse button
+        if (Input.GetMouseButton(0) && Time.time > lastMineTime + mineCooldown) // Left mouse button
         {
+            lastMineTime = Time.time; // Update last jump time
+
             Vector2 origin = transform.position;
             Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0;

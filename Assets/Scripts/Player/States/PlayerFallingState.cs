@@ -8,23 +8,24 @@ public class PlayerFallingState : PlayerAirState
     {
     }
 
-    public float fallDamageThreshold = 5f; // Minimum fall distance to take damage
-    public int baseFallDamage = 1; // Base damage for falling
-    public float damageMultiplier = 2f; // Multiplier for scaling damage based on fall distance
+    private int fallDamageThreshold = 8; // Minimum fall distance to take damage
+    private int baseFallDamage = 1; // Base damage for falling
+    private float damageMultiplier = 0.5f; // Lower multiplier to reduce harsh fall damage
+    private int maxFallDamage = 3; // Prevents instant death from extreme falls
 
     private float fallStartHeight;
     private bool isFalling;
 
-    private void ApplyFallDamage(float fallDistance)
+    private void ApplyFallDamage(int fallDistance)
     {
         // Calculate scaled damage based on fall distance
-        int damage = Mathf.RoundToInt(baseFallDamage + (fallDistance - fallDamageThreshold) * damageMultiplier);
+        int damage = baseFallDamage + Mathf.RoundToInt((fallDistance - fallDamageThreshold) * damageMultiplier);
 
-        // Ensure damage is not negative
-        damage = Mathf.Max(damage, baseFallDamage);
+        // Ensure damage is not negative and does not exceed maxFallDamage
+        damage = Mathf.Clamp(damage, baseFallDamage, maxFallDamage);
 
         Debug.Log("Fall Distance: " + fallDistance + ", Damage Applied: " + damage);
-        player.GetComponent<PlayerHealth>().TakeDamageWithFloat(player.GetComponent<CharacterStats>(), damage);
+        player.GetComponent<PlayerHealth>().TakeDamageWithInt(player.GetComponent<CharacterStats>(), damage);
     }
 
     public override void Update()
@@ -44,7 +45,7 @@ public class PlayerFallingState : PlayerAirState
             if (isFalling)
             {
                 isFalling = false;
-                float fallDistance = fallStartHeight - player.transform.position.y;
+                int fallDistance = Mathf.RoundToInt(fallStartHeight - player.transform.position.y);
 
                 if (fallDistance >= fallDamageThreshold)
                 {
