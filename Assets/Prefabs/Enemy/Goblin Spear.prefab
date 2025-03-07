@@ -43,10 +43,13 @@ GameObject:
   - component: {fileID: 1678901191121723954}
   - component: {fileID: 7848806273969247727}
   - component: {fileID: 38470528925975178}
+  - component: {fileID: 6898385902018482460}
   - component: {fileID: 6189884226662694941}
   - component: {fileID: 7823443950112847516}
+  - component: {fileID: 6067782522905955195}
+  - component: {fileID: 6697632232383068340}
   m_Layer: 0
-  m_Name: Prototype Melee Enemy
+  m_Name: Goblin Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,9 +187,23 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.005257666, y: 0.03943181}
-  m_Size: {x: 1.2305154, y: 1.6788635}
+  m_Offset: {x: -0.00083971024, y: 0.039932847}
+  m_Size: {x: 1.2216797, y: 1.6778615}
   m_Direction: 0
+--- !u!114 &6898385902018482460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221308258738406340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1fe1104cef9064c9e15a48a59d2426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <maxHealth>k__BackingField: 0
+  <currentHealth>k__BackingField: 0
 --- !u!114 &6189884226662694941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +218,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRange: 6
   detectionDelay: 1
+  lookAroundIntervalMin: 2
+  lookAroundIntervalMax: 5
 --- !u!114 &7823443950112847516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,12 +234,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   returnDelay: 3
+  canFly: 0
   jumpForce: 0.3
   jumpTolerance: 2
   obstacleCheckDistance: 20
-  canFly: 0
   groundCheck: {fileID: 3535929144727105445}
   groundCheckRadius: 0.3
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &6067782522905955195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221308258738406340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8370dbecf77c4724ea39adb861743574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 1.5
+  attackRate: 1
+  damage: 10
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &6697632232383068340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221308258738406340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c2b91beb722344eadf35b63aaec80c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength:
+    baseValue: 0
+    modifiers: 
+  agility:
+    baseValue: 0
+    modifiers: 
+  damage:
+    baseValue: 1
+    modifiers: 
+  critChance:
+    baseValue: 0
+    modifiers: 
+  critPower:
+    baseValue: 0
+    modifiers: 
+  maxHealth:
+    baseValue: 3
+    modifiers: 
+  armor:
+    baseValue: 0
+    modifiers: 
+  evasion:
+    baseValue: 0
+    modifiers: 
