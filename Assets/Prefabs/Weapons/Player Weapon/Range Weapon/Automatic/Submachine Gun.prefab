@@ -136,7 +136,7 @@ MonoBehaviour:
   firePoint: {fileID: 558078580781589646}
   automaticFire: 1
   multishotMode: 0
-  damagePerShot: 17
+  damagePerShot: 0.5
   projectileSpeed: 30
   projectileLifetime: 0.3
   fireRate: 0.1
