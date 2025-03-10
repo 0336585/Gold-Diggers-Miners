@@ -7,6 +7,7 @@ public class EnemyMelee : MonoBehaviour
     [SerializeField] private float attackRate = 1f;
     [SerializeField] private int damage = 1;
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private LayerMask blockLayer;  
 
     private EnemyTargeting enemyTargeting;
     private float nextAttackTime = 0f;
@@ -19,7 +20,7 @@ public class EnemyMelee : MonoBehaviour
 
     private void Update()
     {
-        if (enemyTargeting.TargetPlayer != null && Time.time >= nextAttackTime)
+        if (Time.time >= nextAttackTime)
         {
             Attack();
         }
@@ -28,16 +29,24 @@ public class EnemyMelee : MonoBehaviour
     private void Attack()
     {
         Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, attackRange, playerLayer);
 
-        if (hit.collider != null && hit.collider.TryGetComponent<PlayerHealth>(out PlayerHealth player))
+        // Check for player hit
+        RaycastHit2D playerHit = Physics2D.Raycast(transform.position, direction, attackRange, playerLayer);
+        if (playerHit.collider != null && playerHit.collider.TryGetComponent<PlayerHealth>(out PlayerHealth player))
         {
-            // Assuming the enemy has a CharacterStats component
             CharacterStats enemyStats = GetComponent<CharacterStats>();
-            // Assuming the player GameObject has a CharacterStats component too
             CharacterStats playerStats = player.GetComponent<CharacterStats>();
 
             player.TakeDamage(playerStats, enemyStats);
+            nextAttackTime = Time.time + attackRate;
+            return; // Exit after attacking the player
+        }
+
+        // Check for block hit
+        RaycastHit2D blockHit = Physics2D.Raycast(transform.position, direction, attackRange, blockLayer);
+        if (blockHit.collider != null && blockHit.collider.TryGetComponent<NodeHealth>(out NodeHealth block))
+        {
+            block.DamageNode(damage);
             nextAttackTime = Time.time + attackRate;
         }
     }

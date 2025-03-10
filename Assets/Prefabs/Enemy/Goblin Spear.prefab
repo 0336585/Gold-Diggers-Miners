@@ -257,10 +257,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 1.5
   attackRate: 1
-  damage: 10
+  damage: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &6697632232383068340
 MonoBehaviour:
   m_ObjectHideFlags: 0
