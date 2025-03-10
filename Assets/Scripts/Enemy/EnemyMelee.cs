@@ -14,6 +14,7 @@ public class EnemyMelee : MonoBehaviour
     private void Start()
     {
         enemyTargeting = GetComponent<EnemyTargeting>();
+        nextAttackTime = attackRate;
     }
 
     private void Update()
