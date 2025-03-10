@@ -5,7 +5,7 @@ public class EnemyMelee : MonoBehaviour
     [Header("Attack Settings")]
     [SerializeField] private float attackRange = 1.5f;
     [SerializeField] private float attackRate = 1f;
-    [SerializeField] private int damage = 1;
+    [SerializeField] private float blockDamage = 0.5f;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private LayerMask blockLayer;  
 
@@ -46,7 +46,7 @@ public class EnemyMelee : MonoBehaviour
         RaycastHit2D blockHit = Physics2D.Raycast(transform.position, direction, attackRange, blockLayer);
         if (blockHit.collider != null && blockHit.collider.TryGetComponent<NodeHealth>(out NodeHealth block))
         {
-            block.DamageNode(damage);
+            block.DamageNode(blockDamage);
             nextAttackTime = Time.time + attackRate;
         }
     }
