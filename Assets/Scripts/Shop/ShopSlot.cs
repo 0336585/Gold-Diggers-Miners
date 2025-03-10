@@ -27,6 +27,9 @@ public class ShopSlot : MonoBehaviour
 
         inventoryUIManager = InventoryUIManager.Instance;
         parent = transform.parent.gameObject;
+
+        parent.transform.Find("Sell_1_Button").GetComponent<Button>().onClick.AddListener(OnSell);
+        parent.transform.Find("Sell_All_Button").GetComponent<Button>().onClick.AddListener(OnSellAll);
     }
 
     public void SetImage(InventoryMineral _mineral)
@@ -65,5 +68,26 @@ public class ShopSlot : MonoBehaviour
 
         nameText.text = _mineral.mineralName;
         priceText.text = "Price: " + _mineral.sellPrice.ToString();
+        mineral = _mineral;
+    }
+
+    public void OnSell()
+    {
+        if (Inventory.Instance.GetMineralAmount(mineral) <= 0) return;
+
+        MoneyManager.Instance.AddMoney(mineral.sellPrice);
+        Inventory.Instance.RemoveMineral(mineral, 1);
+    }
+
+    public void OnSellAll()
+    {
+        if (Inventory.Instance.GetMineralAmount(mineral) <= 0) return;
+
+        for (int i = 0; i < Inventory.Instance.GetMineralAmount(mineral); i++)
+        {
+            MoneyManager.Instance.AddMoney(mineral.sellPrice);
+        }
+
+        Inventory.Instance.RemoveMineral(mineral, Inventory.Instance.GetMineralAmount(mineral));
     }
 }

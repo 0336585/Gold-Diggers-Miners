@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CaseScroll : MonoBehaviour
 {
+    [SerializeField] private int cost;
+
+    [Header("References")]
     [SerializeField] private GameObject prefab;
     [SerializeField] private CaseResult caseResult;
     [SerializeField] private GameObject gambleMenu;
@@ -21,9 +24,10 @@ public class CaseScroll : MonoBehaviour
 
     public void Scroll()
     {
-        if (isScrolling)
+        if (isScrolling || MoneyManager.Instance.Money < cost)
             return;
 
+        MoneyManager.Instance.RemoveMoney(cost);
         speed = Random.Range(4, 5);
         isScrolling = true;
 
