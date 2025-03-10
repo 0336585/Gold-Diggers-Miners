@@ -28,26 +28,35 @@ public class EnemyMelee : MonoBehaviour
 
     private void Attack()
     {
+        // Determine the attack direction based on the enemy's facing; if facing right (positive x scale), attack to the right; if facing left (negative x scale), attack to the left.
         Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
 
-        // Check for player hit
-        RaycastHit2D playerHit = Physics2D.Raycast(transform.position, direction, attackRange, playerLayer);
-        if (playerHit.collider != null && playerHit.collider.TryGetComponent<PlayerHealth>(out PlayerHealth player))
+        // Perform a raycast to detect any collider in the path, considering both player and block layers.
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, attackRange, playerLayer | blockLayer);
+        if (hit.collider != null)
         {
-            CharacterStats enemyStats = GetComponent<CharacterStats>();
-            CharacterStats playerStats = player.GetComponent<CharacterStats>();
+            // Check if the raycast hit a collider on the player layer.
+            if (((1 << hit.collider.gameObject.layer) & playerLayer) != 0)
+            {
+                // The raycast hit the player
+                if (hit.collider.TryGetComponent<PlayerHealth>(out PlayerHealth player))
+                {
+                    CharacterStats enemyStats = GetComponent<CharacterStats>();
+                    CharacterStats playerStats = player.GetComponent<CharacterStats>();
 
-            player.TakeDamage(playerStats, enemyStats);
-            nextAttackTime = Time.time + attackRate;
-            return; // Exit after attacking the player
-        }
-
-        // Check for block hit
-        RaycastHit2D blockHit = Physics2D.Raycast(transform.position, direction, attackRange, blockLayer);
-        if (blockHit.collider != null && blockHit.collider.TryGetComponent<NodeHealth>(out NodeHealth block))
-        {
-            block.DamageNode(blockDamage);
-            nextAttackTime = Time.time + attackRate;
+                    player.TakeDamage(playerStats, enemyStats);
+                    nextAttackTime = Time.time + attackRate;
+                }
+            }
+            else if (((1 << hit.collider.gameObject.layer) & blockLayer) != 0)
+            {
+                // The raycast hit a block
+                if (hit.collider.TryGetComponent<NodeHealth>(out NodeHealth block))
+                {
+                    block.DamageNode(blockDamage);
+                    nextAttackTime = Time.time + attackRate;
+                }
+            }
         }
     }
 
