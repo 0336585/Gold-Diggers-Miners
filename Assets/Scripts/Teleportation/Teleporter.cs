@@ -16,7 +16,7 @@ public class Teleporter : MonoBehaviour
     }
     void TeleportableState()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Teleport();
         }
