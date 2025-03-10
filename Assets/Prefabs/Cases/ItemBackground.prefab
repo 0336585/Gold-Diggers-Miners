@@ -215,15 +215,19 @@ MonoBehaviour:
   - inventoryItem:
     - {fileID: 11400000, guid: 003d47c99669b7944afac30707491265, type: 2}
   - inventoryItem:
+    - {fileID: 11400000, guid: 59fcbe8d6600cab4785123b5002b6668, type: 2}
     - {fileID: 11400000, guid: e84dabe4baddcdc4d88ec4c2ce333577, type: 2}
   - inventoryItem:
     - {fileID: 11400000, guid: 70d0b1e7e6131ac4c906a8cb67fd5061, type: 2}
+    - {fileID: 11400000, guid: ca3e68854a3464d41a04ca783200de44, type: 2}
   - inventoryItem:
-    - {fileID: 11400000, guid: e84dabe4baddcdc4d88ec4c2ce333577, type: 2}
+    - {fileID: 11400000, guid: 51eafa2f461a0764b86dee8deab8d94f, type: 2}
+    - {fileID: 11400000, guid: 02f02527917faf6479c1d0e1ee142756, type: 2}
   - inventoryItem:
-    - {fileID: 11400000, guid: e84dabe4baddcdc4d88ec4c2ce333577, type: 2}
+    - {fileID: 11400000, guid: c2d9b77591dc9614dabf3d28d7c79834, type: 2}
+    - {fileID: 11400000, guid: 2d90c1075057fec498e2104147b3a31b, type: 2}
   - inventoryItem:
-    - {fileID: 11400000, guid: e84dabe4baddcdc4d88ec4c2ce333577, type: 2}
+    - {fileID: 11400000, guid: 251c591443478774583aba1573bd8c6c, type: 2}
   chances: 320000001e0000000a000000060000000300000001000000
   rarityMaterials:
   - {fileID: 2100000, guid: d797aeb25699eed488a8fe018a3e6189, type: 2}

@@ -73,7 +73,7 @@ public class ProjectileShooter : MonoBehaviour
             }
             else
             {
-                Debug.Log("Out of ammo! Press 'R' to reload.");
+                //Debug.Log("Out of ammo! Press 'R' to reload.");
             }
         }
 
@@ -106,25 +106,22 @@ public class ProjectileShooter : MonoBehaviour
                 }
 
                 Quaternion spreadRotation = Quaternion.Euler(0, 0, randomAngle);
-                Quaternion bulletRotation = firePoint.rotation * spreadRotation;
+
+                // Calculate direction to mouse
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.z = 0f; // Ensure 2D space
+                Vector2 shootDirection = (mousePosition - firePoint.position).normalized;
+
+                // Rotate projectile to face the mouse
+                float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+                Quaternion bulletRotation = Quaternion.Euler(0f, 0f, angle) * spreadRotation;
 
                 GameObject projectile = Instantiate(projectilePrefab, firePoint.position, bulletRotation);
                 SetProjectileDamage(projectile);
-
-                // Set the shooter reference on the projectile
                 projectile.GetComponent<ProjectileDamage>().SetShooter(this);
-
-                // Correct the projectile rotation when flipped
-                if (isFlipped)
-                {
-                    projectile.transform.Rotate(0f, 180f, 0f); // Flip the bullet sprite if needed
-                }
 
                 if (projectile.TryGetComponent(out Rigidbody2D rb))
                 {
-                    // If the firePoint is flipped (facing left), multiply by -1 to invert the direction.
-                    // Otherwise, multiply by 1 to keep the normal direction (facing right).
-                    Vector2 shootDirection = bulletRotation * Vector2.right * (isFlipped ? -1 : 1);
                     rb.linearVelocity = shootDirection * projectileSpeed;
                 }
 
@@ -134,29 +131,27 @@ public class ProjectileShooter : MonoBehaviour
         else
         {
             // Rifle mode: Fire a single bullet
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0f; // Ensure 2D space
+            Vector2 shootDirection = (mousePosition - firePoint.position).normalized;
+
+            // Rotate projectile to face the mouse
+            float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+            Quaternion bulletRotation = Quaternion.Euler(0f, 0f, angle);
+
+            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, bulletRotation);
             SetProjectileDamage(projectile);
-
-            // Set the shooter reference on the projectile
             projectile.GetComponent<ProjectileDamage>().SetShooter(this);
-
-            // Correct the projectile rotation when flipped
-            if (isFlipped)
-            {
-                projectile.transform.Rotate(0f, 180f, 0f); // Flip the bullet sprite
-            }
 
             if (projectile.TryGetComponent(out Rigidbody2D rb))
             {
-                // If the firePoint is flipped (facing left), multiply by -1 to invert the direction.
-                // Otherwise, multiply by 1 to keep the normal direction (facing right).
-                Vector2 shootDirection = firePoint.right * (isFlipped ? -1 : 1);
                 rb.linearVelocity = shootDirection * projectileSpeed;
             }
 
             Destroy(projectile, projectileLifetime);
         }
     }
+
 
 
     private void SetProjectileDamage(GameObject projectile)
@@ -170,7 +165,7 @@ public class ProjectileShooter : MonoBehaviour
     private IEnumerator Reload()
     {
         isReloading = true;
-        Debug.Log("Reloading...");
+        //Debug.Log("Reloading...");
         yield return new WaitForSeconds(reloadTime);
 
         int ammoNeeded = ammoInGun - currentAmmo; // How many bullets we need to refill
@@ -180,8 +175,8 @@ public class ProjectileShooter : MonoBehaviour
         reserveAmmo -= ammoToReload; // Reduce total ammo
 
         isReloading = false;
-        Debug.Log("Reload complete!");
-        Debug.Log("currentAmmo: " + currentAmmo);
-        Debug.Log("reserveAmmo: " + reserveAmmo);
+        //Debug.Log("Reload complete!");
+        //Debug.Log("currentAmmo: " + currentAmmo);
+        //Debug.Log("reserveAmmo: " + reserveAmmo);
     }
 }

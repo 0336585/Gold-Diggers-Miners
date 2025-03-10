@@ -23,7 +23,6 @@ public class NodeHealth : MonoBehaviour
         if (noteHealth <= 0)
         {
             Destroy(gameObject);
-            Debug.Log("Node Destroyed");
         }
     }
 }

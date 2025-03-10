@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class EnemyFollow : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 3f;
@@ -9,9 +9,9 @@ public class EnemyFollow : MonoBehaviour
 
     [Header("Jump Settings")]
     [SerializeField] private bool canFly = false;
-    [SerializeField] private float jumpForce = 0.3f;
+    [SerializeField] private float jumpForce = 4f;
     [SerializeField] private float jumpTolerance = 2f; // How much higher the destination must be to trigger a jump
-    [SerializeField] private float obstacleCheckDistance = 15f; // How far ahead to check for obstacles
+    [SerializeField] private float obstacleCheckDistance = 2f; // How far ahead to check for obstacles
 
     [Header("Ground Check Settings")]
     [SerializeField] private Transform groundCheck; // A transform positioned at the enemy's feet
@@ -23,6 +23,7 @@ public class EnemyFollow : MonoBehaviour
     private bool isReturning = false;
     private Rigidbody2D rb;
     private Coroutine returnCoroutine;
+    private bool isJumpOnCooldown = false;
 
     private void Start()
     {
@@ -78,10 +79,19 @@ public class EnemyFollow : MonoBehaviour
 
     private void Jump()
     {
-        if (IsGrounded())
+        if (IsGrounded() && !isJumpOnCooldown)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            StartCoroutine(JumpCooldownRoutine());
         }
+    }
+
+    private IEnumerator JumpCooldownRoutine()
+    {
+        isJumpOnCooldown = true;
+        float cooldownDuration = Random.Range(0.5f, 1.25f);
+        yield return new WaitForSeconds(cooldownDuration);
+        isJumpOnCooldown = false;
     }
 
     private IEnumerator ReturnToOriginalPosition()

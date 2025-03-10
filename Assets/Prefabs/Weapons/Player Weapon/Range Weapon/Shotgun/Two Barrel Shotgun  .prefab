@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.15, y: 0.27, z: -0.123657614}
-  m_LocalScale: {x: 1, y: 0.1662, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1242849109204466074}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 4887961830948674737, guid: 48de542b9bdeebe4c88973c67f60567e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,11 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca3e52018dc76834298ca83b1c7541a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 8523178760352380018, guid: 9d3cc9ffd47053c449f4719a4dfd2e70, type: 3}
+  projectilePrefab: {fileID: 8523178760352380018, guid: f7bd586337b6e44489f0f500eaec096a, type: 3}
   firePoint: {fileID: 1242849109204466074}
   automaticFire: 0
   multishotMode: 1
-  damagePerShot: 5
+  damagePerShot: 0.5
   projectileSpeed: 30
   projectileLifetime: 0.3
   fireRate: 0.1
@@ -140,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 8111148769227788601}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 0, z: 0}
+  m_LocalPosition: {x: 0.998, y: 0.151, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

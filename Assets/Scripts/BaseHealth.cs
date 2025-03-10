@@ -28,10 +28,24 @@ public class BaseHealth : MonoBehaviour
         totalDamage = _entityTakingDamage.CheckTargetArmor(_entityTakingDamage, totalDamage);
 
         currentHealth -= totalDamage;
+        Die();
     }
 
     public virtual void TakeDamageWithInt(CharacterStats _entityTakingDamage, int _damage)
     {
         currentHealth -= _damage;
+        Die();
+    }
+
+    public virtual void TakeDamageWithFloat(CharacterStats _entityTakingDamage, float _damage)
+    {
+        currentHealth -= _damage;
+        Die();
+    }
+
+    private void Die()
+    {
+        if (currentHealth <= 0)
+            Destroy(gameObject);
     }
 }

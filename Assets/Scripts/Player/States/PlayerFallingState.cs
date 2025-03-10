@@ -24,7 +24,7 @@ public class PlayerFallingState : PlayerAirState
         // Ensure damage is not negative and does not exceed maxFallDamage
         damage = Mathf.Clamp(damage, baseFallDamage, maxFallDamage);
 
-        Debug.Log("Fall Distance: " + fallDistance + ", Damage Applied: " + damage);
+        //Debug.Log("Fall Distance: " + fallDistance + ", Damage Applied: " + damage);
         player.GetComponent<PlayerHealth>().TakeDamageWithInt(player.GetComponent<CharacterStats>(), damage);
     }
 

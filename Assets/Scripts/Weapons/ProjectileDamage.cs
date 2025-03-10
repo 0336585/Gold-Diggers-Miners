@@ -24,6 +24,7 @@ public class ProjectileDamage : MonoBehaviour
 
         // Check if the colliding object has the NodeHealth component
         NodeHealth nodeHealth = collision.GetComponent<NodeHealth>();
+        BaseHealth baseHealth = collision.GetComponent<BaseHealth>();
 
         // Check if the collision is with another projectile from the same shooter
         if (collision.TryGetComponent<ProjectileDamage>(out var otherProjectileDamage))
@@ -38,6 +39,12 @@ public class ProjectileDamage : MonoBehaviour
         if (nodeHealth != null)
         {
             nodeHealth.DamageNode(damageAmount);
+        }
+
+        if (baseHealth != null)
+        {
+            CharacterStats characterStats = collision.GetComponent<CharacterStats>();
+            baseHealth.TakeDamageWithFloat(characterStats, damageAmount);
         }
 
         // Destroy the projectile after hitting something

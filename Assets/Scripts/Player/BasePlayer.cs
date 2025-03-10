@@ -57,7 +57,7 @@ public class BasePlayer : Entity
     {
         stateMachine.currentState.Update();
 
-        Debug.Log(stateMachine.currentState.GetType().Name);
+        //Debug.Log(stateMachine.currentState.GetType().Name);
 
         DashCheck();
 

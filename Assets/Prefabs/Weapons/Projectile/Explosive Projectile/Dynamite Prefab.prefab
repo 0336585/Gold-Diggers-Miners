@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b45e71431c87d479aaa20c988c7b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasDetonationTime: 1
+  directInpact: 0
   detonationTime: 2
   explosionRadius: 2
 --- !u!108 &-2507864638667141842

@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 2286635089793193677}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.15, y: 0.27, z: -0.123657614}
-  m_LocalScale: {x: 1, y: 0.1662, z: 1}
+  m_LocalPosition: {x: 1, y: 0.27, z: -0.123657614}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7343592718581870384}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -6209475109634437115, guid: df9a247a26526a041bebe320fe0b5f3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   firePoint: {fileID: 7343592718581870384}
   automaticFire: 0
   multishotMode: 0
-  damagePerShot: 18
+  damagePerShot: 0.5
   projectileSpeed: 25
   projectileLifetime: 0.4
   fireRate: 0.3
@@ -140,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 2986481410023211497}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 0, z: 0}
+  m_LocalPosition: {x: 0.998, y: 0.227, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

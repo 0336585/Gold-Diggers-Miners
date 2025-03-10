@@ -28,7 +28,5 @@ public class PlayerIdleState : PlayerGroundedState
     public override void Exit()
     {
         base.Exit();
-
-        Debug.Log("Exiting Idle State");
     }
 }
