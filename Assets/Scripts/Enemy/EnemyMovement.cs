@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("Jump Settings")]
     [SerializeField] private bool canFly = false;
-    [SerializeField] private float jumpForce = 1.2f;
+    [SerializeField] private float jumpForce = 4f;
     [SerializeField] private float jumpTolerance = 2f; // How much higher the destination must be to trigger a jump
     [SerializeField] private float obstacleCheckDistance = 2f; // How far ahead to check for obstacles
 

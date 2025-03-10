@@ -235,7 +235,7 @@ MonoBehaviour:
   moveSpeed: 3
   returnDelay: 3
   canFly: 0
-  jumpForce: 1.2
+  jumpForce: 4
   jumpTolerance: 2
   obstacleCheckDistance: 2
   groundCheck: {fileID: 3535929144727105445}
