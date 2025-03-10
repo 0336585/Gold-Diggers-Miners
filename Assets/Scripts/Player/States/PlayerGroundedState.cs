@@ -15,8 +15,6 @@ public class PlayerGroundedState : PlayerState
     public override void Enter()
     {
         base.Enter();
-
-        Debug.Log("Player is grounded");
     }
 
     public override void Update()

@@ -120,12 +120,10 @@ public class PlayerMining : MonoBehaviour
 
             if (hit.collider != null)
             {
-                Debug.Log("Raycast hit something");
-
                 NodeHealth noteHealth = hit.collider.GetComponent<NodeHealth>();
                 if (noteHealth != null)
                 {
-                    Debug.Log("Hit an object with NoteHealth: " + hit.collider.gameObject.name);
+                    //Debug.Log("Hit an object with NoteHealth: " + hit.collider.gameObject.name);
                     noteHealth.DamageNode(1);
                 }
             }

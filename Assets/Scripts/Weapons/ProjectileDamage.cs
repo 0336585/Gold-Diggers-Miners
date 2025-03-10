@@ -44,7 +44,7 @@ public class ProjectileDamage : MonoBehaviour
         if (baseHealth != null)
         {
             CharacterStats characterStats = collision.GetComponent<CharacterStats>();
-            baseHealth.TakeDamageWithInt(characterStats, (int)damageAmount);
+            baseHealth.TakeDamageWithFloat(characterStats, damageAmount);
         }
 
         // Destroy the projectile after hitting something
