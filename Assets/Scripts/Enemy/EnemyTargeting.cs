@@ -81,16 +81,23 @@ public class EnemyTargeting : MonoBehaviour
         if (targetPlayer == null) return; // No target to flip towards
 
         // Determine the direction to the player
-        float direction = targetPlayer.transform.position.x - transform.position.x;
+        float directionX = targetPlayer.transform.position.x - transform.position.x;
+        float directionY = targetPlayer.transform.position.y - transform.position.y;
 
-        // Flip the enemy sprite based on the direction
-        if (direction > 0)
+        // Define a vertical threshold to prevent flipping when the player is above or below
+        float verticalThreshold = 1.0f; // Adjust this value as needed
+
+        // Flip the enemy sprite based on the horizontal direction
+        if (Mathf.Abs(directionY) < verticalThreshold)
         {
-            transform.localScale = new Vector3(1, 1, 1); // Facing right
-        }
-        else if (direction < 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1); // Facing left
+            if (directionX > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1); // Facing right
+            }
+            else if (directionX < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1); // Facing left
+            }
         }
     }
 
