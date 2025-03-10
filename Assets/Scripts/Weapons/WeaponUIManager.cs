@@ -31,6 +31,7 @@ public class WeaponUIManager : MonoBehaviour
         {
             ammoGO.SetActive(true);
             projectileShooter = GetComponentInChildren<ProjectileShooter>();
+            Debug.Log("Ik ben het wapen: " + projectileShooter.transform.name);
         }
         else
         {
