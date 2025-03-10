@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Evert_Bed_0: 8766137559164814224
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
