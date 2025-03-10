@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +15,7 @@ public class Hotbar : MonoBehaviour
     }
     private PlayerMining playerMining;
     private WeaponUIManager weaponUIManager;
+    private ProjectileShooter projectileShooter;
 
     [SerializeField] private List<InventoryItem> hotbarItems = new List<InventoryItem>();
     [SerializeField] private List<Image> hotbarSlots;
@@ -32,6 +35,7 @@ public class Hotbar : MonoBehaviour
     {
         playerMining = GetComponent<PlayerMining>();
         weaponUIManager = GetComponent<WeaponUIManager>();
+        projectileShooter = GetComponentInChildren<ProjectileShooter>();
 
         for (int i = 0; i < hotbarUI.transform.childCount; i++)
         {
@@ -68,37 +72,35 @@ public class Hotbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !projectileShooter.IsReloading)
         {
             if (hotbarItems[0] != null)
                 EquipItem(hotbarItems[0]);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && !projectileShooter.IsReloading)
         {
             if (hotbarItems[1] != null)
                 EquipItem(hotbarItems[1]);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && !projectileShooter.IsReloading)
         {
             if (hotbarItems[2] != null)
                 EquipItem(hotbarItems[2]);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (Input.GetKeyDown(KeyCode.Alpha4) && !projectileShooter.IsReloading)
         {
             if (hotbarItems[3] != null)
                 EquipItem(hotbarItems[3]);
         }
     }
 
-    private void EquipItem(InventoryItem _item)
+    public void EquipItem(InventoryItem _item)
     {
         if (equipedItem == _item) return;
 
         // Deactivate all items
         foreach (var item in instantiatedItems)
-        {
             item.SetActive(false);
-        }
 
         // Activate the equipped item
         int index = hotbarItems.IndexOf(_item);
@@ -120,11 +122,20 @@ public class Hotbar : MonoBehaviour
             playerMining.RemoveOutline();
         }
 
+        if (_item.itemType == ItemType.RangedWeapon)
+            projectileShooter = GetComponentInChildren<ProjectileShooter>();
+        
         weaponUIManager.ChangeToolUI(equipedItem);
     }
 
     public void AddItemToHotbar(InventoryItem _item)
     {
+        for (int i = 0; i < hotbarItems.Count; i++)
+        {
+            if (_item == hotbarItems[i])
+                return;
+        }
+
         for (int i = 0; i < hotbarItems.Count; i++)
         {
             if (hotbarItems[i].itemType == _item.itemType)
@@ -149,16 +160,6 @@ public class Hotbar : MonoBehaviour
             }
         }
 
-        // Equip the first item in the list
-        if (hotbarItems.Count > 0 && hotbarItems[0] != null)
-        {
-            EquipItem(hotbarItems[0]);
-            EquipItem(hotbarItems[1]);
-            EquipItem(hotbarItems[0]);
-        }
-
-        weaponUIManager.ChangeToolUI(equipedItem);
-
         // Update the hotbar UI
         for (int i = 0; i < hotbarItems.Count; i++)
         {
@@ -167,5 +168,12 @@ public class Hotbar : MonoBehaviour
             if (hotbarSlots[i].transform.name.Contains("Item"))
                 hotbarSlots[i].sprite = hotbarItems[i].icon;
         }
+    }
+
+    private IEnumerator WarningMessage(GameObject _warningGO)
+    {
+        _warningGO.SetActive(true);
+        yield return new WaitForSeconds(5);
+        _warningGO.SetActive(false);
     }
 }

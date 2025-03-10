@@ -29,6 +29,7 @@ public class CaseResult : MonoBehaviour
         if (itemWon != null)
         {
             hotbar.AddItemToHotbar(itemWon);
+            hotbar.EquipItem(itemWon);
         }
     }
 
