@@ -65,7 +65,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3535929144727105445}
@@ -142,7 +142,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8a90091260b7b924cb6fc4e1793ec70e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -187,8 +187,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00083971024, y: 0.039932847}
-  m_Size: {x: 1.2216797, y: 1.6778615}
+  m_Offset: {x: -0.1000224, y: 0.03552469}
+  m_Size: {x: 0.81172436, y: 1.6690452}
   m_Direction: 0
 --- !u!114 &6898385902018482460
 MonoBehaviour:
@@ -235,9 +235,9 @@ MonoBehaviour:
   moveSpeed: 3
   returnDelay: 3
   canFly: 0
-  jumpForce: 0.3
+  jumpForce: 1.2
   jumpTolerance: 2
-  obstacleCheckDistance: 20
+  obstacleCheckDistance: 2
   groundCheck: {fileID: 3535929144727105445}
   groundCheckRadius: 0.3
   groundLayer:
@@ -257,10 +257,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 1.5
   attackRate: 1
-  damage: 10
+  blockDamage: 0.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &6697632232383068340
 MonoBehaviour:
   m_ObjectHideFlags: 0

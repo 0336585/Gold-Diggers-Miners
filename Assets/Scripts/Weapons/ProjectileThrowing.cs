@@ -76,7 +76,7 @@ public class ProjectileThrowing : MonoBehaviour
 
             // Reduce ammo after throwing
             currentAmmo--;
-            Debug.Log(gameObject.name + " Ammo left: " + currentAmmo);
+            //Debug.Log(gameObject.name + " Ammo left: " + currentAmmo);
         }
         else
         {
