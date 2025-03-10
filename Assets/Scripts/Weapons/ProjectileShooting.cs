@@ -73,7 +73,7 @@ public class ProjectileShooter : MonoBehaviour
             }
             else
             {
-                Debug.Log("Out of ammo! Press 'R' to reload.");
+                //Debug.Log("Out of ammo! Press 'R' to reload.");
             }
         }
 
@@ -165,7 +165,7 @@ public class ProjectileShooter : MonoBehaviour
     private IEnumerator Reload()
     {
         isReloading = true;
-        Debug.Log("Reloading...");
+        //Debug.Log("Reloading...");
         yield return new WaitForSeconds(reloadTime);
 
         int ammoNeeded = ammoInGun - currentAmmo; // How many bullets we need to refill
@@ -175,8 +175,8 @@ public class ProjectileShooter : MonoBehaviour
         reserveAmmo -= ammoToReload; // Reduce total ammo
 
         isReloading = false;
-        Debug.Log("Reload complete!");
-        Debug.Log("currentAmmo: " + currentAmmo);
-        Debug.Log("reserveAmmo: " + reserveAmmo);
+        //Debug.Log("Reload complete!");
+        //Debug.Log("currentAmmo: " + currentAmmo);
+        //Debug.Log("reserveAmmo: " + reserveAmmo);
     }
 }

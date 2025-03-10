@@ -37,6 +37,12 @@ public class BaseHealth : MonoBehaviour
         Die();
     }
 
+    public virtual void TakeDamageWithFloat(CharacterStats _entityTakingDamage, float _damage)
+    {
+        currentHealth -= _damage;
+        Die();
+    }
+
     private void Die()
     {
         if (currentHealth <= 0)

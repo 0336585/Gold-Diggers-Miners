@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour
             minerals.Add(mineral, amount);
         }
 
-        Debug.Log(mineral.mineralName + " added. Current amount: " + minerals[mineral]);
+        //Debug.Log(mineral.mineralName + " added. Current amount: " + minerals[mineral]);
     }
 
     // Method to remove minerals from the inventory
@@ -55,11 +55,11 @@ public class Inventory : MonoBehaviour
         if (minerals.ContainsKey(mineral) && minerals[mineral] >= amount)
         {
             minerals[mineral] -= amount;
-            Debug.Log(mineral + " removed. Current amount: " + minerals[mineral]);
+            //Debug.Log(mineral + " removed. Current amount: " + minerals[mineral]);
         }
         else
         {
-            Debug.Log("Not enough " + mineral.mineralName + " to remove.");
+            //Debug.Log("Not enough " + mineral.mineralName + " to remove.");
         }
     }
 
@@ -91,7 +91,7 @@ public class Inventory : MonoBehaviour
     {
         if (inventoryIsOpen) return;
 
-        Debug.Log("Opening Inventory...");
+        //Debug.Log("Opening Inventory...");
 
         inventoryIsOpen = true;
         inventory.SetActive(true);
@@ -103,7 +103,7 @@ public class Inventory : MonoBehaviour
             int amount = entry.Value;
 
             // Log the mineral name and its quantity
-            Debug.Log("Mineral: " + mineral.mineralName + ", Amount: " + amount);
+            //Debug.Log("Mineral: " + mineral.mineralName + ", Amount: " + amount);
 
             // Optionally, instantiate UI elements to display the inventory
             if (inventoryItemHolder != null)

@@ -10,7 +10,7 @@ public class MineralObject : MonoBehaviour
         if (Inventory.Instance != null)
         {
             Inventory.Instance.AddMineral(mineralType, mineralType.dropAmount);
-            Debug.Log($"{mineralType.dropAmount} {mineralType.mineralType} added to inventory.");
+            //Debug.Log($"{mineralType.dropAmount} {mineralType.mineralType} added to inventory.");
         }
     }
 }
