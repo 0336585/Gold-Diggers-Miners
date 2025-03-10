@@ -153,7 +153,11 @@ public class Hotbar : MonoBehaviour
         if (hotbarItems.Count > 0 && hotbarItems[0] != null)
         {
             EquipItem(hotbarItems[0]);
+            EquipItem(hotbarItems[1]);
+            EquipItem(hotbarItems[0]);
         }
+
+        weaponUIManager.ChangeToolUI(equipedItem);
 
         // Update the hotbar UI
         for (int i = 0; i < hotbarItems.Count; i++)
