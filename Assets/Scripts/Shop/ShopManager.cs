@@ -9,11 +9,6 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject itemHolder;
     [SerializeField] private GameObject shopItem;
 
-    private void Start()
-    {
-        OpenShop();
-    }
-
     public void OpenShop()
     {
         shop.SetActive(true);
@@ -37,15 +32,15 @@ public class ShopManager : MonoBehaviour
 
     public void CloseShop()
     {
-        shop.SetActive(false);
-
         // Get all the ShopSlot components in the children of itemHolder
         ShopSlot[] showingGO = itemHolder.GetComponentsInChildren<ShopSlot>();
 
         // Loop through and destroy each game object
         for (int i = 0; i < showingGO.Length; i++)
         {
-            Destroy(showingGO[i].gameObject);
+            Destroy(showingGO[i].transform.parent.gameObject);
         }
+
+        shop.SetActive(false);
     }
 }
