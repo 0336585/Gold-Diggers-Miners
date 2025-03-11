@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 13389713}
   - component: {fileID: 13389715}
-  - component: {fileID: 13389714}
   m_Layer: 0
   m_Name: Evert_Bed_0
   m_TagString: Untagged
@@ -152,20 +151,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 923492375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &13389714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13389712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c9e0352e0c43d428a6d29d21d53eda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyPressPopUp: {fileID: 0}
-  daysUI: {fileID: 0}
 --- !u!212 &13389715
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -237,6 +222,14 @@ PrefabInstance:
       propertyPath: heartHolder
       value: 
       objectReference: {fileID: 1662190017}
+    - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: heartHalfPrefab
+      value: 
+      objectReference: {fileID: 6242354773705134471, guid: 8de7def3d94f2b34695777edf950259a, type: 3}
+    - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: protectedHeartHalfPrefab
+      value: 
+      objectReference: {fileID: 6242354773705134471, guid: 2070b5b1fcb6dd948a1ca8e67d9abf5c, type: 3}
     - target: {fileID: 4807778553067711302, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: gambleMenu
       value: 
@@ -253,6 +246,10 @@ PrefabInstance:
       propertyPath: reloadText
       value: 
       objectReference: {fileID: 579689051}
+    - target: {fileID: 5850940400311483312, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: maxHealth.baseValue
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6244489027050304768, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: hotbarUI
       value: 
@@ -526,7 +523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4302055844608756733, guid: eb37375fd7653d849bfbd2b69be585a6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -448.9
+      value: -542.9
       objectReference: {fileID: 0}
     - target: {fileID: 4302055844608756733, guid: eb37375fd7653d849bfbd2b69be585a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8478,15 +8475,15 @@ GameObject:
   m_Component:
   - component: {fileID: 923492375}
   - component: {fileID: 923492374}
-  - component: {fileID: 923492373}
   - component: {fileID: 923492372}
+  - component: {fileID: 923492376}
   m_Layer: 0
   m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &923492372
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8584,20 +8581,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &923492373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923492371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c9e0352e0c43d428a6d29d21d53eda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyPressPopUp: {fileID: 1415844928}
-  daysUI: {fileID: 404321205}
 --- !u!58 &923492374
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8651,6 +8634,34 @@ Transform:
   - {fileID: 223260656}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &923492376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923492371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a333c61693da94595dc5e3e13017a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyPressPopUp: {fileID: 1415844928}
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 14664890}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: SetMaxHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &923647766
 GameObject:
   m_ObjectHideFlags: 0
@@ -10059,7 +10070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -776, y: 233}
+  m_AnchoredPosition: {x: -776, y: 139}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1409398652
@@ -13773,8 +13784,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 380, y: -150}
-  m_SizeDelta: {x: 540, y: 100}
+  m_AnchoredPosition: {x: 380, y: -200}
+  m_SizeDelta: {x: 540, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1662190019
 MonoBehaviour:
@@ -13797,7 +13808,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 10, y: 0}
+  m_Spacing: {x: 10, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &1694596889
