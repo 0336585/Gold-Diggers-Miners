@@ -261,6 +261,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: actionClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: ambientClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: 'actionClips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: f11181a92de9f1b4f8ecbdce83129d7a, type: 3}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: 'ambientClips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cfe444f6564cd73429a9887b58b8aa72, type: 3}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: 'ambientClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 33cad3a226062a34588da9932f9b4285, type: 3}
     - target: {fileID: 7233721711882435501, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.15
