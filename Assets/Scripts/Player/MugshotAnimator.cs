@@ -54,15 +54,15 @@ public class MugshotAnimator : MonoBehaviour
         Sprite[] selectedSpriteArray = null;
 
         // Determine which health category to use for the sprite
-        if (currentHealth >= 3)   
+        if (currentHealth >= 7)   
         {
             selectedSpriteArray = highHealthSprites;
         }
-        else if (currentHealth >= 2)   
+        else if (currentHealth >= 5)   
         {
             selectedSpriteArray = mediumHealthSprites;
         }
-        else if (currentHealth >= 1)   
+        else if (currentHealth >= 3)   
         {
             selectedSpriteArray = lowHealthSprites;
         }
