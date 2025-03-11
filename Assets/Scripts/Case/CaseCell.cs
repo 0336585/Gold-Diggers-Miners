@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CaseCell : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class CaseCell : MonoBehaviour
         // Assigning the icon of the selected character to the Image component
         GetComponent<Image>().sprite = itemInThisCell.icon;
         transform.parent.GetComponent<Image>().material = rarityMaterials[index];
+        transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = itemInThisCell.itemName;
     }
 
     private int Randomize()
