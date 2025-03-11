@@ -3,27 +3,32 @@ using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
-
-    private bool inTeleportRange;
-
     [SerializeField] private GameObject keyPressPopUp;
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject player;
+    [SerializeField] TownEntryChecker townEntryChecker;
+    [SerializeField] private bool shouldSwitchPostProcess;
+    private bool inTeleportRange;
+
     private void Update()
     {
         if (inTeleportRange)
             TeleportableState();
     }
-    void TeleportableState()
+
+    private void TeleportableState()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             Teleport();
         }
     }
-    void Teleport()
+    private void Teleport()
     {
         player.transform.position = target.transform.position;
+
+        if(shouldSwitchPostProcess)
+            townEntryChecker.TogglePostProcessingSwitch();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

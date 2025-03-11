@@ -1725,6 +1725,8 @@ MonoBehaviour:
   keyPressPopUp: {fileID: 1447299213}
   target: {fileID: 1623909792}
   player: {fileID: 227751812}
+  townEntryChecker: {fileID: 1154817816}
+  shouldSwitchPostProcess: 0
 --- !u!1 &388186902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,6 +1855,8 @@ MonoBehaviour:
   keyPressPopUp: {fileID: 1653070999}
   target: {fileID: 1999888434}
   player: {fileID: 227751812}
+  townEntryChecker: {fileID: 1154817816}
+  shouldSwitchPostProcess: 1
 --- !u!61 &394425327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9422,6 +9426,7 @@ GameObject:
   - component: {fileID: 1154817813}
   - component: {fileID: 1154817814}
   - component: {fileID: 1154817815}
+  - component: {fileID: 1154817816}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -9473,6 +9478,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01136ff645d0a714c9d173859bc67e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1154817816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154817812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d42d299a7f2d7498608a638ea679b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInTown: 1
+  postProcessingTown: {fileID: 485474248}
+  postProcessingMine: {fileID: 1900407810}
 --- !u!1 &1176756507
 GameObject:
   m_ObjectHideFlags: 0
@@ -13375,6 +13395,8 @@ MonoBehaviour:
   keyPressPopUp: {fileID: 96639817}
   target: {fileID: 373069706}
   player: {fileID: 227751812}
+  townEntryChecker: {fileID: 1154817816}
+  shouldSwitchPostProcess: 0
 --- !u!4 &1623909795
 Transform:
   m_ObjectHideFlags: 0
@@ -15797,6 +15819,8 @@ MonoBehaviour:
   keyPressPopUp: {fileID: 2008912079}
   target: {fileID: 394425324}
   player: {fileID: 227751812}
+  townEntryChecker: {fileID: 1154817816}
+  shouldSwitchPostProcess: 1
 --- !u!61 &1999888437
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16194,8 +16218,8 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1489939877}
   - {fileID: 619394802}
-  - {fileID: 1900407812}
   - {fileID: 485474250}
+  - {fileID: 1900407812}
   - {fileID: 14664887}
   - {fileID: 407797755}
   - {fileID: 29264407}
