@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
     [SerializeField] private AudioClip[] ambientClips;
     [SerializeField] private AudioClip[] actionClips;
+    [SerializeField] private AudioClip[] townClips; 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip defaultClip;
     [SerializeField] private float distanceThreshold = 25f;
@@ -25,20 +25,30 @@ public class MusicPlayer : MonoBehaviour
 
     private int nearbyEnemiesCount = 0;
     private bool canSwitchToAmbient = true;
-    private float maxVolume; 
+    private bool isInTown = true;  
+    private float maxVolume;
 
     private void Start()
     {
         enemies = FindObjectsOfType<EnemyTargeting>();
         player = gameObject.transform;
-        currentPlaylist = ambientClips;
-        maxVolume = audioSource.volume;  
+        currentPlaylist = townClips;
+        maxVolume = audioSource.volume;
         PlayRandomClip();
         StartCoroutine(MonitorAudioSource());
     }
 
     private void Update()
     {
+        if (isInTown)
+        {
+            if (currentPlaylist != townClips)
+            {
+                SwitchPlaylist(townClips); // Play town music
+            }
+            return; // Skip combat/ambient checks
+        }
+
         CountNearbyEnemies();
 
         if (nearbyEnemiesCount > enemyAmountForSwitch && currentPlaylist != actionClips)
@@ -93,7 +103,7 @@ public class MusicPlayer : MonoBehaviour
     {
         float startVolume = audioSource.volume;
 
-        // Fade out the current audio
+        // Fade out
         for (float time = 0; time < fadeDuration; time += Time.deltaTime)
         {
             audioSource.volume = Mathf.Lerp(startVolume, 0, time / fadeDuration);
@@ -106,7 +116,7 @@ public class MusicPlayer : MonoBehaviour
         // Switch to a random new clip
         PlayRandomClip();
 
-        // Fade in the new audio
+        // Fade in
         for (float t = 0; t < fadeDuration; t += Time.deltaTime)
         {
             audioSource.volume = Mathf.Lerp(0, startVolume, t / fadeDuration);
@@ -194,12 +204,17 @@ public class MusicPlayer : MonoBehaviour
             yield return null;
         }
 
-        volumeRecoveryCoroutine = null; // Mark coroutine as finished
+        volumeRecoveryCoroutine = null;  // Mark coroutine as finished
+    }
+
+    public void SetTownStatus(bool inTown)
+    {
+        isInTown = inTown;
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, distanceThreshold);
     }
 }
