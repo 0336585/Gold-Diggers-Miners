@@ -259,17 +259,37 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
-      propertyPath: townClips.Array.size
+      propertyPath: isInSpecialArea
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: startingLocation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: shopClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: townClips.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: actionClips.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: casinoClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: ambientClips.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: 'shopClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 60bf85c22bab15b499f59d56ba7dfbce, type: 3}
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: 'townClips.Array.data[0]'
       value: 
@@ -277,19 +297,27 @@ PrefabInstance:
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: 'townClips.Array.data[1]'
       value: 
-      objectReference: {fileID: 8300000, guid: 4f96b845f46d33c4d82636128ce42672, type: 3}
+      objectReference: {fileID: 8300000, guid: 9b0bb16028d06754c9d7b54bbda352e9, type: 3}
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: 'townClips.Array.data[2]'
       value: 
-      objectReference: {fileID: 8300000, guid: 5ebf484a44328c448911b9b2d3ec8576, type: 3}
+      objectReference: {fileID: 8300000, guid: da84cd59641ac0d449be9cd7c849c8af, type: 3}
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: 'townClips.Array.data[3]'
       value: 
-      objectReference: {fileID: 8300000, guid: f4666e49835e6b048977a14ac11d6543, type: 3}
+      objectReference: {fileID: 8300000, guid: 9b0bb16028d06754c9d7b54bbda352e9, type: 3}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: 'townClips.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: da84cd59641ac0d449be9cd7c849c8af, type: 3}
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: 'actionClips.Array.data[1]'
       value: 
       objectReference: {fileID: 8300000, guid: f11181a92de9f1b4f8ecbdce83129d7a, type: 3}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: 'casinoClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 271a4d1752192e641bfafb55f0c4e71c, type: 3}
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: 'ambientClips.Array.data[2]'
       value: 
@@ -1230,6 +1258,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6490688001680501119, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
   m_PrefabInstance: {fileID: 14664887}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &227751816 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+  m_PrefabInstance: {fileID: 14664887}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227751812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0545cb42959b7d845b78e8a22318f3a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &302541618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,6 +1783,9 @@ MonoBehaviour:
   player: {fileID: 227751812}
   townEntryChecker: {fileID: 1154817816}
   shouldSwitchPostProcess: 0
+  shouldSwitchMusic: 0
+  musicPlayer: {fileID: 227751816}
+  selectedPlaylist: 3
 --- !u!1 &388186902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1916,9 @@ MonoBehaviour:
   player: {fileID: 227751812}
   townEntryChecker: {fileID: 1154817816}
   shouldSwitchPostProcess: 1
+  shouldSwitchMusic: 1
+  musicPlayer: {fileID: 227751816}
+  selectedPlaylist: 1
 --- !u!61 &394425327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13429,6 +13474,9 @@ MonoBehaviour:
   player: {fileID: 227751812}
   townEntryChecker: {fileID: 1154817816}
   shouldSwitchPostProcess: 0
+  shouldSwitchMusic: 0
+  musicPlayer: {fileID: 227751816}
+  selectedPlaylist: 3
 --- !u!4 &1623909795
 Transform:
   m_ObjectHideFlags: 0
@@ -15065,6 +15113,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1869937325
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1463164016996249673, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463164016996249673, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463164016996249673, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463164016996249673, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.340984
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463164016996249673, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 110.231865
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463164016996249673, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463164016996249673, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463164016996249673, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463164016996249673, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463164016996249673, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463164016996249673, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463164016996249673, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463164016996249673, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699474028103373676, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+      propertyPath: m_Name
+      value: Death Trigger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 543cbee583b44aa439165994724e7a38, type: 3}
 --- !u!1 &1869960929
 GameObject:
   m_ObjectHideFlags: 0
@@ -15853,6 +15970,9 @@ MonoBehaviour:
   player: {fileID: 227751812}
   townEntryChecker: {fileID: 1154817816}
   shouldSwitchPostProcess: 1
+  shouldSwitchMusic: 1
+  musicPlayer: {fileID: 227751816}
+  selectedPlaylist: 3
 --- !u!61 &1999888437
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16274,3 +16394,4 @@ SceneRoots:
   - {fileID: 673997571}
   - {fileID: 598976770}
   - {fileID: 1147953219}
+  - {fileID: 1869937325}
