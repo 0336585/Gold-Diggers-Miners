@@ -263,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: townClips.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: actionClips.Array.size
@@ -280,7 +280,15 @@ PrefabInstance:
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: 'townClips.Array.data[1]'
       value: 
-      objectReference: {fileID: 8300000, guid: d423af5f57699a7459469106faf98667, type: 3}
+      objectReference: {fileID: 8300000, guid: 4f96b845f46d33c4d82636128ce42672, type: 3}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: 'townClips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5ebf484a44328c448911b9b2d3ec8576, type: 3}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: 'townClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: f4666e49835e6b048977a14ac11d6543, type: 3}
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: 'actionClips.Array.data[1]'
       value: 
