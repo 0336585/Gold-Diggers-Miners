@@ -1,6 +1,4 @@
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Build;
 using UnityEngine;
 
 public class SleepingBehaviour : MonoBehaviour
@@ -22,7 +20,7 @@ public class SleepingBehaviour : MonoBehaviour
     }
     void SleepableState()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Sleep();
         }
@@ -31,7 +29,7 @@ public class SleepingBehaviour : MonoBehaviour
     {
         sleepSFX.Play();
         survivedDaysAmount++;
-        if(survivedDaysAmount == 1)
+        if (survivedDaysAmount == 1)
         {
             daysUI.text = $"you have survived {survivedDaysAmount} day";
         }
@@ -42,12 +40,12 @@ public class SleepingBehaviour : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<BasePlayer>())
+        if (collision.GetComponent<BasePlayer>())
         {
             inSleepRange = true;
             keyPressPopUp.SetActive(true);
         }
-    }    
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.GetComponent<BasePlayer>())
