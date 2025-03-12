@@ -4,8 +4,9 @@ using UnityEngine.Events;
 
 public class Interact : MonoBehaviour
 {
-    [SerializeField] GameObject keyPressPopUp;
-    [SerializeField] UnityEvent onInteract;
+    [SerializeField] private GameObject keyPressPopUp;
+    [SerializeField] private bool canPlaySoundeffect = true;
+    [SerializeField] private UnityEvent onInteract;
 
     private AudioSource audioPlayer;
     private bool inRange = false;
@@ -15,12 +16,14 @@ public class Interact : MonoBehaviour
         keyPressPopUp.SetActive(false);
         audioPlayer = GetComponent<AudioSource>();
     }
+
     private void Update()
     {
         if (inRange && Input.GetKeyDown(KeyCode.E))
         {
             onInteract.Invoke();
-            audioPlayer.Play();
+            if(canPlaySoundeffect)
+                audioPlayer.Play();
         }
     }
 
