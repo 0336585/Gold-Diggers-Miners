@@ -8,7 +8,8 @@ public class Teleporter : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private TownEntryChecker townEntryChecker;
     [SerializeField] private bool shouldSwitchPostProcess = false;
-    [SerializeField] private bool shouldSwitchMusic = false;  
+    [SerializeField] private bool shouldSwitchMusic = false;
+    [SerializeField] private bool shouldCountEnemiesForMusic = false;
 
     // New Field for MusicPlayer reference
     [SerializeField] private MusicPlayer musicPlayer;
@@ -51,9 +52,10 @@ public class Teleporter : MonoBehaviour
 
         // Switch the music to the selected playlist if shouldSwitchMusic is true
         if (shouldSwitchMusic)
-        {
             SwitchMusic();
-        }
+
+        if (shouldCountEnemiesForMusic)
+            musicPlayer.CountEnemies();
     }
 
     private void SwitchMusic()

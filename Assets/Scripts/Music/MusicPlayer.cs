@@ -42,7 +42,6 @@ public class MusicPlayer : MonoBehaviour
 
     private void Start()
     {
-        enemies = Object.FindObjectsByType<EnemyTargeting>(FindObjectsSortMode.None);
         player = gameObject.transform;
         maxVolume = audioSource.volume;
 
@@ -272,6 +271,11 @@ public class MusicPlayer : MonoBehaviour
                 currentPlaylist = ambientClips;
                 break;
         }
+    }
+
+    public void CountEnemies()
+    {
+        enemies = Object.FindObjectsByType<EnemyTargeting>(FindObjectsSortMode.None);
     }
 
     private void OnDrawGizmos()

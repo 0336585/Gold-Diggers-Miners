@@ -271,6 +271,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: distanceThreshold
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: shopClips.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1789,6 +1793,7 @@ MonoBehaviour:
   townEntryChecker: {fileID: 1154817816}
   shouldSwitchPostProcess: 0
   shouldSwitchMusic: 0
+  shouldCountEnemiesForMusic: 0
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 3
 --- !u!1 &388186902
@@ -1922,6 +1927,7 @@ MonoBehaviour:
   townEntryChecker: {fileID: 1154817816}
   shouldSwitchPostProcess: 1
   shouldSwitchMusic: 1
+  shouldCountEnemiesForMusic: 1
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 1
 --- !u!61 &394425327
@@ -14054,6 +14060,7 @@ MonoBehaviour:
   townEntryChecker: {fileID: 1154817816}
   shouldSwitchPostProcess: 0
   shouldSwitchMusic: 0
+  shouldCountEnemiesForMusic: 0
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 3
 --- !u!4 &1623909795
@@ -16617,6 +16624,7 @@ MonoBehaviour:
   townEntryChecker: {fileID: 1154817816}
   shouldSwitchPostProcess: 1
   shouldSwitchMusic: 1
+  shouldCountEnemiesForMusic: 0
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 3
 --- !u!61 &1999888437
