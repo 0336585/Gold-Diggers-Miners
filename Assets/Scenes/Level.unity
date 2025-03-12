@@ -9570,7 +9570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d42d299a7f2d7498608a638ea679b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicPlayer: {fileID: 0}
+  musicPlayer: {fileID: 227751816}
   isInTown: 1
   postProcessingTown: {fileID: 485474248}
   postProcessingMine: {fileID: 1900407810}
