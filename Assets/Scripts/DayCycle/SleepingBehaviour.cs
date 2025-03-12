@@ -8,7 +8,6 @@ public class SleepingBehaviour : MonoBehaviour
     [SerializeField] private float textShowupTime = 2f; // TODO: Show text is inregular speed when spam clicking
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private LevelGenerator levelGenerator;
-    public bool canSleep = true;
     private uint survivedDaysAmount; 
     private AudioSource sleepSFX;
 
@@ -19,11 +18,10 @@ public class SleepingBehaviour : MonoBehaviour
 
     public void Sleep()
     {
-        if (canSleep)
+        if (QuotaManager.Instance.PlayerReachedQuota())
         {
             // TODO: Make fade in fade out
             survivedDaysAmount++;
-            canSleep = false;
             levelGenerator.RegenerateLevel();
             sleepSFX.Play();
             playerHealth.SetMaxHealth();
@@ -37,7 +35,7 @@ public class SleepingBehaviour : MonoBehaviour
                 daysUI.text = $"you have survived {survivedDaysAmount} days";
             }
         }
-        else if(!canSleep)
+        else
         {
             // TODO: Add more conditions to this, for gambling and quota
             daysUI.text = $"Can't sleep just yet...";
@@ -51,10 +49,5 @@ public class SleepingBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         daysUI.gameObject.SetActive(false);
-    }
-
-    public void SetSleep(bool setSleep)
-    {
-        canSleep = setSleep;
     }
 }
