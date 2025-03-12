@@ -14,7 +14,7 @@ public class PlayerHealth : BaseHealth
     {
         base.Start();
 
-        currentHealth = 20;
+        currentHealth = 10;
         UpdateHearts((int)currentHealth);
     }
 

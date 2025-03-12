@@ -9762,7 +9762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e193b3416b4e72f4882b818caef545e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinsToReachQuota: 10
+  spinsToReachQuota: 5
   quotaText: {fileID: 1397526951}
 --- !u!1 &1176756507
 GameObject:
