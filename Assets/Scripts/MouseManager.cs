@@ -32,13 +32,11 @@ public class MouseManager : MonoBehaviour
     public void LockMouse()
     {
         Cursor.lockState = CursorLockMode.Confined; // Locks the cursor to the game window
-        Cursor.visible = false;  
     }
 
     // Function to unlock the mouse cursor  
     public void UnlockMouse()
     {
         Cursor.lockState = CursorLockMode.None; // Unlocks the cursor from the game window
-        Cursor.visible = true;  
     }
 }
