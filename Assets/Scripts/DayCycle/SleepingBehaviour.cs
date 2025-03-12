@@ -5,8 +5,9 @@ using System.Collections;
 public class SleepingBehaviour : MonoBehaviour
 {
     [SerializeField] private TMP_Text daysUI;
-    [SerializeField] private float textShowupTime = 2f; //TODO: Show text is inregular speed when spam clicking
+    [SerializeField] private float textShowupTime = 2f; // TODO: Show text is inregular speed when spam clicking
     [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private LevelGenerator levelGenerator;
     public bool canSleep = true;
     private uint survivedDaysAmount; 
     private AudioSource sleepSFX;
@@ -20,8 +21,10 @@ public class SleepingBehaviour : MonoBehaviour
     {
         if (canSleep)
         {
+            // TODO: Make fade in fade out
             survivedDaysAmount++;
             canSleep = false;
+            levelGenerator.RegenerateLevel();
             sleepSFX.Play();
             playerHealth.SetMaxHealth();
 

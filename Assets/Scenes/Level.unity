@@ -8731,6 +8731,7 @@ MonoBehaviour:
   daysUI: {fileID: 1582819076}
   textShowupTime: 2
   playerHealth: {fileID: 14664890}
+  levelGenerator: {fileID: 1060338515}
   canSleep: 1
 --- !u!1 &923647766
 GameObject:
