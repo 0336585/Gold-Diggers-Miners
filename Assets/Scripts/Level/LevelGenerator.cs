@@ -12,6 +12,8 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private GameObject introPrefab;
     [SerializeField] private GameObject deathTriggerPrefab;
 
+    private GameObject levelParent; // Parent object for all level elements
+
     private void Start()
     {
         GenerateLevel();
@@ -19,6 +21,15 @@ public class LevelGenerator : MonoBehaviour
 
     private void GenerateLevel()
     {
+        // Delete old level if it exists
+        if (levelParent != null)
+        {
+            Destroy(levelParent);
+        }
+
+        // Create a new parent object for the level
+        levelParent = new GameObject("LevelParent");
+
         // Determine a reference tile size (using the first level prefab as reference)
         float tileWidth = 1f;
         float tileHeight = 1f;
@@ -40,15 +51,14 @@ public class LevelGenerator : MonoBehaviour
             if (col == introColumn && introPrefab != null)
             {
                 // Spawn intro prefab in the center
-                tile = Instantiate(introPrefab, currentPosition, Quaternion.identity);
+                tile = Instantiate(introPrefab, currentPosition, Quaternion.identity, levelParent.transform);
             }
             else
             {
                 // Spawn a random level prefab
                 GameObject selectedPrefab = levelPrefabs[Random.Range(0, levelPrefabs.Length)];
-                tile = Instantiate(selectedPrefab, currentPosition, Quaternion.identity);
+                tile = Instantiate(selectedPrefab, currentPosition, Quaternion.identity, levelParent.transform);
             }
-            tile.transform.parent = transform;
 
             // Move to the next column position
             currentPosition.x += tileWidth;
@@ -64,8 +74,7 @@ public class LevelGenerator : MonoBehaviour
             for (int col = 0; col < columns; col++)
             {
                 GameObject selectedPrefab = levelPrefabs[Random.Range(0, levelPrefabs.Length)];
-                GameObject tile = Instantiate(selectedPrefab, currentPosition, Quaternion.identity);
-                tile.transform.parent = transform;
+                GameObject tile = Instantiate(selectedPrefab, currentPosition, Quaternion.identity, levelParent.transform);
 
                 currentPosition.x += tileWidth;
             }
@@ -83,7 +92,7 @@ public class LevelGenerator : MonoBehaviour
         if (deathTriggerPrefab != null)
         {
             Vector2 spawnPosition = new Vector2(levelStartX + width / 2, yPos - 1f);
-            GameObject deathTrigger = Instantiate(deathTriggerPrefab, spawnPosition, Quaternion.identity);
+            GameObject deathTrigger = Instantiate(deathTriggerPrefab, spawnPosition, Quaternion.identity, levelParent.transform);
             deathTrigger.transform.localScale = new Vector3(width * 4, 1f, 1f); // The DeathTrigger is 4x times the size of the level
         }
     }
@@ -99,5 +108,19 @@ public class LevelGenerator : MonoBehaviour
         }
         Destroy(temp);
         return bounds;
+    }
+
+    public void DeleteLevel()
+    {
+        if (levelParent != null)
+        {
+            Destroy(levelParent);
+        }
+    }
+
+    public void RegenerateLevel()
+    {
+        DeleteLevel();   
+        GenerateLevel();  
     }
 }
