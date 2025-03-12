@@ -1,57 +1,57 @@
 using TMPro;
 using UnityEngine;
+using System.Collections;
 
 public class SleepingBehaviour : MonoBehaviour
 {
-    private uint survivedDaysAmount;
-    [SerializeField] GameObject keyPressPopUp;
-    [SerializeField] TMP_Text daysUI;
-    private bool inSleepRange = false;
+    [SerializeField] private TMP_Text daysUI;
+    [SerializeField] private float textShowupTime = 2f; //TODO: Show text is inregular speed when spam clicking
+    [SerializeField] private PlayerHealth playerHealth;
+    public bool canSleep = true;
+    private uint survivedDaysAmount; 
     private AudioSource sleepSFX;
+
     private void Start()
     {
-        keyPressPopUp.SetActive(false);
         sleepSFX = GetComponent<AudioSource>();
     }
-    private void Update()
+
+    public void Sleep()
     {
-        if (inSleepRange)
-            SleepableState();
+        if (canSleep)
+        {
+            survivedDaysAmount++;
+            canSleep = false;
+            sleepSFX.Play();
+            playerHealth.SetMaxHealth();
+
+            if (survivedDaysAmount == 1)
+            {
+                daysUI.text = $"you have survived {survivedDaysAmount} day";
+            }
+            else
+            {
+                daysUI.text = $"you have survived {survivedDaysAmount} days";
+            }
+        }
+        else if(!canSleep)
+        {
+            // TODO: Add more conditions to this, for gambling and quota
+            daysUI.text = $"Can't sleep just yet...";
+        }
+
+        daysUI.gameObject.SetActive(true);
+        StartCoroutine(HideTextAfterSeconds(textShowupTime));
     }
-    void SleepableState()
+
+    private IEnumerator HideTextAfterSeconds(float seconds)
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Sleep();
-        }
+        yield return new WaitForSeconds(seconds);
+        daysUI.gameObject.SetActive(false);
     }
-    void Sleep()
+
+    public void SetSleep(bool setSleep)
     {
-        sleepSFX.Play();
-        survivedDaysAmount++;
-        if (survivedDaysAmount == 1)
-        {
-            daysUI.text = $"you have survived {survivedDaysAmount} day";
-        }
-        else
-        {
-            daysUI.text = $"you have survived {survivedDaysAmount} days";
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<BasePlayer>())
-        {
-            inSleepRange = true;
-            keyPressPopUp.SetActive(true);
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.GetComponent<BasePlayer>())
-        {
-            inSleepRange = false;
-            keyPressPopUp.SetActive(false);
-        }
+        canSleep = setSleep;
     }
 }
