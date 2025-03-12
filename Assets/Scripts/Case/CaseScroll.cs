@@ -27,6 +27,7 @@ public class CaseScroll : MonoBehaviour
         if (isScrolling || MoneyManager.Instance.Money < cost)
             return;
 
+        QuotaManager.Instance.AddSpin();
         MoneyManager.Instance.RemoveMoney(cost);
         speed = Random.Range(4, 5);
         isScrolling = true;
