@@ -551,11 +551,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4302055844608756733, guid: eb37375fd7653d849bfbd2b69be585a6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1690.5979
+      value: -1511
       objectReference: {fileID: 0}
     - target: {fileID: 4302055844608756733, guid: eb37375fd7653d849bfbd2b69be585a6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -573.9
+      value: -285
       objectReference: {fileID: 0}
     - target: {fileID: 4302055844608756733, guid: eb37375fd7653d849bfbd2b69be585a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2206,9 +2206,9 @@ RectTransform:
   - {fileID: 1662190018}
   - {fileID: 1316843255}
   - {fileID: 1409398651}
-  - {fileID: 42143943}
   - {fileID: 868151209}
   - {fileID: 604407896}
+  - {fileID: 42143943}
   - {fileID: 1582819075}
   - {fileID: 1409880662}
   m_Father: {fileID: 0}
@@ -8885,7 +8885,6 @@ MonoBehaviour:
   textShowupTime: 2
   playerHealth: {fileID: 14664890}
   levelGenerator: {fileID: 1060338515}
-  canSleep: 1
 --- !u!1 &923647766
 GameObject:
   m_ObjectHideFlags: 0
@@ -10480,7 +10479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -776, y: 108}
+  m_AnchoredPosition: {x: -776, y: 229}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1409398652
