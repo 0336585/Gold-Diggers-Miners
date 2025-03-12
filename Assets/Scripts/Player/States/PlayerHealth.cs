@@ -42,6 +42,8 @@ public class PlayerHealth : BaseHealth
 
     public void UpdateHearts(int _currentHealth)
     {
+        if (heartPrefab == null || heartHalfPrefab == null) return;
+
         int maxHearts = 10;  // UI now displays up to 10 hearts (20 HP max)
 
         // Clear previous hearts
