@@ -9450,6 +9450,7 @@ MonoBehaviour:
   - {fileID: 983448794499325111, guid: 06708bb20012bc14684ef05d0488de37, type: 3}
   introPrefab: {fileID: 7890861065252850388, guid: 7b2c9fe5bc4ce7f4997ca6a737894604, type: 3}
   deathTriggerPrefab: {fileID: 6699474028103373676, guid: 543cbee583b44aa439165994724e7a38, type: 3}
+  invisibleWallPrefab: {fileID: 5744982255834889286, guid: 14afafc1500637945bac9372e6e68a0e, type: 3}
 --- !u!1 &1072810345
 GameObject:
   m_ObjectHideFlags: 0

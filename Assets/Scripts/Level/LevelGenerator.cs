@@ -11,6 +11,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private GameObject[] levelPrefabs;
     [SerializeField] private GameObject introPrefab;
     [SerializeField] private GameObject deathTriggerPrefab;
+    [SerializeField] private GameObject invisibleWallPrefab; 
 
     private GameObject levelParent; // Parent object for all level elements
 
@@ -41,6 +42,7 @@ public class LevelGenerator : MonoBehaviour
 
         // Calculate total row width and adjust starting x so that the row is centered
         float totalWidth = tileWidth * columns;
+        float totalHeight = tileHeight * rows;
         Vector2 currentPosition = new Vector2(startPosition.x - totalWidth / 2 + tileWidth / 2, startPosition.y);
 
         // First row: Place the intro prefab in the center and random level prefabs on the sides  
@@ -50,22 +52,17 @@ public class LevelGenerator : MonoBehaviour
             GameObject tile;
             if (col == introColumn && introPrefab != null)
             {
-                // Spawn intro prefab in the center
                 tile = Instantiate(introPrefab, currentPosition, Quaternion.identity, levelParent.transform);
             }
             else
             {
-                // Spawn a random level prefab
                 GameObject selectedPrefab = levelPrefabs[Random.Range(0, levelPrefabs.Length)];
                 tile = Instantiate(selectedPrefab, currentPosition, Quaternion.identity, levelParent.transform);
             }
-
-            // Move to the next column position
             currentPosition.x += tileWidth;
         }
 
         // Additional rows: Spawn random level prefabs 
-        // Reset x-position to the start of the row and move one row down
         currentPosition.x = startPosition.x - totalWidth / 2 + tileWidth / 2;
         currentPosition.y -= tileHeight;
 
@@ -75,16 +72,35 @@ public class LevelGenerator : MonoBehaviour
             {
                 GameObject selectedPrefab = levelPrefabs[Random.Range(0, levelPrefabs.Length)];
                 GameObject tile = Instantiate(selectedPrefab, currentPosition, Quaternion.identity, levelParent.transform);
-
                 currentPosition.x += tileWidth;
             }
-            // Reset x to the start and move down one row
             currentPosition.x = startPosition.x - totalWidth / 2 + tileWidth / 2;
             currentPosition.y -= tileHeight;
         }
 
+        // Spawn boundary walls
+        InvisibleWallSpawn(totalWidth, totalHeight, startPosition.x, startPosition.y - totalHeight / 2);
+
         // Spawn a death trigger below the level
         SpawnDeathTrigger(totalWidth, currentPosition.y, startPosition.x - totalWidth / 2);
+    }
+
+    private void InvisibleWallSpawn(float width, float height, float centerX, float centerY)
+    {
+        // Left wall
+        InstantiateWall(new Vector2(centerX - width / 2 - 0.5f, centerY), new Vector3(1f, height * 1.5f, 1f));
+        // Right wall
+        InstantiateWall(new Vector2(centerX + width / 2 + 0.5f, centerY), new Vector3(1f, height * 1.5f, 1f));
+        // Top wall 
+        InstantiateWall(new Vector2(centerX, centerY + height / 1.7f), new Vector3(width * 1.5f, 1f, 1f));
+        // Bottom wall 
+        InstantiateWall(new Vector2(centerX, centerY - height / 2.5f), new Vector3(width * 1.5f, 1f, 1f));
+    }
+
+    private void InstantiateWall(Vector2 position, Vector3 scale)
+    {
+        GameObject wall = Instantiate(invisibleWallPrefab, position, Quaternion.identity, levelParent.transform);
+        wall.transform.localScale = scale;
     }
 
     private void SpawnDeathTrigger(float width, float yPos, float levelStartX)
@@ -99,7 +115,6 @@ public class LevelGenerator : MonoBehaviour
 
     private Bounds GetPrefabBounds(GameObject prefab)
     {
-        // Instantiate a temporary object to measure its bounds
         GameObject temp = Instantiate(prefab);
         Bounds bounds = new Bounds(temp.transform.position, Vector3.zero);
         foreach (Renderer renderer in temp.GetComponentsInChildren<Renderer>())
@@ -120,7 +135,7 @@ public class LevelGenerator : MonoBehaviour
 
     public void RegenerateLevel()
     {
-        DeleteLevel();   
-        GenerateLevel();  
+        DeleteLevel();
+        GenerateLevel();
     }
 }
