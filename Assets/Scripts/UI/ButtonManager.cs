@@ -12,11 +12,16 @@ public class ButtonManager : MonoBehaviour
 
     public void Options()
     {
-        optionsMenu.SetActive(true);
+        optionsMenu?.SetActive(true);
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

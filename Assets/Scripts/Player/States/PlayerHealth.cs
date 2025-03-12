@@ -8,6 +8,8 @@ public class PlayerHealth : BaseHealth
     [SerializeField] private GameObject heartPrefab;
     [SerializeField] private GameObject heartHalfPrefab;
 
+    [SerializeField] private GameObject deathScreen;
+
     private List<GameObject> hearts = new List<GameObject>();
 
     public override void Start()
@@ -37,7 +39,10 @@ public class PlayerHealth : BaseHealth
     private void Die()
     {
         if (currentHealth <= 0)
+        {
             Destroy(gameObject);
+            deathScreen.SetActive(true);
+        }
     }
 
     public void UpdateHearts(int _currentHealth)
