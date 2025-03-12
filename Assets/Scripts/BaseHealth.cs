@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterStats))]
 public class BaseHealth : MonoBehaviour
 {
-    [field: SerializeField] public float maxHealth { get; set; }
-    [field: SerializeField] public float currentHealth { get; set; }
+    public float maxHealth { get; set; }
+    public float currentHealth { get; set; }
 
     public virtual void Start()
     {
