@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +11,7 @@ public class Teleporter : MonoBehaviour
     [SerializeField] private bool shouldSwitchPostProcess = false;
     [SerializeField] private bool shouldSwitchMusic = false;
     [SerializeField] private bool shouldCountEnemiesForMusic = false;
+    private bool isTeleporting = false;
 
     [Header("UI")]
     [SerializeField] private GameObject switchScreen;
@@ -43,11 +44,13 @@ public class Teleporter : MonoBehaviour
 
     private void TeleportableState()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && BasePlayer.Instance.PlayerCanTeleport())
         {
+            BasePlayer.Instance.SetCanTeleport(false);
             StartCoroutine(Teleport());
         }
     }
+
 
     private IEnumerator Teleport()
     {
@@ -70,10 +73,12 @@ public class Teleporter : MonoBehaviour
         if (shouldCountEnemiesForMusic)
             musicPlayer.CountEnemies();
 
-        yield return new WaitUntil(() => switchAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !switchAnim.IsInTransition(0));
+        yield return new WaitForSeconds(3);
 
         switchAnim.SetBool("LocationSwap", false);
+        BasePlayer.Instance.SetCanTeleport(true);
     }
+
 
     private void SwitchMusic()
     {

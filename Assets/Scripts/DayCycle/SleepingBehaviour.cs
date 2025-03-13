@@ -13,6 +13,8 @@ public class SleepingBehaviour : MonoBehaviour
     private AudioSource sleepSFX;
     private Animator menuAnimator;
 
+
+
     private bool playerIsSleeping = false;
 
     private void Start()

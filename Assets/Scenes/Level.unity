@@ -1433,6 +1433,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 14664890}
     - target: {fileID: 5640408106963875859, guid: 88a1125f811c8874cb5161a72ad0a285, type: 3}
+      propertyPath: oxygenManager
+      value: 
+      objectReference: {fileID: 227751821}
+    - target: {fileID: 5640408106963875859, guid: 88a1125f811c8874cb5161a72ad0a285, type: 3}
       propertyPath: levelGenerator
       value: 
       objectReference: {fileID: 1060338515}
@@ -1666,6 +1670,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &227751821 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3300787727299355600, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+  m_PrefabInstance: {fileID: 14664887}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227751812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28d1132aa58de042985b1630ad26760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &270054114
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,6 +2272,9 @@ MonoBehaviour:
   shouldSwitchPostProcess: 0
   shouldSwitchMusic: 0
   shouldCountEnemiesForMusic: 0
+  switchScreen: {fileID: 1713346853}
+  locationName: Town
+  locationNametext: {fileID: 1713346852}
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 3
 --- !u!1 &388186902
@@ -2391,6 +2409,9 @@ MonoBehaviour:
   shouldSwitchPostProcess: 1
   shouldSwitchMusic: 1
   shouldCountEnemiesForMusic: 1
+  switchScreen: {fileID: 1713346853}
+  locationName: Mine
+  locationNametext: {fileID: 1713346852}
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 1
 --- !u!61 &394425327
@@ -2683,6 +2704,7 @@ RectTransform:
   - {fileID: 202232012}
   - {fileID: 835819876}
   - {fileID: 205869330}
+  - {fileID: 1713346851}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9688,7 +9710,7 @@ MonoBehaviour:
   sleepMenu: {fileID: 205869331}
   playerHealth: {fileID: 14664890}
   levelGenerator: {fileID: 1060338515}
-  oxygenManager: {fileID: 0}
+  oxygenManager: {fileID: 227751821}
 --- !u!1 &923647766
 GameObject:
   m_ObjectHideFlags: 0
@@ -15091,6 +15113,9 @@ MonoBehaviour:
   shouldSwitchPostProcess: 0
   shouldSwitchMusic: 0
   shouldCountEnemiesForMusic: 0
+  switchScreen: {fileID: 1713346853}
+  locationName: Evert's house
+  locationNametext: {fileID: 1713346852}
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 3
 --- !u!4 &1623909795
@@ -15734,6 +15759,124 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694596889}
   m_CullTransparentMesh: 1
+--- !u!1001 &1713346850
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 407797755}
+    m_Modifications:
+    - target: {fileID: 719458802142212070, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_Name
+      value: LocationSwitch
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+--- !u!224 &1713346851 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+  m_PrefabInstance: {fileID: 1713346850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1713346852 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8078659951547906790, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+  m_PrefabInstance: {fileID: 1713346850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1713346853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 719458802142212070, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+  m_PrefabInstance: {fileID: 1713346850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1714252976
 GameObject:
   m_ObjectHideFlags: 0
@@ -18302,6 +18445,9 @@ MonoBehaviour:
   shouldSwitchPostProcess: 1
   shouldSwitchMusic: 1
   shouldCountEnemiesForMusic: 0
+  switchScreen: {fileID: 1713346853}
+  locationName: Town
+  locationNametext: {fileID: 1713346852}
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 3
 --- !u!61 &1999888437
