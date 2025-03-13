@@ -8,6 +8,7 @@ public class SleepingBehaviour : MonoBehaviour
     [SerializeField] private GameObject sleepMenu;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private LevelGenerator levelGenerator;
+    [SerializeField] private OxygenManager oxygenManager;
     private uint survivedDaysAmount; 
     private AudioSource sleepSFX;
     private Animator menuAnimator;
@@ -23,7 +24,6 @@ public class SleepingBehaviour : MonoBehaviour
     {
         if (QuotaManager.Instance.PlayerReachedQuota())
         {
-            Debug.Log("Quota reached");
             if (playerIsSleeping) return;
 
             playerIsSleeping = true;
