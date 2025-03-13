@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject inventory;
     [SerializeField] private GameObject inventoryItemHolder;
     [SerializeField] private GameObject inventoryItem;
+    private GameObject currentHover;
 
     // Dictionary to store minerals and their quantities
     private Dictionary<InventoryMineral, int> minerals = new Dictionary<InventoryMineral, int>();
@@ -123,6 +124,8 @@ public class Inventory : MonoBehaviour
         inventoryIsOpen = false;
         inventory.SetActive(false);
 
+        Destroy(currentHover);
+
         // Get all the InventorySlot components in the children of inventoryItemHolder
         InventorySlot[] showingGO = inventoryItemHolder.GetComponentsInChildren<InventorySlot>();
 
@@ -132,4 +135,6 @@ public class Inventory : MonoBehaviour
             Destroy(showingGO[i].gameObject);
         }
     }
+
+    public void SetCurrentHover(GameObject _currentHover) => currentHover = _currentHover;
 }
