@@ -14,12 +14,16 @@ public class OxygenManager : MonoBehaviour
     private PlayerHealth playerHealth;
     private Coroutine damageCoroutine;
 
-    [SerializeField] private List<GameObject> oxygenBubbles; 
+    [SerializeField] private List<GameObject> oxygenBubbles;
+    [SerializeField] private AudioSource oxygenDepleteSound; 
+
+    private int lastOxygenLevel;  
 
     private void Start()
     {
         currentOxygen = maxOxygen;
         playerHealth = GetComponent<PlayerHealth>();
+        lastOxygenLevel = Mathf.CeilToInt(currentOxygen / 10f);
         UpdateOxygenUI();
     }
 
@@ -31,6 +35,15 @@ public class OxygenManager : MonoBehaviour
         {
             currentOxygen -= oxygenLoseRate * Time.deltaTime;
             currentOxygen = Mathf.Clamp(currentOxygen, 0, maxOxygen);
+
+            // Check if oxygen level dropped by 10
+            int currentOxygenLevel = Mathf.CeilToInt(currentOxygen / 10f);
+            if (currentOxygenLevel < lastOxygenLevel)
+            {
+                PlayOxygenDepleteSound();
+            }
+            lastOxygenLevel = currentOxygenLevel;
+
             UpdateOxygenUI();
         }
 
@@ -70,5 +83,10 @@ public class OxygenManager : MonoBehaviour
         {
             oxygenBubbles[i].SetActive(i < activeBubbles); // Enable only necessary bubbles
         }
+    }
+
+    private void PlayOxygenDepleteSound()
+    {
+        oxygenDepleteSound.Play();
     }
 }
