@@ -64,6 +64,7 @@ public class SleepingBehaviour : MonoBehaviour
     {
         levelGenerator.RegenerateLevel();
         playerHealth.SetMaxHealth();
+        oxygenManager.AddMaxOxygen();
         playerIsSleeping = false;
         sleepMenu.SetActive(false);
     }
