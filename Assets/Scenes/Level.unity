@@ -2269,6 +2269,9 @@ MonoBehaviour:
   target: {fileID: 1623909792}
   player: {fileID: 227751812}
   townEntryChecker: {fileID: 1154817816}
+  generalEvent:
+    m_PersistentCalls:
+      m_Calls: []
   shouldSwitchPostProcess: 0
   shouldSwitchMusic: 0
   shouldCountEnemiesForMusic: 0
@@ -2493,6 +2496,9 @@ MonoBehaviour:
   target: {fileID: 1999888434}
   player: {fileID: 227751812}
   townEntryChecker: {fileID: 1154817816}
+  generalEvent:
+    m_PersistentCalls:
+      m_Calls: []
   shouldSwitchPostProcess: 1
   shouldSwitchMusic: 1
   shouldCountEnemiesForMusic: 1
@@ -15725,6 +15731,9 @@ MonoBehaviour:
   target: {fileID: 373069706}
   player: {fileID: 227751812}
   townEntryChecker: {fileID: 1154817816}
+  generalEvent:
+    m_PersistentCalls:
+      m_Calls: []
   shouldSwitchPostProcess: 0
   shouldSwitchMusic: 0
   shouldCountEnemiesForMusic: 0
@@ -19236,6 +19245,21 @@ MonoBehaviour:
   target: {fileID: 394425324}
   player: {fileID: 227751812}
   townEntryChecker: {fileID: 1154817816}
+  generalEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 227751821}
+        m_TargetAssemblyTypeName: OxygenManager, Assembly-CSharp
+        m_MethodName: AddMaxOxygen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   shouldSwitchPostProcess: 1
   shouldSwitchMusic: 1
   shouldCountEnemiesForMusic: 0

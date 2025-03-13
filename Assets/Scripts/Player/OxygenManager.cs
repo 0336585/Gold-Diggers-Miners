@@ -88,6 +88,7 @@ public class OxygenManager : MonoBehaviour
     public void AddMaxOxygen()
     {
         currentOxygen = maxOxygen;
+        UpdateOxygenUI();
     }
 
     private void PlayOxygenDepleteSound()

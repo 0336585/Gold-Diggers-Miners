@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Teleporter : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Teleporter : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject player;
     [SerializeField] private TownEntryChecker townEntryChecker;
+    [SerializeField] private UnityEvent generalEvent;
+    // TODO: Remove these bools with Unity Event call
     [SerializeField] private bool shouldSwitchPostProcess = false;
     [SerializeField] private bool shouldSwitchMusic = false;
     [SerializeField] private bool shouldCountEnemiesForMusic = false;
@@ -47,6 +50,7 @@ public class Teleporter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && BasePlayer.Instance.PlayerCanTeleport())
         {
             BasePlayer.Instance.SetCanTeleport(false);
+            generalEvent?.Invoke();
             switchScreen.SetActive(true);
             StartCoroutine(Teleport());
         }
