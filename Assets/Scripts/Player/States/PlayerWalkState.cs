@@ -22,11 +22,6 @@ public class PlayerWalkState : PlayerGroundedState
 
         if (xInput == 0)
             stateMachine.ChangeState(player.idleState);
-
-        if (xInput < 0 && player.facingRight)
-            player.Flip();
-        else if (xInput > 0 && !player.facingRight)
-            player.Flip();
     }
 
     public override void FixedUpdate()
