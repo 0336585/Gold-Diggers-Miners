@@ -5,11 +5,15 @@ using System.Collections;
 public class SleepingBehaviour : MonoBehaviour
 {
     [SerializeField] private TMP_Text daysUI;
-    [SerializeField] private float textShowupTime = 2f; // TODO: Show text is inregular speed when spam clicking
+    [SerializeField] private GameObject sleepMenu;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private LevelGenerator levelGenerator;
+    [SerializeField] private OxygenManager oxygenManager;
     private uint survivedDaysAmount; 
     private AudioSource sleepSFX;
+    private Animator menuAnimator;
+
+    private bool playerIsSleeping = false;
 
     private void Start()
     {
@@ -20,11 +24,12 @@ public class SleepingBehaviour : MonoBehaviour
     {
         if (QuotaManager.Instance.PlayerReachedQuota())
         {
+            if (playerIsSleeping) return;
+
+            playerIsSleeping = true;
             // TODO: Make fade in fade out
             survivedDaysAmount++;
-            levelGenerator.RegenerateLevel();
             sleepSFX.Play();
-            playerHealth.SetMaxHealth();
 
             if (survivedDaysAmount == 1)
             {
@@ -34,6 +39,11 @@ public class SleepingBehaviour : MonoBehaviour
             {
                 daysUI.text = $"you have survived {survivedDaysAmount} days";
             }
+
+            sleepMenu.SetActive(true);
+            menuAnimator = sleepMenu.GetComponent<Animator>();
+            menuAnimator.SetTrigger("SleepAnim");
+            StartCoroutine(TimeToSleepAgain(6));
         }
         else
         {
@@ -41,13 +51,20 @@ public class SleepingBehaviour : MonoBehaviour
             daysUI.text = $"Can't sleep just yet...";
         }
 
-        daysUI.gameObject.SetActive(true);
-        StartCoroutine(HideTextAfterSeconds(textShowupTime));
+        
     }
 
-    private IEnumerator HideTextAfterSeconds(float seconds)
+    private IEnumerator TimeToSleepAgain(float _time)
     {
-        yield return new WaitForSeconds(seconds);
-        daysUI.gameObject.SetActive(false);
+        yield return new WaitForSeconds(_time);
+        playerIsSleeping = false;
+    }
+
+    public void SleepEvent()
+    {
+        levelGenerator.RegenerateLevel();
+        playerHealth.SetMaxHealth();
+        playerIsSleeping = false;
+        sleepMenu.SetActive(false);
     }
 }
