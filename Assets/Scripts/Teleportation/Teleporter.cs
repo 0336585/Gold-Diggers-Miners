@@ -47,6 +47,7 @@ public class Teleporter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && BasePlayer.Instance.PlayerCanTeleport())
         {
             BasePlayer.Instance.SetCanTeleport(false);
+            switchScreen.SetActive(true);
             StartCoroutine(Teleport());
         }
     }
@@ -77,6 +78,7 @@ public class Teleporter : MonoBehaviour
 
         switchAnim.SetBool("LocationSwap", false);
         BasePlayer.Instance.SetCanTeleport(true);
+        switchScreen.SetActive(false);
     }
 
 

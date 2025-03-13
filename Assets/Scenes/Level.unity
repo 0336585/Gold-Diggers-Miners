@@ -16386,6 +16386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LocationSwitch
       objectReference: {fileID: 0}
+    - target: {fileID: 719458802142212070, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7151115216800964407, guid: bb1fa136060e6ad4dbd79fbbd4578bfb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
