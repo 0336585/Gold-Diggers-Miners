@@ -44,19 +44,37 @@ public class CaseScroll : MonoBehaviour
 
     private IEnumerator StartScrolling()
     {
-        while (speed > 0)
-        {
-            speed -= Time.deltaTime;
+        float elapsedTime = 0f;
+        float scrollDuration = speed; // The initial speed determines the duration
 
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.left * 100, speed * Time.deltaTime * 1500);
+        while (elapsedTime < scrollDuration)
+        {
+            elapsedTime += Time.unscaledDeltaTime; // Use unscaledDeltaTime to avoid FPS dependence
+
+            float step = Mathf.Lerp(100, 0, elapsedTime / scrollDuration); // Smooth stop
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.left * step, Time.unscaledDeltaTime * 1500);
 
             yield return null;
         }
 
         caseResult.ShowResult();
+        yield return new WaitForSecondsRealtime(3); // Ensure real-time waiting
 
-        yield return new WaitForSeconds(3);
+        gambleMenu.SetActive(false);
 
+        for (int i = 0; i < cells.Count; i++)
+        {
+            Destroy(cells[i].transform.parent.transform.parent.gameObject);
+        }
+
+        cells.Clear();
+        isScrolling = false;
+        transform.position = startPos;
+    }
+
+
+    public void CloseMenu()
+    {
         gambleMenu.SetActive(false);
 
         for (int i = 0; i < cells.Count; i++)
