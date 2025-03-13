@@ -36,22 +36,22 @@ public class ShopSlot : MonoBehaviour
     {
         switch (_mineral.rarity)
         {
-            case MineralRarity.uncommon:
+            case MineralRarity.Uncommon:
                 rarityMat = inventoryUIManager.UncommonMat;
                 break;
-            case MineralRarity.rare:
+            case MineralRarity.Rare:
                 rarityMat = inventoryUIManager.RareMat;
                 break;
-            case MineralRarity.epic:
+            case MineralRarity.Epic:
                 rarityMat = inventoryUIManager.EpicMat;
                 break;
-            case MineralRarity.legendary:
+            case MineralRarity.Legendary:
                 rarityMat = inventoryUIManager.LegendaryMat;
                 break;
-            case MineralRarity.mythic:
+            case MineralRarity.Mythic:
                 rarityMat = inventoryUIManager.MythicMat;
                 break;
-            case MineralRarity.secret:
+            case MineralRarity.Secret:
                 rarityMat = inventoryUIManager.SecretMat;
                 break;
         }
