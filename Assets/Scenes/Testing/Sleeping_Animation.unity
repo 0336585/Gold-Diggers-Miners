@@ -1999,6 +1999,9 @@ MonoBehaviour:
   shouldSwitchPostProcess: 0
   shouldSwitchMusic: 0
   shouldCountEnemiesForMusic: 0
+  switchScreen: {fileID: 620233589}
+  locationName: Town
+  locationNametext: {fileID: 1974870395}
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 3
 --- !u!1 &388186902
@@ -2133,6 +2136,9 @@ MonoBehaviour:
   shouldSwitchPostProcess: 1
   shouldSwitchMusic: 1
   shouldCountEnemiesForMusic: 1
+  switchScreen: {fileID: 620233589}
+  locationName: Mine
+  locationNametext: {fileID: 1974870395}
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 1
 --- !u!61 &394425327
@@ -9304,6 +9310,7 @@ MonoBehaviour:
   sleepMenu: {fileID: 449544596}
   playerHealth: {fileID: 0}
   levelGenerator: {fileID: 0}
+  oxygenManager: {fileID: 0}
 --- !u!1 &923647766
 GameObject:
   m_ObjectHideFlags: 0
@@ -14570,6 +14577,9 @@ MonoBehaviour:
   shouldSwitchPostProcess: 0
   shouldSwitchMusic: 0
   shouldCountEnemiesForMusic: 0
+  switchScreen: {fileID: 620233589}
+  locationName: Evert's house
+  locationNametext: {fileID: 1974870395}
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 3
 --- !u!4 &1623909795
@@ -17542,6 +17552,9 @@ MonoBehaviour:
   shouldSwitchPostProcess: 1
   shouldSwitchMusic: 1
   shouldCountEnemiesForMusic: 0
+  switchScreen: {fileID: 620233589}
+  locationName: Town
+  locationNametext: {fileID: 1974870395}
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 3
 --- !u!61 &1999888437

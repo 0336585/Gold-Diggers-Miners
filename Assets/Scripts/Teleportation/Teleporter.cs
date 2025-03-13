@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +11,12 @@ public class Teleporter : MonoBehaviour
     [SerializeField] private bool shouldSwitchPostProcess = false;
     [SerializeField] private bool shouldSwitchMusic = false;
     [SerializeField] private bool shouldCountEnemiesForMusic = false;
+
+    [Header("UI")]
+    [SerializeField] private GameObject switchScreen;
+    [SerializeField] private string locationName;
+    [SerializeField] private TextMeshProUGUI locationNametext;
+
 
     // New Field for MusicPlayer reference
     [SerializeField] private MusicPlayer musicPlayer;
@@ -38,12 +45,18 @@ public class Teleporter : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Teleport();
+            StartCoroutine(Teleport());
         }
     }
 
-    private void Teleport()
+    private IEnumerator Teleport()
     {
+        Animator switchAnim = switchScreen.GetComponent<Animator>();
+        switchAnim.SetBool("LocationSwap", true);
+        locationNametext.text = locationName;
+
+        yield return new WaitForSeconds(1);
+
         player.transform.position = target.transform.position;
 
         // Switch Post-Processing effects if needed
@@ -56,6 +69,10 @@ public class Teleporter : MonoBehaviour
 
         if (shouldCountEnemiesForMusic)
             musicPlayer.CountEnemies();
+
+        yield return new WaitUntil(() => switchAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !switchAnim.IsInTransition(0));
+
+        switchAnim.SetBool("LocationSwap", false);
     }
 
     private void SwitchMusic()
