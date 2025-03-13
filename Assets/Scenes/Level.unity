@@ -294,6 +294,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: townClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: 'shopClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ac106959cb3cc3a43a8fbae77e92e376, type: 3}
+    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: 'townClips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c68e006e0f3d26345b27b276193260c7, type: 3}
     - target: {fileID: 7233721711882435501, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.15
@@ -9676,6 +9688,7 @@ MonoBehaviour:
   sleepMenu: {fileID: 205869331}
   playerHealth: {fileID: 14664890}
   levelGenerator: {fileID: 1060338515}
+  oxygenManager: {fileID: 0}
 --- !u!1 &923647766
 GameObject:
   m_ObjectHideFlags: 0
