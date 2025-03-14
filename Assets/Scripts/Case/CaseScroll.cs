@@ -52,7 +52,7 @@ public class CaseScroll : MonoBehaviour
             elapsedTime += Time.unscaledDeltaTime; // Use unscaledDeltaTime to avoid FPS dependence
 
             float step = Mathf.Lerp(100, 0, elapsedTime / scrollDuration); // Smooth stop
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.left * step, Time.unscaledDeltaTime * 1500);
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.left * step, Time.unscaledDeltaTime * 3400);
 
             yield return null;
         }
