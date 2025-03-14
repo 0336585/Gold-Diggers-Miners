@@ -26,7 +26,7 @@ public class ProjectileShooter : MonoBehaviour
         get { return reserveAmmo; }
         private set { reserveAmmo = value; }
     }
-    //TODO: Add private max ammo that's a check for reserveAmmo while being the same amount 
+
     [SerializeField] private float reloadTime = 2f;
 
     [Header("Multishot Settings")]
@@ -94,35 +94,37 @@ public class ProjectileShooter : MonoBehaviour
 
         bool isFlipped = firePoint.lossyScale.x < 0; // Check if arm (fire point) is flipped
 
+        // Calculate direction to mouse
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0f; // Ensure 2D space
+        Vector2 shootDirection = (mousePosition - firePoint.position).normalized;
+
         if (multishotMode)
         {
             // Shotgun mode: Fire multiple bullets in a spread
             for (int i = 0; i < bulletsPerShot; i++)
             {
+                // Generate a random spread angle for each bullet
                 float randomAngle = Random.Range(-spreadAngle / 2, spreadAngle / 2);
                 if (isFlipped)
                 {
                     randomAngle = -randomAngle; // Flip the spread angle when facing left
                 }
 
+                // Apply the spread by rotating the original shoot direction
                 Quaternion spreadRotation = Quaternion.Euler(0, 0, randomAngle);
 
-                // Calculate direction to mouse
-                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePosition.z = 0f; // Ensure 2D space
-                Vector2 shootDirection = (mousePosition - firePoint.position).normalized;
+                // Adjust the shoot direction with the spread rotation
+                Vector2 spreadDirection = spreadRotation * shootDirection;
 
-                // Rotate projectile to face the mouse
-                float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
-                Quaternion bulletRotation = Quaternion.Euler(0f, 0f, angle) * spreadRotation;
-
-                GameObject projectile = Instantiate(projectilePrefab, firePoint.position, bulletRotation);
+                // Create and shoot the projectile
+                GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.LookRotation(Vector3.forward, spreadDirection));
                 SetProjectileDamage(projectile);
                 projectile.GetComponent<ProjectileDamage>().SetShooter(this);
 
                 if (projectile.TryGetComponent(out Rigidbody2D rb))
                 {
-                    rb.linearVelocity = shootDirection * projectileSpeed;
+                    rb.linearVelocity = spreadDirection * projectileSpeed; // Apply velocity based on the spread direction
                 }
 
                 Destroy(projectile, projectileLifetime);
@@ -130,28 +132,20 @@ public class ProjectileShooter : MonoBehaviour
         }
         else
         {
-            // Rifle mode: Fire a single bullet
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0f; // Ensure 2D space
-            Vector2 shootDirection = (mousePosition - firePoint.position).normalized;
-
-            // Rotate projectile to face the mouse
-            float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
-            Quaternion bulletRotation = Quaternion.Euler(0f, 0f, angle);
-
+            // Rifle mode: Fire a single bullet  
+            Quaternion bulletRotation = Quaternion.Euler(0, 0, Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg);
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, bulletRotation);
             SetProjectileDamage(projectile);
             projectile.GetComponent<ProjectileDamage>().SetShooter(this);
 
             if (projectile.TryGetComponent(out Rigidbody2D rb))
             {
-                rb.linearVelocity = shootDirection * projectileSpeed;
+                rb.linearVelocity = shootDirection * projectileSpeed; // Ensure velocity is set properly
             }
 
             Destroy(projectile, projectileLifetime);
         }
     }
-
 
 
     private void SetProjectileDamage(GameObject projectile)
