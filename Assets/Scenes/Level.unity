@@ -2168,7 +2168,7 @@ MonoBehaviour:
   shouldSwitchMusic: 0
   shouldCountEnemiesForMusic: 0
   switchScreen: {fileID: 1713346853}
-  locationName: Town
+  locationName: Company Town
   locationNametext: {fileID: 1713346852}
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 3
@@ -19159,7 +19159,7 @@ MonoBehaviour:
   shouldSwitchMusic: 1
   shouldCountEnemiesForMusic: 0
   switchScreen: {fileID: 1713346853}
-  locationName: Town
+  locationName: Company Town
   locationNametext: {fileID: 1713346852}
   musicPlayer: {fileID: 227751816}
   selectedPlaylist: 3
