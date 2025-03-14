@@ -12,6 +12,10 @@ public class PlayerHealth : BaseHealth
     [SerializeField] private GameObject heartHalfPrefab;
     [SerializeField] private GameObject deathScreen;
 
+    [SerializeField] private float damageEffectIntensity = 0.6f;
+    [SerializeField] private float defaultEffectIntensity = 0.3f;
+    [SerializeField] private float effectDuration = 0.2f;
+
     [SerializeField] private List<Volume> postProcessVolumes; // All Post Process Volumes in scene
 
     private List<GameObject> hearts = new List<GameObject>();
@@ -130,13 +134,13 @@ public class PlayerHealth : BaseHealth
         {
             // Change to red and increase intensity
             activeVignette.color.Override(Color.red);
-            activeVignette.intensity.Override(0.8f);  
+            activeVignette.intensity.Override(damageEffectIntensity);  
 
-            yield return new WaitForSeconds(0.3f);  
+            yield return new WaitForSeconds(effectDuration);  
 
             // Return vignette color to black and reset intensity
             activeVignette.color.Override(Color.black);
-            activeVignette.intensity.Override(0.3f);  
+            activeVignette.intensity.Override(defaultEffectIntensity);  
         }
     }
 }
