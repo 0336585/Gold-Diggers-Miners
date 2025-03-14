@@ -226,6 +226,18 @@ PrefabInstance:
       propertyPath: heartHolder
       value: 
       objectReference: {fileID: 1662190017}
+    - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: postProcessVolumes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: 'postProcessVolumes.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1900407811}
+    - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: 'postProcessVolumes.Array.data[1]'
+      value: 
+      objectReference: {fileID: 485474249}
     - target: {fileID: 3300787727299355600, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: 'oxygenBubbles.Array.data[0]'
       value: 

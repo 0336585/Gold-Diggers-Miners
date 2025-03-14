@@ -1,21 +1,25 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerHealth : BaseHealth
 {
     [SerializeField] private GameObject heartHolder;
     [SerializeField] private GameObject heartPrefab;
     [SerializeField] private GameObject heartHalfPrefab;
-
     [SerializeField] private GameObject deathScreen;
 
+    [SerializeField] private List<Volume> postProcessVolumes; // All Post Process Volumes in scene
+
     private List<GameObject> hearts = new List<GameObject>();
+    private Vignette activeVignette; // Reference to active vignette effect
 
     public override void Start()
     {
         base.Start();
-
         currentHealth = 10;
         UpdateHearts((int)currentHealth);
     }
@@ -23,16 +27,16 @@ public class PlayerHealth : BaseHealth
     public override void TakeDamage(CharacterStats _entityTakingDamage, CharacterStats _entityDoingDamage)
     {
         base.TakeDamage(_entityTakingDamage, _entityDoingDamage);
-
         UpdateHearts((int)currentHealth);
+        FlashVignette(); // Trigger vignette flash effect
         Die();
     }
 
     public override void TakeDamageWithInt(CharacterStats _entityTakingDamage, int _damage)
     {
         base.TakeDamageWithInt(_entityTakingDamage, _damage);
-
         UpdateHearts((int)currentHealth);
+        FlashVignette(); // Trigger vignette flash effect
         Die();
     }
 
@@ -88,9 +92,6 @@ public class PlayerHealth : BaseHealth
         }
     }
 
-
-
-
     public int GetCurrentHealth()
     {
         return (int)currentHealth;
@@ -100,5 +101,46 @@ public class PlayerHealth : BaseHealth
     {
         currentHealth = maxHealth;
         UpdateHearts((int)currentHealth);
+    }
+
+    private void FlashVignette()
+    {
+        Volume activeVolume = GetActivePostProcessVolume();
+        if (activeVolume != null && activeVolume.profile.TryGet(out activeVignette))
+        {
+            StartCoroutine(VignetteFlashCoroutine());
+        }
+    }
+
+    private Volume GetActivePostProcessVolume()
+    {
+        foreach (Volume volume in postProcessVolumes)
+        {
+            if (volume.isActiveAndEnabled) // Check if volume is enabled
+            {
+                return volume;
+            }
+        }
+        return null;
+    }
+
+    private IEnumerator VignetteFlashCoroutine()
+    {
+        if (activeVignette != null)
+        {
+            // Save original color and intensity
+            ColorParameter originalColor = activeVignette.color;
+            ClampedFloatParameter originalIntensity = activeVignette.intensity;
+
+            // Change to red and increase intensity
+            activeVignette.color.Override(Color.red);
+            activeVignette.intensity.Override(0.8f);  
+
+            yield return new WaitForSeconds(0.3f);  
+
+            // Return vignette color to black and reset intensity
+            activeVignette.color.Override(Color.black);
+            activeVignette.intensity.Override(0.3f);  
+        }
     }
 }
