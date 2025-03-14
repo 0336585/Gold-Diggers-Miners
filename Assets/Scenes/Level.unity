@@ -239,6 +239,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 485474249}
     - target: {fileID: 3300787727299355600, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: maxOxygen
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300787727299355600, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: 'oxygenBubbles.Array.data[0]'
       value: 
       objectReference: {fileID: 1751765270}

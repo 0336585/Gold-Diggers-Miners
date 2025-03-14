@@ -28,7 +28,7 @@ public class PlayerHealth : BaseHealth
     {
         base.TakeDamage(_entityTakingDamage, _entityDoingDamage);
         UpdateHearts((int)currentHealth);
-        FlashVignette(); // Trigger vignette flash effect
+        FlashVignette(); 
         Die();
     }
 
@@ -36,7 +36,7 @@ public class PlayerHealth : BaseHealth
     {
         base.TakeDamageWithInt(_entityTakingDamage, _damage);
         UpdateHearts((int)currentHealth);
-        FlashVignette(); // Trigger vignette flash effect
+        FlashVignette();  
         Die();
     }
 
