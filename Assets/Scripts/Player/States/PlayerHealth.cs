@@ -128,10 +128,6 @@ public class PlayerHealth : BaseHealth
     {
         if (activeVignette != null)
         {
-            // Save original color and intensity
-            ColorParameter originalColor = activeVignette.color;
-            ClampedFloatParameter originalIntensity = activeVignette.intensity;
-
             // Change to red and increase intensity
             activeVignette.color.Override(Color.red);
             activeVignette.intensity.Override(0.8f);  
