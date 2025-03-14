@@ -1,13 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
-    [SerializeField] private AudioClip[] ambientClips;
-    [SerializeField] private AudioClip[] actionClips;
+    public AudioClip[] ambientClips;
+    public AudioClip[] actionClips;
+    public AudioClip[] townClips;
+    public AudioClip[] casinoClips;
+    public AudioClip[] shopClips;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip defaultClip;
+    [SerializeField] private StartingLocation startingLocation;
+    public bool isInSpecialArea = true;  // Note: This is needed to activate the town playlist
     [SerializeField] private float distanceThreshold = 25f;
     [SerializeField] private float fadeDuration = 1f;
     [SerializeField] private float combatMusicMinDuration = 3f;
@@ -15,6 +19,15 @@ public class MusicPlayer : MonoBehaviour
     [SerializeField] private float volumeRecoveryDelay = 4f;
     [SerializeField] private float volumeRecoverySpeed = 0.3f;
     [SerializeField] private int enemyAmountForSwitch = 3;
+
+    // Enum to define starting locations
+    public enum StartingLocation
+    {
+        None,  // For areas like ambient zones
+        Town,
+        Casino,
+        Shop
+    }
 
     private AudioClip[] currentPlaylist;
     private Coroutine fadeCoroutine;
@@ -25,21 +38,33 @@ public class MusicPlayer : MonoBehaviour
 
     private int nearbyEnemiesCount = 0;
     private bool canSwitchToAmbient = true;
-    private float maxVolume; 
+    private float maxVolume;
 
     private void Start()
     {
-        enemies = FindObjectsOfType<EnemyTargeting>();
         player = gameObject.transform;
-        currentPlaylist = ambientClips;
-        maxVolume = audioSource.volume;  
+        maxVolume = audioSource.volume;
+
+        // Set the initial playlist based on the starting location
+        SetInitialPlaylist(startingLocation);
+
         PlayRandomClip();
         StartCoroutine(MonitorAudioSource());
     }
 
     private void Update()
     {
-        CountNearbyEnemies();
+        if (isInSpecialArea)
+        {
+            // Ensure the correct playlist is playing
+            if (currentPlaylist != GetCurrentSpecialAreaPlaylist())
+            {
+                SwitchPlaylist(GetCurrentSpecialAreaPlaylist());
+            }
+            return; // Skip combat/ambient checks if in special area
+        }
+
+        CountNearbyEnemies(); // Only check enemies if not in a special area
 
         if (nearbyEnemiesCount > enemyAmountForSwitch && currentPlaylist != actionClips)
         {
@@ -48,6 +73,22 @@ public class MusicPlayer : MonoBehaviour
         else if (nearbyEnemiesCount <= enemyAmountForSwitch && currentPlaylist != ambientClips && canSwitchToAmbient)
         {
             SwitchPlaylist(ambientClips);
+        }
+    }
+
+
+    private AudioClip[] GetCurrentSpecialAreaPlaylist()
+    {
+        switch (startingLocation)
+        {
+            case StartingLocation.Town:
+                return townClips;
+            case StartingLocation.Casino:
+                return casinoClips;
+            case StartingLocation.Shop:
+                return shopClips;
+            default:
+                return ambientClips;
         }
     }
 
@@ -67,7 +108,7 @@ public class MusicPlayer : MonoBehaviour
         }
     }
 
-    private void SwitchPlaylist(AudioClip[] newPlaylist)
+    public void SwitchPlaylist(AudioClip[] newPlaylist)
     {
         if (newPlaylist == ambientClips && !canSwitchToAmbient)
         {
@@ -93,7 +134,7 @@ public class MusicPlayer : MonoBehaviour
     {
         float startVolume = audioSource.volume;
 
-        // Fade out the current audio
+        // Fade out
         for (float time = 0; time < fadeDuration; time += Time.deltaTime)
         {
             audioSource.volume = Mathf.Lerp(startVolume, 0, time / fadeDuration);
@@ -106,7 +147,7 @@ public class MusicPlayer : MonoBehaviour
         // Switch to a random new clip
         PlayRandomClip();
 
-        // Fade in the new audio
+        // Fade in
         for (float t = 0; t < fadeDuration; t += Time.deltaTime)
         {
             audioSource.volume = Mathf.Lerp(0, startVolume, t / fadeDuration);
@@ -194,12 +235,52 @@ public class MusicPlayer : MonoBehaviour
             yield return null;
         }
 
-        volumeRecoveryCoroutine = null; // Mark coroutine as finished
+        volumeRecoveryCoroutine = null;  // Mark coroutine as finished
+    }
+
+    // Method to switch to special area music
+    public void SetSpecialZoneStatus(bool isActive, StartingLocation location)
+    {
+        isInSpecialArea = isActive;
+        startingLocation = location;
+
+        if (isActive)
+        {
+            SwitchPlaylist(GetCurrentSpecialAreaPlaylist());
+        }
+        else
+        {
+            SwitchPlaylist(ambientClips); // Switch back to ambient/combat
+        }
+    }
+
+    private void SetInitialPlaylist(StartingLocation location)
+    {
+        switch (location)
+        {
+            case StartingLocation.Town:
+                currentPlaylist = townClips;
+                break;
+            case StartingLocation.Casino:
+                currentPlaylist = casinoClips;
+                break;
+            case StartingLocation.Shop:
+                currentPlaylist = shopClips;
+                break;
+            default:
+                currentPlaylist = ambientClips;
+                break;
+        }
+    }
+
+    public void CountEnemies()
+    {
+        enemies = Object.FindObjectsByType<EnemyTargeting>(FindObjectsSortMode.None);
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, distanceThreshold);
     }
 }

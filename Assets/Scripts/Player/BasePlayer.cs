@@ -7,6 +7,8 @@ public class BasePlayer : Entity
 
     public static BasePlayer Instance;
 
+    private bool canTeleport = true;
+
     [Header("Movement info")]
     [SerializeField] private float jumpForce;
     [SerializeField] private float dashSpeed;
@@ -66,6 +68,13 @@ public class BasePlayer : Entity
     }
 
     #region Checks
+
+    public bool PlayerCanTeleport()
+    {
+        return canTeleport;
+    }
+
+    public void SetCanTeleport(bool _canTeleport) => canTeleport = _canTeleport;
 
     private void DashCheck()
     {

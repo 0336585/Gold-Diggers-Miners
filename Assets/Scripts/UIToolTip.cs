@@ -30,6 +30,7 @@ public class UITooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         {
             tooltip = Instantiate(tooltipPrefab, transform.root); // Instantiate under Canvas
             tooltipRect = tooltip.GetComponent<RectTransform>();
+            Inventory.Instance.SetCurrentHover(tooltip);
         }
 
         tooltip.SetActive(true);

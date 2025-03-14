@@ -6,7 +6,9 @@ public class PlayerHealth : BaseHealth
 {
     [SerializeField] private GameObject heartHolder;
     [SerializeField] private GameObject heartPrefab;
-    [SerializeField] private GameObject protectedHeartPrefab;
+    [SerializeField] private GameObject heartHalfPrefab;
+
+    [SerializeField] private GameObject deathScreen;
 
     private List<GameObject> hearts = new List<GameObject>();
 
@@ -14,7 +16,7 @@ public class PlayerHealth : BaseHealth
     {
         base.Start();
 
-        currentHealth = 3;
+        currentHealth = 10;
         UpdateHearts((int)currentHealth);
     }
 
@@ -37,48 +39,66 @@ public class PlayerHealth : BaseHealth
     private void Die()
     {
         if (currentHealth <= 0)
+        {
             Destroy(gameObject);
+            deathScreen.SetActive(true);
+        }
     }
 
     public void UpdateHearts(int _currentHealth)
     {
-        int heartsToShow = 5;  // Always show 5 hearts
+        if (heartPrefab == null || heartHalfPrefab == null) return;
 
-        if (_currentHealth < 5)
-            heartsToShow = _currentHealth;
+        int maxHearts = 10;  // UI now displays up to 10 hearts (20 HP max)
 
-        // Clear previous hearts to avoid duplicates
+        // Clear previous hearts
         foreach (GameObject heart in hearts)
         {
             Destroy(heart);
         }
         hearts.Clear();
 
-        // Calculate how many protected hearts should be displayed based on the excess health
-        int protectedHeartsCount = Mathf.Min((_currentHealth - 5), 5); // max of 3 protected hearts, if health exceeds 5
+        // Total HP divided into full hearts and half-hearts
+        int fullHearts = _currentHealth / 2;
+        bool hasHalfHeart = _currentHealth % 2 != 0;
 
-        // Display the hearts
-        for (int i = 0; i < heartsToShow; i++)
+        for (int i = 0; i < maxHearts; i++)
         {
             GameObject newHeart = null;
 
-            // If health exceeds 5, show protected hearts first (rightmost hearts are protected)
-            if (i >= heartsToShow - protectedHeartsCount)
+            if (fullHearts > 0)
             {
-                newHeart = Instantiate(protectedHeartPrefab, heartHolder.transform);
+                // Normal full hearts
+                newHeart = Instantiate(heartPrefab, heartHolder.transform);
+                fullHearts--;
+            }
+            else if (hasHalfHeart)
+            {
+                // Half-heart if remaining
+                newHeart = Instantiate(heartHalfPrefab, heartHolder.transform);
+                hasHalfHeart = false;
             }
             else
             {
-                newHeart = Instantiate(heartPrefab, heartHolder.transform);
+                // No more hearts to display
+                break;
             }
 
             hearts.Add(newHeart);
         }
     }
 
+
+
+
     public int GetCurrentHealth()
     {
         return (int)currentHealth;
     }
 
+    public void SetMaxHealth()
+    {
+        currentHealth = maxHealth;
+        UpdateHearts((int)currentHealth);
+    }
 }

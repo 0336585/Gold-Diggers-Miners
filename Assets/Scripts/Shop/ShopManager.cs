@@ -9,8 +9,13 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject itemHolder;
     [SerializeField] private GameObject shopItem;
 
+    private bool shopIsOpen = false;
+
     public void OpenShop()
     {
+        if (shopIsOpen) return;
+
+        shopIsOpen = true;
         shop.SetActive(true);
 
         // Loop through the minerals array
@@ -32,6 +37,10 @@ public class ShopManager : MonoBehaviour
 
     public void CloseShop()
     {
+        if (!shopIsOpen) return;
+
+        shopIsOpen = false;
+
         // Get all the ShopSlot components in the children of itemHolder
         ShopSlot[] showingGO = itemHolder.GetComponentsInChildren<ShopSlot>();
 

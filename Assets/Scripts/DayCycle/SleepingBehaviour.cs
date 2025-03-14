@@ -1,57 +1,73 @@
 using TMPro;
 using UnityEngine;
+using System.Collections;
 
 public class SleepingBehaviour : MonoBehaviour
 {
-    private uint survivedDaysAmount;
-    [SerializeField] GameObject keyPressPopUp;
-    [SerializeField] TMP_Text daysUI;
-    private bool inSleepRange = false;
+    [SerializeField] private TMP_Text daysUI;
+    [SerializeField] private GameObject sleepMenu;
+    [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private LevelGenerator levelGenerator;
+    [SerializeField] private OxygenManager oxygenManager;
+    private uint survivedDaysAmount; 
     private AudioSource sleepSFX;
+    private Animator menuAnimator;
+
+
+
+    private bool playerIsSleeping = false;
+
     private void Start()
     {
-        keyPressPopUp.SetActive(false);
         sleepSFX = GetComponent<AudioSource>();
     }
-    private void Update()
+
+    public void Sleep()
     {
-        if (inSleepRange)
-            SleepableState();
-    }
-    void SleepableState()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (QuotaManager.Instance.PlayerReachedQuota())
         {
-            Sleep();
-        }
-    }
-    void Sleep()
-    {
-        sleepSFX.Play();
-        survivedDaysAmount++;
-        if (survivedDaysAmount == 1)
-        {
-            daysUI.text = $"you have survived {survivedDaysAmount} day";
+            if (playerIsSleeping) return;
+
+            playerIsSleeping = true;
+            // TODO: Make fade in fade out
+            survivedDaysAmount++;
+            sleepSFX.Play();
+
+            if (survivedDaysAmount == 1)
+            {
+                daysUI.text = $"you have survived {survivedDaysAmount} day";
+            }
+            else
+            {
+                daysUI.text = $"you have survived {survivedDaysAmount} days";
+            }
+
+            sleepMenu.SetActive(true);
+            menuAnimator = sleepMenu.GetComponent<Animator>();
+            menuAnimator.SetTrigger("SleepAnim");
+            StartCoroutine(TimeToSleepAgain(6));
         }
         else
         {
-            daysUI.text = $"you have survived {survivedDaysAmount} days";
+            // TODO: Add more conditions to this, for gambling and quota
+            daysUI.text = $"Can't sleep just yet...";
         }
+
+        
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private IEnumerator TimeToSleepAgain(float _time)
     {
-        if (collision.GetComponent<BasePlayer>())
-        {
-            inSleepRange = true;
-            keyPressPopUp.SetActive(true);
-        }
+        yield return new WaitForSeconds(_time);
+        playerIsSleeping = false;
     }
-    private void OnTriggerExit2D(Collider2D collision)
+
+    public void SleepEvent()
     {
-        if (collision.GetComponent<BasePlayer>())
-        {
-            inSleepRange = false;
-            keyPressPopUp.SetActive(false);
-        }
+        levelGenerator.RegenerateLevel();
+        playerHealth.SetMaxHealth();
+        oxygenManager.AddMaxOxygen();
+        playerIsSleeping = false;
+        sleepMenu.SetActive(false);
     }
 }

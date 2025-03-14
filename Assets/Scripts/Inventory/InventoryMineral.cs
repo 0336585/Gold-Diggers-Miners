@@ -20,10 +20,10 @@ public enum MineralType
 
 public enum MineralRarity
 {
-    uncommon,
-    rare,
-    epic,
-    legendary,
-    mythic,
-    secret
+    Uncommon,
+    Rare,
+    Epic,
+    Legendary,
+    Mythic,
+    Secret
 }
