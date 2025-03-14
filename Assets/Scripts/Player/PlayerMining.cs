@@ -35,6 +35,7 @@ public class PlayerMining : MonoBehaviour
     void Update()
     {
         ArmRotation();
+
         if (miningEnabled)
         {
             PerformRaycast(); // Always check for outlining
@@ -49,13 +50,14 @@ public class PlayerMining : MonoBehaviour
 
         Vector3 direction = (mousePosition - arm.transform.parent.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        player.Flip();
+
 
         // Flip player if the mouse is behind them
         bool shouldFlip = mousePosition.x < arm.transform.parent.position.x;
         if (shouldFlip != armIsFlipped)
         {
             armIsFlipped = shouldFlip;
-            player.Flip();
             arm.transform.localScale = new Vector3(-arm.transform.localScale.x, arm.transform.localScale.y, arm.transform.localScale.z);
         }
 
