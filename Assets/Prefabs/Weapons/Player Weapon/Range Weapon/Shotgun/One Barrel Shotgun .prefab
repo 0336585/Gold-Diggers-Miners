@@ -138,7 +138,7 @@ MonoBehaviour:
   multishotMode: 1
   damagePerShot: 0.5
   projectileSpeed: 30
-  projectileLifetime: 0.3
+  projectileLifetime: 0.4
   fireRate: 0.1
   randomFireVariation: 0.1
   ammoInGun: 1
