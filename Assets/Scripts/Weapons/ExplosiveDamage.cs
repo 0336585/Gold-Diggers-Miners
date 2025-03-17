@@ -3,7 +3,7 @@ using UnityEngine;
 public class ExplosiveDamage : MonoBehaviour
 {
     [Header("Explosion Settings")]
-    [SerializeField] private bool directInpact = false;
+    [SerializeField] private bool directImpact = false;
     [SerializeField] private float detonationTime = 2f;
     [SerializeField] private float explosionRadius = 2f; 
 
@@ -16,7 +16,7 @@ public class ExplosiveDamage : MonoBehaviour
 
     private void Update()
     {
-        if (!directInpact)
+        if (!directImpact)
         {
             detonationTime -= Time.deltaTime;
 
@@ -29,10 +29,10 @@ public class ExplosiveDamage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!directInpact)
-            return;
-
-        Explode();
+        if (directImpact)  
+        {
+            Explode();
+        }
     }
 
     private void Explode()
