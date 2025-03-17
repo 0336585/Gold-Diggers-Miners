@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6054845577090125323}
   - component: {fileID: 8765728325463882573}
   m_Layer: 0
-  m_Name: Level 1 Random Mineral Spawner
+  m_Name: Layer 3 Random Mineral Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -45,8 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObjects:
-  - {fileID: 7597135732685086846, guid: 747d5b5845cb85346bc995ec6f0cf307, type: 3}
-  - {fileID: 8432384930664869714, guid: a7963bef877e5f14ba4b4e1870581ec2, type: 3}
+  - {fileID: 7597135732685086846, guid: 24daa621b0bd8e44fa9e1df229ab685a, type: 3}
+  - {fileID: 8432384930664869714, guid: 789be0bb06405354fab3e4b859bfa81f, type: 3}
+  - {fileID: 8432384930664869714, guid: 949fc19976d8d53439c6d0949e2783c3, type: 3}
+  - {fileID: 6427573645077266397, guid: 3556b38c38dc50947b345c38c0954ab0, type: 3}
   weights:
   - 20
   - 10
+  - 10
+  - 5
