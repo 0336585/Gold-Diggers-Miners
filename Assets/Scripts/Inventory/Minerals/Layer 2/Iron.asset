@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48fdd132e6b05bf4e842a6a456518fdd, type: 3}
+  m_Name: Iron
+  m_EditorClassIdentifier: 
+  mineralName: Iron
+  icon: {fileID: -228819513787663229, guid: c07e970ccc92add41a5b3c7ae6826092, type: 3}
+  dropAmount: 3
+  maxStack: 99
+  sellPrice: 20
+  mineralType: 2
+  rarity: 1

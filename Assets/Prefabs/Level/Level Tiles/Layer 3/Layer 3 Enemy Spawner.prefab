@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 825562430825215286}
   - component: {fileID: 622451723151490587}
   m_Layer: 0
-  m_Name: Level 1 Enemy Spawner
+  m_Name: Layer 3 Enemy Spawner
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

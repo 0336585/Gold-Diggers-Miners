@@ -15,7 +15,15 @@ public class InventoryMineral : ScriptableObject
 public enum MineralType
 {
     Coal,
-    Copper
+    Copper,
+    Iron,
+    Nickle,
+    Cobalt,
+    Silver,
+    Tin,
+    Diamond,
+    Gold,
+    Hellstone
 }
 
 public enum MineralRarity
