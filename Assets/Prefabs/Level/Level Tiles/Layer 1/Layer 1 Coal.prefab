@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2189021825978151679}
   - component: {fileID: 5140400061731602759}
   m_Layer: 3
-  m_Name: Level 1 Coal
+  m_Name: Layer 1 Coal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
