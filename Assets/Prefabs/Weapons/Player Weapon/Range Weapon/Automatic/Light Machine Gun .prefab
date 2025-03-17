@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1651897200896823931}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 0, z: 0}
+  m_LocalPosition: {x: 1.226, y: -0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58,8 +58,8 @@ Transform:
   m_GameObject: {fileID: 7510308398312001136}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.15, y: 0.27, z: -0.123657614}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3083631670156256318}
@@ -108,7 +108,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: eca99fbdd7c6ae14183ee99fe5b8ccb8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -139,10 +139,10 @@ MonoBehaviour:
   damagePerShot: 0.5
   projectileSpeed: 30
   projectileLifetime: 0.5
-  fireRate: 0.1
+  fireRate: 0.2
   randomFireVariation: 0.1
   ammoInGun: 35
-  reserveAmmo: 80
-  reloadTime: 0.5
+  reserveAmmo: 105
+  reloadTime: 0.8
   bulletsPerShot: 5
   spreadAngle: 25
