@@ -10288,14 +10288,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1216701e2e6fa2749a42c5786dd35cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 2800000, guid: 9b809b00434be39459c73fa7d314a25a, type: 3}
+  image: {fileID: 2800000, guid: a60304918696b4446af7a57d68ae0756, type: 3}
   gameobjects:
   - pixel: {r: 0, g: 0, b: 0, a: 1}
-    gameObject: {fileID: 6427573645077266397, guid: fc1792c38e26b36489845c8ad58ca73b, type: 3}
+    gameObject: {fileID: 6427573645077266397, guid: 2020e57e89abc5741835e64db7984d66, type: 3}
   - pixel: {r: 0, g: 1, b: 0.9137255, a: 1}
-    gameObject: {fileID: 7587463488130791971, guid: 9b873bda06220e64287c8b59da2d079f, type: 3}
+    gameObject: {fileID: 7587463488130791971, guid: e18df2f0dfba03743b2aba424451d83c, type: 3}
   - pixel: {r: 1, g: 0, b: 0.9764706, a: 1}
-    gameObject: {fileID: 8168295519652068970, guid: 050bfe7c5619e0449a347b1b32be35d8, type: 3}
+    gameObject: {fileID: 8168295519652068970, guid: 5ad05ffe33065eb408972fd1f17adb71, type: 3}
   exit:
     pixel: {r: 0.19703305, g: 1, b: 0, a: 0}
     gameObject: {fileID: 8461447859615413672, guid: 11869427ecb483144be00e1eff162cd3, type: 3}
@@ -10349,15 +10349,24 @@ MonoBehaviour:
   rows: 5
   columns: 5
   startPosition: {x: 0, y: 0}
-  levelPrefabs:
-  - {fileID: 902035592186911839, guid: 9861c36e5e8b8c540b381a843f5b83a6, type: 3}
-  - {fileID: 1877270246035466021, guid: ca7fe49f0821ada40a029163b5cf800a, type: 3}
-  - {fileID: 5336488181429159566, guid: 7aa35567ef7e6b14fa11920a47413fd8, type: 3}
-  - {fileID: 3710601038737887640, guid: 9e95f73a4b14f1641bfdaf9937965e55, type: 3}
-  - {fileID: 228131738554807853, guid: a33e82be23bdc1947867c10d925dcc79, type: 3}
-  - {fileID: 9130422263073675730, guid: 7e7ebec11c6d2514aacb65c20c022e9c, type: 3}
-  - {fileID: 3360961331956188518, guid: 8b577a6defef7f84599936a9355218ba, type: 3}
-  - {fileID: 983448794499325111, guid: 06708bb20012bc14684ef05d0488de37, type: 3}
+  rowPrefabs:
+  - prefabs:
+    - {fileID: 4403048155023574056, guid: 9861c36e5e8b8c540b381a843f5b83a6, type: 3}
+    - {fileID: 6520687414030881378, guid: ca7fe49f0821ada40a029163b5cf800a, type: 3}
+    - {fileID: 5229856099770026253, guid: 7aa35567ef7e6b14fa11920a47413fd8, type: 3}
+    - {fileID: 2567148815275572608, guid: 9e95f73a4b14f1641bfdaf9937965e55, type: 3}
+    - {fileID: 4830529116009849657, guid: a33e82be23bdc1947867c10d925dcc79, type: 3}
+    - {fileID: 7491331556443347016, guid: 7e7ebec11c6d2514aacb65c20c022e9c, type: 3}
+    - {fileID: 3994488639672245824, guid: 8b577a6defef7f84599936a9355218ba, type: 3}
+    - {fileID: 3728718035106385152, guid: 06708bb20012bc14684ef05d0488de37, type: 3}
+  - prefabs:
+    - {fileID: 815796381452074142, guid: 4ea8b042e3435c348a6ab03e6d5e9f3e, type: 3}
+  - prefabs:
+    - {fileID: 1791195988195692114, guid: 86898e5d35069914585a3166c6c040e8, type: 3}
+  - prefabs:
+    - {fileID: 708752972983967442, guid: 5144dd4e699b2cc40a662aef388cfdcf, type: 3}
+  - prefabs:
+    - {fileID: 6141319596462428705, guid: 69253fc7ab3c4fc46b546da8c6ec32c8, type: 3}
   introPrefab: {fileID: 7890861065252850388, guid: 7b2c9fe5bc4ce7f4997ca6a737894604, type: 3}
   deathTriggerPrefab: {fileID: 6699474028103373676, guid: 543cbee583b44aa439165994724e7a38, type: 3}
   invisibleWallPrefab: {fileID: 5744982255834889286, guid: 14afafc1500637945bac9372e6e68a0e, type: 3}

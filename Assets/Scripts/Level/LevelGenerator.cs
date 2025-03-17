@@ -1,4 +1,11 @@
 using UnityEngine;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class RowPrefabs
+{
+    public GameObject[] prefabs;
+}
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -8,10 +15,10 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private Vector2 startPosition = Vector2.zero; // Center position of the grid
 
     [Header("Prefabs")]
-    [SerializeField] private GameObject[] levelPrefabs;
+    [SerializeField] private List<RowPrefabs> rowPrefabs; // List of prefabs for each row
     [SerializeField] private GameObject introPrefab;
     [SerializeField] private GameObject deathTriggerPrefab;
-    [SerializeField] private GameObject invisibleWallPrefab; 
+    [SerializeField] private GameObject invisibleWallPrefab;
 
     private GameObject levelParent; // Parent object for all level elements
 
@@ -34,10 +41,10 @@ public class LevelGenerator : MonoBehaviour
         // Determine a reference tile size (using the first level prefab as reference)
         float tileWidth = 1f;
         float tileHeight = 1f;
-        if (levelPrefabs.Length > 0)
+        if (rowPrefabs.Count > 0 && rowPrefabs[0].prefabs.Length > 0)
         {
-            tileWidth = GetPrefabBounds(levelPrefabs[0]).size.x;
-            tileHeight = GetPrefabBounds(levelPrefabs[0]).size.y;
+            tileWidth = GetPrefabBounds(rowPrefabs[0].prefabs[0]).size.x;
+            tileHeight = GetPrefabBounds(rowPrefabs[0].prefabs[0]).size.y;
         }
 
         // Calculate total row width and adjust starting x so that the row is centered
@@ -56,7 +63,7 @@ public class LevelGenerator : MonoBehaviour
             }
             else
             {
-                GameObject selectedPrefab = levelPrefabs[Random.Range(0, levelPrefabs.Length)];
+                GameObject selectedPrefab = rowPrefabs[0].prefabs[Random.Range(0, rowPrefabs[0].prefabs.Length)];
                 tile = Instantiate(selectedPrefab, currentPosition, Quaternion.identity, levelParent.transform);
             }
             currentPosition.x += tileWidth;
@@ -70,7 +77,7 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int col = 0; col < columns; col++)
             {
-                GameObject selectedPrefab = levelPrefabs[Random.Range(0, levelPrefabs.Length)];
+                GameObject selectedPrefab = rowPrefabs[row % rowPrefabs.Count].prefabs[Random.Range(0, rowPrefabs[row % rowPrefabs.Count].prefabs.Length)];
                 GameObject tile = Instantiate(selectedPrefab, currentPosition, Quaternion.identity, levelParent.transform);
                 currentPosition.x += tileWidth;
             }
