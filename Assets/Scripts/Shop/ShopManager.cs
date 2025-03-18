@@ -11,10 +11,21 @@ public class ShopManager : MonoBehaviour
 
     private bool shopIsOpen = false;
 
+    private void Start()
+    {
+        MenuManager.Instance.MenusToClose += CloseShop;
+    }
+
+    private void OnDisable()
+    {
+        MenuManager.Instance.MenusToClose -= CloseShop;
+    }
+
     public void OpenShop()
     {
         if (shopIsOpen) return;
 
+        MenuManager.Instance.CloseAllWindows();
         shopIsOpen = true;
         shop.SetActive(true);
 
@@ -37,8 +48,6 @@ public class ShopManager : MonoBehaviour
 
     public void CloseShop()
     {
-        if (!shopIsOpen) return;
-
         shopIsOpen = false;
 
         // Get all the ShopSlot components in the children of itemHolder
