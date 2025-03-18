@@ -71,7 +71,7 @@ public class CaseScroll : MonoBehaviour
         caseResult.ShowResult();
         yield return new WaitForSecondsRealtime(3); // Ensure real-time waiting
 
-        gambleMenu.SetActive(false);
+        CloseMenu();
 
         for (int i = 0; i < cells.Count; i++)
         {
