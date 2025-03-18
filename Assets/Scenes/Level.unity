@@ -10367,9 +10367,9 @@ MonoBehaviour:
     - {fileID: 693193829420699469, guid: 404cdfd965db1ea49a4ed5f311300699, type: 3}
     - {fileID: 3682970259582512531, guid: 5144dd4e699b2cc40a662aef388cfdcf, type: 3}
   - prefabs:
-    - {fileID: 4101750895504387690, guid: fab43da24c53a084cb5a19cdc03ae6ff, type: 3}
-    - {fileID: 3706875772324343634, guid: 92f33c660b2a78540a9dc6078cd0b4ad, type: 3}
-    - {fileID: 6070292363148622783, guid: 69253fc7ab3c4fc46b546da8c6ec32c8, type: 3}
+    - {fileID: 2541347647100386675, guid: fab43da24c53a084cb5a19cdc03ae6ff, type: 3}
+    - {fileID: 8959816107998712423, guid: 92f33c660b2a78540a9dc6078cd0b4ad, type: 3}
+    - {fileID: 3530332904801690629, guid: 69253fc7ab3c4fc46b546da8c6ec32c8, type: 3}
   introPrefab: {fileID: 7890861065252850388, guid: 7b2c9fe5bc4ce7f4997ca6a737894604, type: 3}
   deathTriggerPrefab: {fileID: 6699474028103373676, guid: 543cbee583b44aa439165994724e7a38, type: 3}
   invisibleWallPrefab: {fileID: 5744982255834889286, guid: 14afafc1500637945bac9372e6e68a0e, type: 3}
