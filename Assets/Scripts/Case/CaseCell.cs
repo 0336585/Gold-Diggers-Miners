@@ -16,6 +16,7 @@ public class CaseCell : MonoBehaviour
     [SerializeField] private int[] chances;
 
     [SerializeField] private Material[] rarityMaterials;
+    private Image itemImage;
 
     public InventoryItem itemInThisCell;
 
@@ -27,8 +28,15 @@ public class CaseCell : MonoBehaviour
 
         // Assigning the icon of the selected character to the Image component
         GetComponent<Image>().sprite = itemInThisCell.icon;
-        transform.parent.GetComponent<Image>().material = rarityMaterials[index];
+        itemImage = transform.parent.GetComponent<Image>();
+        itemImage.material = rarityMaterials[index];
         transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = itemInThisCell.itemName;
+    }
+
+    private void Update()
+    {
+
+        itemImage.material.SetFloat("_UnscaledTime", Time.unscaledTime);
     }
 
     private int Randomize()

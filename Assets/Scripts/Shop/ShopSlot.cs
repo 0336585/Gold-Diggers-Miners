@@ -32,6 +32,11 @@ public class ShopSlot : MonoBehaviour
         parent.transform.Find("Sell_All_Button").GetComponent<Button>().onClick.AddListener(OnSellAll);
     }
 
+    private void Update()
+    {
+        rarityMat?.SetFloat("_UnscaledTime", Time.unscaledTime);
+    }
+
     public void SetImage(InventoryMineral _mineral)
     {
         switch (_mineral.rarity)

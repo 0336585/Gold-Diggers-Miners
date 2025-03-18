@@ -34,6 +34,8 @@ public class PlayerMining : MonoBehaviour
 
     void Update()
     {
+        if (MenuManager.Instance.inMenu) return;
+
         ArmRotation();
 
         if (miningEnabled)

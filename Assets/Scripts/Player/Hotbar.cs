@@ -17,6 +17,7 @@ public class Hotbar : MonoBehaviour
     private WeaponUIManager weaponUIManager;
     private ProjectileShooter projectileShooter;
 
+
     [SerializeField] private List<InventoryItem> hotbarItems = new List<InventoryItem>();
     [SerializeField] private List<Image> hotbarSlots;
 
@@ -72,6 +73,8 @@ public class Hotbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (MenuManager.Instance.inMenu) return;
+
         if (Input.GetKeyDown(KeyCode.Alpha1) && !projectileShooter.IsReloading)
         {
             if (hotbarItems[0] != null)
@@ -122,9 +125,9 @@ public class Hotbar : MonoBehaviour
             playerMining.RemoveOutline();
         }
 
-        if (_item.itemType == ItemType.RangedWeapon || _item.itemType == ItemType.Throwable)
+        if (_item.itemType == ItemType.RangedWeapon)
             projectileShooter = GetComponentInChildren<ProjectileShooter>();
-        
+
         weaponUIManager.ChangeToolUI(equipedItem);
     }
 

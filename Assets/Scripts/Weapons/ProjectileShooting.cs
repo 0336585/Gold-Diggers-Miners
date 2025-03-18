@@ -65,6 +65,8 @@ public class ProjectileShooter : MonoBehaviour
 
     private void Update()
     {
+        if (MenuManager.Instance.inMenu) return;
+
         if (isReloading) return; // Cannot fire while reloading
 
         // If automaticFire is true, shouldFire is true when "Fire1" is held down.

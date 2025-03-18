@@ -29,6 +29,9 @@ public class ProjectileThrowing : MonoBehaviour
 
     private void Update()
     {
+        if (MenuManager.Instance.inMenu) return;
+
+
         if (Input.GetButtonDown("Fire1") && canThrow && currentAmmo > 0)
         {
             StartCoroutine(ThrowWithDelay());

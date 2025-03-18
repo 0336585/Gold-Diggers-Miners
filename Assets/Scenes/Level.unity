@@ -1129,10 +1129,10 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 698161369}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 584550176}
+        m_TargetAssemblyTypeName: CaseScroll, Assembly-CSharp
+        m_MethodName: OpenMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3497,6 +3497,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579689051}
   m_CullTransparentMesh: 1
+--- !u!114 &584550176 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7276925725642999052, guid: 62dff775c5b425343b885bc62efbce40, type: 3}
+  m_PrefabInstance: {fileID: 604407895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b7d6107da85d44b9b3601fbfe9c042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &598976768
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,7 +3718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7276925725642999052, guid: 62dff775c5b425343b885bc62efbce40, type: 3}
       propertyPath: cost
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4112,11 +4123,6 @@ Transform:
   - {fileID: 2127928751}
   m_Father: {fileID: 1506658002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &698161369 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1512492504733169716, guid: 62dff775c5b425343b885bc62efbce40, type: 3}
-  m_PrefabInstance: {fileID: 604407895}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &706915460
 GameObject:
   m_ObjectHideFlags: 0
@@ -10734,6 +10740,7 @@ GameObject:
   - component: {fileID: 1154817816}
   - component: {fileID: 1154817817}
   - component: {fileID: 1154817818}
+  - component: {fileID: 1154817819}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10825,6 +10832,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dad32783cd6980044b9b15db66d425a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1154817819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154817812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8deac48064a3e43bce90bc257915b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1176756507

@@ -19,13 +19,13 @@ public class CaseScroll : MonoBehaviour
 
     private void OnEnable()
     {
-        MenuManager.Instance.MenusToClose += CloseMenu;
+        MenuManager.Instance.OnMenuOpen += CloseMenu;
 
     }
 
     private void OnDisable()
     {
-        MenuManager.Instance.MenusToClose -= CloseMenu;
+        MenuManager.Instance.OnMenuOpen -= CloseMenu;
     }
 
     private void Awake()
@@ -85,13 +85,14 @@ public class CaseScroll : MonoBehaviour
 
     public void OpenMenu()
     {
-        MenuManager.Instance.CloseAllWindows();
+        MenuManager.Instance.MenuEvent();
         gambleMenu.SetActive(true);
     }
 
     public void CloseMenu()
     {
         gambleMenu.SetActive(false);
+        MenuManager.Instance.MenuEventClosed();
 
         for (int i = 0; i < cells.Count; i++)
         {

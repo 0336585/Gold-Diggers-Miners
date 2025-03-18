@@ -55,6 +55,9 @@ public class BasePlayer : Entity
 
     private void Update()
     {
+        if (MenuManager.Instance.inMenu) return;
+
+
         stateMachine.currentState.Update();
 
         //Debug.Log(stateMachine.currentState.GetType().Name);
@@ -64,6 +67,8 @@ public class BasePlayer : Entity
 
     private void FixedUpdate()
     {
+        if (MenuManager.Instance.inMenu) return;
+
         stateMachine.currentState.FixedUpdate();
     }
 

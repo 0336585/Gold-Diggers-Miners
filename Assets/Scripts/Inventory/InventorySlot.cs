@@ -28,6 +28,11 @@ public class InventorySlot : MonoBehaviour
         inventoryUIManager = gameObject.transform.parent.transform.parent.GetComponentInParent<InventoryUIManager>();
     }
 
+    private void Update()
+    {
+        rarityMat?.SetFloat("_UnscaledTime", Time.unscaledTime);
+    }
+
     public void SetMineralSlot(InventoryMineral _mineral, int _amount)
     {
         switch (_mineral.rarity)

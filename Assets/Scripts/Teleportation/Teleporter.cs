@@ -41,6 +41,9 @@ public class Teleporter : MonoBehaviour
 
     private void Update()
     {
+        if (MenuManager.Instance.inMenu) return;
+
+
         if (inTeleportRange)
             TeleportableState();
     }

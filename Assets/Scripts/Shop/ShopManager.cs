@@ -13,19 +13,19 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
-        MenuManager.Instance.MenusToClose += CloseShop;
+        MenuManager.Instance.OnMenuOpen += CloseShop;
     }
 
     private void OnDisable()
     {
-        MenuManager.Instance.MenusToClose -= CloseShop;
+        MenuManager.Instance.OnMenuOpen -= CloseShop;
     }
 
     public void OpenShop()
     {
         if (shopIsOpen) return;
 
-        MenuManager.Instance.CloseAllWindows();
+        MenuManager.Instance.MenuEvent();
         shopIsOpen = true;
         shop.SetActive(true);
 
@@ -49,6 +49,7 @@ public class ShopManager : MonoBehaviour
     public void CloseShop()
     {
         shopIsOpen = false;
+        MenuManager.Instance.MenuEventClosed();
 
         // Get all the ShopSlot components in the children of itemHolder
         ShopSlot[] showingGO = itemHolder.GetComponentsInChildren<ShopSlot>();

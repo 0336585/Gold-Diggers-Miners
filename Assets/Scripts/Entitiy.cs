@@ -33,6 +33,9 @@ public class Entity : MonoBehaviour
 
     public virtual void Flip()
     {
+        if (MenuManager.Instance.inMenu) return;
+
+
         Camera mainCamera = Camera.main; ;
 
         Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);

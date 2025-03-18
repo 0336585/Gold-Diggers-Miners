@@ -4,6 +4,7 @@ using System;
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
+    public bool inMenu { get; private set; }
 
     private void Awake()
     {
@@ -14,12 +15,19 @@ public class MenuManager : MonoBehaviour
     }
 
     // Define events
-    public event Action MenusToClose;
+    public event Action OnMenuOpen;
 
-    public void CloseAllWindows()
+    public void MenuEvent()
     {
-        MenusToClose();
+        OnMenuOpen();
+
+        inMenu = true;
+        Time.timeScale = 0;
     }
 
-
+    public void MenuEventClosed()
+    {
+        inMenu = false;
+        Time.timeScale = 1;
+    }
 }

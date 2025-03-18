@@ -19,6 +19,9 @@ public class Interact : MonoBehaviour
 
     private void Update()
     {
+        if (MenuManager.Instance.inMenu) return;
+
+
         if (inRange && Input.GetKeyDown(KeyCode.E))
         {
             onInteract.Invoke();
