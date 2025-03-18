@@ -17,6 +17,17 @@ public class Inventory : MonoBehaviour
 
     private bool inventoryIsOpen = false;
 
+    private void Start()
+    {
+        MenuManager.Instance.MenusToClose += CloseInventory;
+
+    }
+
+    private void OnDisable()
+    {
+        MenuManager.Instance.MenusToClose -= CloseInventory;
+    }
+
     private void Awake()
     {
         // Ensure only one instance exists
@@ -95,6 +106,7 @@ public class Inventory : MonoBehaviour
         //Debug.Log("Opening Inventory...");
 
         inventoryIsOpen = true;
+        MenuManager.Instance.CloseAllWindows();
         inventory.SetActive(true);
 
         // Loop through the minerals dictionary
@@ -119,7 +131,9 @@ public class Inventory : MonoBehaviour
 
     public void CloseInventory()
     {
-        if (!inventoryIsOpen) return;
+        Debug.Log("CloseInventory called"); // Debug log
+
+        //if (!inventoryIsOpen) return;
 
         inventoryIsOpen = false;
         inventory.SetActive(false);

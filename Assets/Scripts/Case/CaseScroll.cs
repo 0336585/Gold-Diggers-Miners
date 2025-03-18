@@ -17,6 +17,17 @@ public class CaseScroll : MonoBehaviour
 
     private List<CaseCell> cells = new List<CaseCell>();
 
+    private void OnEnable()
+    {
+        MenuManager.Instance.MenusToClose += CloseMenu;
+
+    }
+
+    private void OnDisable()
+    {
+        MenuManager.Instance.MenusToClose -= CloseMenu;
+    }
+
     private void Awake()
     {
         startPos = transform.position;
@@ -72,6 +83,11 @@ public class CaseScroll : MonoBehaviour
         transform.position = startPos;
     }
 
+    public void OpenMenu()
+    {
+        MenuManager.Instance.CloseAllWindows();
+        gambleMenu.SetActive(true);
+    }
 
     public void CloseMenu()
     {
