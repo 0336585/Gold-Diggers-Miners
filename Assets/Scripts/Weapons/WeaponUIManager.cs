@@ -10,6 +10,7 @@ public class WeaponUIManager : MonoBehaviour
     [SerializeField] private Hotbar hotbar;
     private GameObject weapon;
     private ProjectileShooter projectileShooter;
+    private ProjectileThrowing projectileThrowing;
     void Start()
     {
         hotbar = GetComponent<Hotbar>();
@@ -33,6 +34,11 @@ public class WeaponUIManager : MonoBehaviour
             projectileShooter = GetComponentInChildren<ProjectileShooter>();
             //Debug.Log("Ik ben het wapen: " + projectileShooter.transform.name);
         }
+        else if(item.itemType == ItemType.Throwable)
+        {
+            ammoGO.SetActive(true);
+            projectileThrowing = GetComponentInChildren<ProjectileThrowing>();
+        }
         else
         {
             ammoGO.SetActive(false);
@@ -45,6 +51,10 @@ public class WeaponUIManager : MonoBehaviour
         {
             ammoText.text = $"{projectileShooter.CurrentAmmo}|{projectileShooter.ReserveAmmo}";
         }
-        
+        if (hotbar.EquipedItem.itemType == ItemType.Throwable)
+        {
+            ammoText.text = $"{projectileThrowing.CurrentAmmo}";
+        }
+
     }
 }

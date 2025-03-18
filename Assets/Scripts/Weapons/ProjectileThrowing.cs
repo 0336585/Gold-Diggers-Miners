@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class ProjectileThrowing : MonoBehaviour
 {
@@ -13,7 +14,11 @@ public class ProjectileThrowing : MonoBehaviour
     [Header("Ammo Settings")]
     [SerializeField] private int maxAmmo = 5;
     private int currentAmmo;
-
+    public int CurrentAmmo
+    {
+        get { return currentAmmo; }
+        private set { currentAmmo = value; }
+    }
     private bool canThrow = true;
     private bool firstThrow = true;
 

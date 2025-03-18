@@ -122,7 +122,7 @@ public class Hotbar : MonoBehaviour
             playerMining.RemoveOutline();
         }
 
-        if (_item.itemType == ItemType.RangedWeapon)
+        if (_item.itemType == ItemType.RangedWeapon || _item.itemType == ItemType.Throwable)
             projectileShooter = GetComponentInChildren<ProjectileShooter>();
         
         weaponUIManager.ChangeToolUI(equipedItem);
