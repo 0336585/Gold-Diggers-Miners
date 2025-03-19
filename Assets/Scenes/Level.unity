@@ -2327,6 +2327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcName: Wilhemuss Fred
   dialogueLines:
   - Have you tried pulling yourself up by your bootstraps?
   - Have you tried investing in a company?
@@ -2335,6 +2336,7 @@ MonoBehaviour:
   timeToShow: 2
   maxDistance: 2
   dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
 --- !u!1 &388186902
 GameObject:
   m_ObjectHideFlags: 0
@@ -10205,6 +10207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcName: 'Hundi Bertes '
   dialogueLines:
   - "How it\u2019s going, Mr. Dolf?"
   - 'Have you looked at my new wears? '
@@ -10213,6 +10216,7 @@ MonoBehaviour:
   timeToShow: 2
   maxDistance: 2
   dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
 --- !u!1 &995416467
 GameObject:
   m_ObjectHideFlags: 0
@@ -10876,6 +10880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcName: 'Toerine Sanne '
   dialogueLines:
   - "I\u2019m not in a good mood right now, Evert"
   - "They say they don\u2019t need any Dwarfs in the casino anymore"
@@ -10884,6 +10889,7 @@ MonoBehaviour:
   timeToShow: 2
   maxDistance: 2
   dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
 --- !u!114 &1137403296 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4259650355082069169, guid: eb37375fd7653d849bfbd2b69be585a6, type: 3}
@@ -11499,6 +11505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcName: Secruti Francc
   dialogueLines:
   - "Don\u2019t fall to your dead, little lump"
   - The Goblins are a bunch of green bastards
@@ -11508,6 +11515,7 @@ MonoBehaviour:
   timeToShow: 2
   maxDistance: 2
   dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
 --- !u!1 &1244980665
 GameObject:
   m_ObjectHideFlags: 0
@@ -11730,6 +11738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcName: Gerard Boen
   dialogueLines:
   - '*Cough* *Cough*'
   - Don't let the bastards grind you down, Dolf
@@ -11740,6 +11749,7 @@ MonoBehaviour:
   timeToShow: 2
   maxDistance: 5
   dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
 --- !u!1 &1263239998
 GameObject:
   m_ObjectHideFlags: 0
@@ -12104,6 +12114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcName: Silinia Moni
   dialogueLines:
   - "I hope you won\u2019t bring in the dirt"
   - "I won\u2019t bring you a drink, ask the waiters"
@@ -12112,6 +12123,7 @@ MonoBehaviour:
   timeToShow: 2
   maxDistance: 2
   dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
 --- !u!1 &1363759722
 GameObject:
   m_ObjectHideFlags: 0
@@ -19381,6 +19393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcName: 'Pieter Haun '
   dialogueLines:
   - Can you spare a dime, mister?
   - Brother, can you spare a dime?
@@ -19389,6 +19402,7 @@ MonoBehaviour:
   timeToShow: 2
   maxDistance: 2
   dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
 --- !u!1 &1981366666
 GameObject:
   m_ObjectHideFlags: 0
@@ -20455,6 +20469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcName: 'Humberto Sang '
   dialogueLines:
   - "Just let me sleep\u2026"
   - "I don\u2019t care\u2026"
@@ -20463,6 +20478,7 @@ MonoBehaviour:
   timeToShow: 2
   maxDistance: 2
   dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
 --- !u!1 &2127928750
 GameObject:
   m_ObjectHideFlags: 0
