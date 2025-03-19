@@ -1,13 +1,14 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class NPCDialogue : MonoBehaviour
 {
     [SerializeField] private string[] dialogueLines;
-    [SerializeField] private float chanceToSpeakChance = 50f; 
-    [SerializeField] private float timeToShow = 2f;  
-    [SerializeField] private float maxDistance = 2f;  
-    [SerializeField] private GameObject dialogueTextPrefab; 
+    [SerializeField] private float chanceToSpeakChance = 50f;
+    [SerializeField] private float timeToShow = 2f;
+    [SerializeField] private float maxDistance = 2f;
+    [SerializeField] private GameObject dialogueTextPrefab;
 
     private GameObject activeDialoguePrefab;
     private Transform canvasTransform;
@@ -17,8 +18,8 @@ public class NPCDialogue : MonoBehaviour
     {
         canvasTransform = GameObject.Find("Canvas")?.transform;
 
-        PlayerHealth playerHealth = Object.FindFirstObjectByType<PlayerHealth>(); 
-        
+        PlayerHealth playerHealth = Object.FindFirstObjectByType<PlayerHealth>();
+
         if (playerHealth != null)
         {
             playerTransform = playerHealth.transform;
@@ -36,23 +37,21 @@ public class NPCDialogue : MonoBehaviour
 
     private void Update()
     {
-        // If the dialogue is active and the player is far away, destroy the dialogue
         if (activeDialoguePrefab != null && playerTransform != null)
         {
             float distance = Vector2.Distance(transform.position, playerTransform.position);
             if (distance > maxDistance)
             {
-                Destroy(activeDialoguePrefab); // Remove the dialogue when too far
+                Destroy(activeDialoguePrefab);
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the entering object has the PlayerHealth component
         PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
 
-        if (playerHealth != null) // Only proceed if PlayerHealth is found
+        if (playerHealth != null)
         {
             if (Random.Range(0f, 100f) <= chanceToSpeakChance)
             {
@@ -69,16 +68,26 @@ public class NPCDialogue : MonoBehaviour
         string randomLine = dialogueLines[Random.Range(0, dialogueLines.Length)];
 
         if (activeDialoguePrefab != null)
-            Destroy(activeDialoguePrefab); // Remove previous dialogue
+            Destroy(activeDialoguePrefab);
 
         // Instantiate in Canvas
         activeDialoguePrefab = Instantiate(dialogueTextPrefab, canvasTransform);
 
-        // Get the TextMeshPro component and set the text
+        // Get Text and Background
         TextMeshProUGUI dialogueText = activeDialoguePrefab.GetComponentInChildren<TextMeshProUGUI>();
+        RectTransform backgroundRect = activeDialoguePrefab.GetComponent<RectTransform>();
+
         if (dialogueText != null)
         {
             dialogueText.text = randomLine;
+
+            // Ensure Layout updates
+            Canvas.ForceUpdateCanvases();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(backgroundRect);
+
+            // Resize background to be bigger than text
+            Vector2 textSize = dialogueText.GetPreferredValues();
+            backgroundRect.sizeDelta = new Vector2(textSize.x * 1.2f, textSize.y * 1.2f);
         }
 
         // Position UI text above the NPC using WorldToScreenPoint
