@@ -20,7 +20,7 @@ public class EnemyMelee : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time >= nextAttackTime)
+        if (Time.time >= nextAttackTime && enemyTargeting.TargetPlayer != null)
         {
             Attack();
         }
