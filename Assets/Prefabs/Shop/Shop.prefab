@@ -35,10 +35,10 @@ RectTransform:
   - {fileID: 7701009573079469782}
   m_Father: {fileID: 1440677969389099632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 350}
+  m_SizeDelta: {x: 600, y: -540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &847500013694414772
 CanvasRenderer:
@@ -325,10 +325,10 @@ RectTransform:
   - {fileID: 5002460844535455585}
   m_Father: {fileID: 3301546764943198021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 560, y: 300}
+  m_SizeDelta: {x: 560, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5357000334405909168
 CanvasRenderer:
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 4.5
   m_Viewport: {fileID: 5002460844535455585}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -450,6 +450,14 @@ MonoBehaviour:
   minerals:
   - {fileID: 11400000, guid: 62636263536db3b438edbdaca0c6683e, type: 2}
   - {fileID: 11400000, guid: 713181529bb26ee458e1e63ac9cc08b7, type: 2}
+  - {fileID: 11400000, guid: 7a6b84e1123f8ae4c838542de7028ffa, type: 2}
+  - {fileID: 11400000, guid: f0a2c9372f13e544db7c5d1be2fb5bd5, type: 2}
+  - {fileID: 11400000, guid: f3747e717448c754ab13902d010c5c7b, type: 2}
+  - {fileID: 11400000, guid: 2f8f195fab31cd047898d8e7bc4738f3, type: 2}
+  - {fileID: 11400000, guid: 30307c7601bec7f42b4697d26b983d65, type: 2}
+  - {fileID: 11400000, guid: f81a0529d912dbe4db3d7ceb9c960924, type: 2}
+  - {fileID: 11400000, guid: 585f0611a45942042ae88ab50c4bd926, type: 2}
+  - {fileID: 11400000, guid: c3ca2a4f279a173448c473784d36fbde, type: 2}
   shop: {fileID: 507545574145411081}
   itemHolder: {fileID: 2530730777349056644}
   shopItem: {fileID: 6127706867260986631, guid: 68cc67f1912f32246bb23b1bc8853031, type: 3}
@@ -487,7 +495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -4.7}
+  m_AnchoredPosition: {x: 0, y: -4.700012}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7957540685638081553
@@ -623,9 +631,9 @@ RectTransform:
   - {fileID: 1914248221461045956}
   m_Father: {fileID: 3301546764943198021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -20, y: 100}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &724060482663944049

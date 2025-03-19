@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static VolFx.OldMoviePass;
 
 public class CaseScroll : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class CaseScroll : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private CaseResult caseResult;
     [SerializeField] private GameObject gambleMenu;
+
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip splinClip;
 
     private float speed;
     private bool isScrolling;
@@ -37,6 +42,8 @@ public class CaseScroll : MonoBehaviour
     {
         if (isScrolling || MoneyManager.Instance.Money < cost)
             return;
+
+        audioSource.PlayOneShot(splinClip);
 
         QuotaManager.Instance.AddSpin();
         MoneyManager.Instance.RemoveMoney(cost);
