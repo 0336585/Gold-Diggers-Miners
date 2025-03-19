@@ -235,10 +235,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 485474249}
     - target: {fileID: 3300787727299355600, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
-      propertyPath: maxOxygen
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3300787727299355600, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: 'oxygenBubbles.Array.data[0]'
       value: 
       objectReference: {fileID: 1751765270}
@@ -298,14 +294,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
-      propertyPath: townClips.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6800869711686919977, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
-      propertyPath: 'townClips.Array.data[3]'
-      value: 
-      objectReference: {fileID: 8300000, guid: cf926c281d48f094fb82ba70db619ed7, type: 3}
     - target: {fileID: 7233721711882435501, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.15
@@ -11625,6 +11613,8 @@ MonoBehaviour:
   - Hey Evert
   - How's Going?
   - Let's Blouse
+  - "Don\u2019t forget to pay the rent this month"
+  - The landlord is such a vampire
   chanceToSpeakChance: 50
   timeToShow: 2
   maxDistance: 5

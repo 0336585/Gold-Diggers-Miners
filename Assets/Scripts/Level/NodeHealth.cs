@@ -3,6 +3,8 @@ using UnityEngine;
 public class NodeHealth : MonoBehaviour
 {
     [SerializeField] private float noteHealth = 1;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip destructionClip;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -22,6 +24,7 @@ public class NodeHealth : MonoBehaviour
 
         if (noteHealth <= 0)
         {
+            AudioSource.PlayClipAtPoint(destructionClip, transform.position);
             Destroy(gameObject);
         }
     }
