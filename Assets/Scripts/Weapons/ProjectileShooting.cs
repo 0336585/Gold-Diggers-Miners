@@ -22,6 +22,12 @@ public class ProjectileShooter : MonoBehaviour
     [SerializeField] private int ammoInGun = 6;
     [SerializeField] private int reserveAmmo = 30;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip fireSound;
+    [SerializeField] private AudioClip reloadSound;
+    [SerializeField] private AudioClip emptyAmmoSound;
+
     public int ReserveAmmo
     {
         get { return reserveAmmo; }
@@ -77,15 +83,16 @@ public class ProjectileShooter : MonoBehaviour
         {
             if (currentAmmo > 0)
             {
-                // An random range between - 0.1 and 0.1, too simulate irregularities in these old guns
+                // A random range between -0.1 and 0.1, to simulate irregularities in these old guns
                 float randomDelay = Random.Range(-randomFireVariation, randomFireVariation);
                 nextFireTime = Time.time + fireRate + randomDelay;
                 Shoot();
                 currentAmmo--;
+                PlaySound(fireSound);
             }
             else
             {
-                //Debug.Log("Out of ammo! Press 'R' to reload.");
+                PlaySound(emptyAmmoSound);
             }
         }
 
@@ -136,7 +143,7 @@ public class ProjectileShooter : MonoBehaviour
 
                 if (projectile.TryGetComponent(out Rigidbody2D rb))
                 {
-                    rb.linearVelocity = spreadDirection * projectileSpeed; // Apply velocity based on the spread direction
+                    rb.linearVelocity = spreadDirection * projectileSpeed;
                 }
 
                 Destroy(projectile, projectileLifetime);
@@ -152,13 +159,12 @@ public class ProjectileShooter : MonoBehaviour
 
             if (projectile.TryGetComponent(out Rigidbody2D rb))
             {
-                rb.linearVelocity = shootDirection * projectileSpeed; // Ensure velocity is set properly
+                rb.linearVelocity = shootDirection * projectileSpeed;
             }
 
             Destroy(projectile, projectileLifetime);
         }
     }
-
 
     private void SetProjectileDamage(GameObject projectile)
     {
@@ -171,7 +177,9 @@ public class ProjectileShooter : MonoBehaviour
     private IEnumerator Reload()
     {
         isReloading = true;
-        //Debug.Log("Reloading...");
+
+        PlaySound(reloadSound);
+
         yield return new WaitForSeconds(reloadTime);
 
         int ammoNeeded = ammoInGun - currentAmmo; // How many bullets we need to refill
@@ -181,8 +189,13 @@ public class ProjectileShooter : MonoBehaviour
         reserveAmmo -= ammoToReload; // Reduce total ammo
 
         isReloading = false;
-        //Debug.Log("Reload complete!");
-        //Debug.Log("currentAmmo: " + currentAmmo);
-        //Debug.Log("reserveAmmo: " + reserveAmmo);
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
 }
