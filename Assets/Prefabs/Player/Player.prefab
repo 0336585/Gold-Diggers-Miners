@@ -461,9 +461,14 @@ MonoBehaviour:
   heartPrefab: {fileID: 6242354773705134471, guid: 844adfdd486318a4ca1daeaa63776916, type: 3}
   heartHalfPrefab: {fileID: 6242354773705134471, guid: 8de7def3d94f2b34695777edf950259a, type: 3}
   deathScreen: {fileID: 0}
+  damageEffectIntensity: 0.6
+  defaultEffectIntensity: 0.3
+  effectDuration: 0.2
   postProcessVolumes:
   - {fileID: 0}
   - {fileID: 0}
+  audioSource: {fileID: 5333089754565001629}
+  takingDamageClip: {fileID: 8300000, guid: 7609a96f1bc022b4ca30a40d28d3dc92, type: 3}
 --- !u!114 &4944147188587110059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,6 +510,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f4666e49835e6b048977a14ac11d6543, type: 3}
   - {fileID: 8300000, guid: 9b0bb16028d06754c9d7b54bbda352e9, type: 3}
   - {fileID: 8300000, guid: c68e006e0f3d26345b27b276193260c7, type: 3}
+  - {fileID: 8300000, guid: cf926c281d48f094fb82ba70db619ed7, type: 3}
   casinoClips:
   - {fileID: 8300000, guid: 271a4d1752192e641bfafb55f0c4e71c, type: 3}
   shopClips:
@@ -642,7 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28d1132aa58de042985b1630ad26760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxOxygen: 150
+  maxOxygen: 200
   oxygenLoseRate: 1
   damageAmount: 1
   damageRate: 3
@@ -657,7 +663,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  oxygenDepleteSound: {fileID: 5333089754565001629}
+  audioSource: {fileID: 5333089754565001629}
+  oxygenDepleteClip: {fileID: 8300000, guid: bfef3d922fd4d414a9a1e90368607dfa, type: 3}
 --- !u!114 &7516646652801624763
 MonoBehaviour:
   m_ObjectHideFlags: 0

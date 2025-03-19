@@ -7,16 +7,21 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerHealth : BaseHealth
 {
+    [Header("Player Hearts")]
     [SerializeField] private GameObject heartHolder;
     [SerializeField] private GameObject heartPrefab;
     [SerializeField] private GameObject heartHalfPrefab;
     [SerializeField] private GameObject deathScreen;
 
+    [Header("Post Processessing")]
     [SerializeField] private float damageEffectIntensity = 0.6f;
     [SerializeField] private float defaultEffectIntensity = 0.3f;
     [SerializeField] private float effectDuration = 0.2f;
-
     [SerializeField] private List<Volume> postProcessVolumes; // All Post Process Volumes in scene
+
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip takingDamageClip;
 
     private List<GameObject> hearts = new List<GameObject>();
     private Vignette activeVignette; // Reference to active vignette effect
@@ -32,7 +37,8 @@ public class PlayerHealth : BaseHealth
     {
         base.TakeDamage(_entityTakingDamage, _entityDoingDamage);
         UpdateHearts((int)currentHealth);
-        FlashVignette(); 
+        FlashVignette();
+        audioSource.PlayOneShot(takingDamageClip);
         Die();
     }
 
@@ -40,7 +46,8 @@ public class PlayerHealth : BaseHealth
     {
         base.TakeDamageWithInt(_entityTakingDamage, _damage);
         UpdateHearts((int)currentHealth);
-        FlashVignette();  
+        FlashVignette();
+        audioSource.PlayOneShot(takingDamageClip);
         Die();
     }
 

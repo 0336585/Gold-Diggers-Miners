@@ -15,7 +15,9 @@ public class OxygenManager : MonoBehaviour
     private Coroutine damageCoroutine;
 
     [SerializeField] private List<GameObject> oxygenBubbles;
-    [SerializeField] private AudioSource oxygenDepleteSound; 
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip oxygenDepleteClip;
 
     private int lastOxygenLevel;  
 
@@ -93,6 +95,6 @@ public class OxygenManager : MonoBehaviour
 
     private void PlayOxygenDepleteSound()
     {
-        oxygenDepleteSound.Play();
+        audioSource.PlayOneShot(oxygenDepleteClip);
     }
 }
