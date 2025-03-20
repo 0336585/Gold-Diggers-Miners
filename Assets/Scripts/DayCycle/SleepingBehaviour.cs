@@ -25,6 +25,7 @@ public class SleepingBehaviour : MonoBehaviour
     private void Start()
     {
         sleepSFX = GetComponent<AudioSource>();
+        survivedDaysAmount = saveDataManager.saveData.days;
     }
 
     public void Sleep()
@@ -34,9 +35,9 @@ public class SleepingBehaviour : MonoBehaviour
             if (playerIsSleeping) return;
 
             playerIsSleeping = true;
-            survivedDaysAmount++;
 
             saveDataManager.saveData.days = survivedDaysAmount;
+            survivedDaysAmount++;
             saveDataManager.SaveData();
 
             sleepSFX.Play();
@@ -53,6 +54,9 @@ public class SleepingBehaviour : MonoBehaviour
             sleepMenu.SetActive(true);
             menuAnimator = sleepMenu.GetComponent<Animator>();
             menuAnimator.SetTrigger("SleepAnim");
+
+            Debug.Log(survivedDaysAmount);
+
             StartCoroutine(TimeToSleepAgain(6));
         }
         else

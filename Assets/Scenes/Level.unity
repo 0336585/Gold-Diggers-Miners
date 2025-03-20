@@ -1402,6 +1402,10 @@ PrefabInstance:
       value: Sleeping
       objectReference: {fileID: 0}
     - target: {fileID: 5640408106963875859, guid: 88a1125f811c8874cb5161a72ad0a285, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640408106963875859, guid: 88a1125f811c8874cb5161a72ad0a285, type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 14664890}
@@ -1413,6 +1417,10 @@ PrefabInstance:
       propertyPath: levelGenerator
       value: 
       objectReference: {fileID: 1060338515}
+    - target: {fileID: 5640408106963875859, guid: 88a1125f811c8874cb5161a72ad0a285, type: 3}
+      propertyPath: saveDataManager
+      value: 
+      objectReference: {fileID: 1154817820}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1555,6 +1563,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f28d1132aa58de042985b1630ad26760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &227751825 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2356447406596363966, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+  m_PrefabInstance: {fileID: 14664887}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227751812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dbaa333ce2eb874cb60d98127da39bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &270054114
@@ -10982,6 +11001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba6205d9492689468a3102aa9fbb500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyManager: {fileID: 227751825}
+  sleepingBehaviour: {fileID: 923492377}
 --- !u!1 &1176756507
 GameObject:
   m_ObjectHideFlags: 0

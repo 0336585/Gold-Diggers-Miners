@@ -12,7 +12,7 @@ public class MoneyManager : MonoBehaviour
     public int Money
     {
         get { return money; }
-        set { money = value; }
+        set { money = value; moneyText.text = money.ToString(); }
     }
 
     [SerializeField] private TextMeshProUGUI moneyText;
@@ -27,8 +27,6 @@ public class MoneyManager : MonoBehaviour
         }
 
         Instance = this;
-
-        money = 0;
         moneyText.text = money.ToString();
     }
 
@@ -38,6 +36,7 @@ public class MoneyManager : MonoBehaviour
         saveDataManager.saveData.money = money;
         moneyText.text = money.ToString();
     }
+
     public void RemoveMoney(int _amount)
     {
         money -= _amount;

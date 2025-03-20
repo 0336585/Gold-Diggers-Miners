@@ -18,6 +18,7 @@ public class DataManager : MonoBehaviour
     private void Awake()
     {
         filePath = Path.Combine(Application.persistentDataPath, "saveData.json");
+        LoadData();
     }
 
     public void SaveData()
@@ -38,6 +39,10 @@ public class DataManager : MonoBehaviour
             {
                 moneyManager.Money = saveData.money;
                 sleepingBehaviour.SurvivedDaysAmount = saveData.days;
+            }
+            else
+            {
+                Debug.Log("Note: Can't set days and money data");
             }
 
             Debug.Log("Data Loaded: " + json);
