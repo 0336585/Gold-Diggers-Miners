@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ac632836555dec54098f6f8322038a0b
+guid: f09d25a9e2f1a5543a06ac2f23844bb7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3336407591467596454
-    second: BackGroundHouseSideways_0
+      213: -9178655761984813080
+    second: StreetBlock_22_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackGroundHouseSideways_0
+      name: StreetBlock_22_0
       rect:
         serializedVersion: 2
-        x: 29
+        x: 0
         y: 0
-        width: 262
-        height: 231
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6aab753070d4d4e20800000000000000
-      internalID: 3336407591467596454
+      spriteID: 8e78d4f073dde9080800000000000000
+      internalID: -9178655761984813080
       vertices: []
       indices: 
       edges: []
