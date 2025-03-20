@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+[System.Serializable]
 public class SaveData
 {
     public uint days;
@@ -19,7 +20,7 @@ public class DataManager : MonoBehaviour
     private string filePath;
     private List<InventoryItem> defaultHotbarItems = new List<InventoryItem>();
 
-    private void Start()
+    private void Awake()
     {
         filePath = Path.Combine(Application.persistentDataPath, "saveData.json");
         LoadData();
@@ -41,10 +42,11 @@ public class DataManager : MonoBehaviour
             string json = File.ReadAllText(filePath);
             saveData = JsonUtility.FromJson<SaveData>(json);
 
-            if(moneyManager != null && sleepingBehaviour != null)
+            if(moneyManager != null && sleepingBehaviour != null && hotbar != null)
             {
                 moneyManager.Money = saveData.money;
                 sleepingBehaviour.SurvivedDaysAmount = saveData.days;
+                hotbar.HotbarItems = saveData.hotbarItems;
             }
             else
             {
@@ -55,6 +57,7 @@ public class DataManager : MonoBehaviour
             if (saveData.hotbarItems == null || saveData.hotbarItems.Count == 0)
             {
                 saveData.hotbarItems = defaultHotbarItems;
+                Debug.Log("No weapons found in save data");
             }
 
             Debug.Log("Data Loaded: " + json);

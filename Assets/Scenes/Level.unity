@@ -10967,7 +10967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e193b3416b4e72f4882b818caef545e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinsToReachQuota: 0
+  spinsToReachQuota: 5
   quotaText: {fileID: 1397526951}
 --- !u!114 &1154817818
 MonoBehaviour:
@@ -11005,6 +11005,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba6205d9492689468a3102aa9fbb500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveData:
+    days: 0
+    money: 0
+    hotbarItems: []
   moneyManager: {fileID: 227751825}
   sleepingBehaviour: {fileID: 923492377}
   hotbar: {fileID: 14664889}
