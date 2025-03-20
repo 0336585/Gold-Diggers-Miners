@@ -177,8 +177,7 @@ public class ProjectileShooter : MonoBehaviour
     private IEnumerator Reload()
     {
         isReloading = true;
-
-        PlaySound(reloadSound);
+        StartCoroutine(PlayReloadSoundLoop()); // Start looping the reload sound
 
         yield return new WaitForSeconds(reloadTime);
 
@@ -189,6 +188,16 @@ public class ProjectileShooter : MonoBehaviour
         reserveAmmo -= ammoToReload; // Reduce total ammo
 
         isReloading = false;
+    }
+
+    // Coroutine to continuously play the reload sound
+    private IEnumerator PlayReloadSoundLoop()
+    {
+        while (isReloading)
+        {
+            PlaySound(reloadSound);
+            yield return new WaitForSeconds(0.35f); // Interval between each sound
+        }
     }
 
     private void PlaySound(AudioClip clip)
