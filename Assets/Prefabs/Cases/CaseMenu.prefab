@@ -76,12 +76,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b7d6107da85d44b9b3601fbfe9c042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 100
+  cost: 0
   prefab: {fileID: 370900648868977228, guid: 98fac8808d76bcb40838db1633a875dd, type: 3}
   caseResult: {fileID: 834105435902539755}
   gambleMenu: {fileID: 1512492504733169716}
   audioSource: {fileID: 2499484866395314707}
-  splinClip: {fileID: 8300000, guid: 7609a96f1bc022b4ca30a40d28d3dc92, type: 3}
+  splinClip: {fileID: 8300000, guid: 09b9372de907841438b402e274361fe3, type: 3}
 --- !u!82 &2499484866395314707
 AudioSource:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

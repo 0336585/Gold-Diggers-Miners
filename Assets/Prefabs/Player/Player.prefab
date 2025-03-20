@@ -443,8 +443,7 @@ MonoBehaviour:
   hotbarSlots: []
   itemHolder: {fileID: 3112717761231546705}
   hotbarUI: {fileID: 0}
-  pickaxe: {fileID: 8268255958864661807, guid: dbf4bf4445acf9d44a8de3561949b813, type: 3}
-  revolver: {fileID: 7777505889801214277, guid: 45a5d130706c392459046757af185067, type: 3}
+  dataManager: {fileID: 0}
 --- !u!114 &3234258329588101976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,7 +467,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   audioSource: {fileID: 5333089754565001629}
-  takingDamageClip: {fileID: 8300000, guid: 7609a96f1bc022b4ca30a40d28d3dc92, type: 3}
+  takingDamageClip: {fileID: 8300000, guid: 30c41e9b16632374c9d605b7095f6952, type: 3}
 --- !u!114 &4944147188587110059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,13 +538,13 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 175
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -635,6 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dbaa333ce2eb874cb60d98127da39bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveDataManager: {fileID: 0}
   moneyText: {fileID: 0}
 --- !u!114 &3300787727299355600
 MonoBehaviour:
