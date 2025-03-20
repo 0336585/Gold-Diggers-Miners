@@ -145,9 +145,9 @@ MonoBehaviour:
   ammoInGun: 10
   reserveAmmo: 50
   audioSource: {fileID: 3386833211309518550}
-  fireSound: {fileID: 8300000, guid: 7609a96f1bc022b4ca30a40d28d3dc92, type: 3}
-  reloadSound: {fileID: 8300000, guid: 7609a96f1bc022b4ca30a40d28d3dc92, type: 3}
-  emptyAmmoSound: {fileID: 8300000, guid: 7609a96f1bc022b4ca30a40d28d3dc92, type: 3}
+  fireSound: {fileID: 8300000, guid: 3eaf3658ba30bbc4d9d8e7c8ac5a5259, type: 3}
+  reloadSound: {fileID: 8300000, guid: b14aa434dd14a894aae311aa98e2ca09, type: 3}
+  emptyAmmoSound: {fileID: 8300000, guid: 5574e05c902ba1b4cbf6d62e39af5190, type: 3}
   reloadTime: 0.4
   bulletsPerShot: 5
   spreadAngle: 25
