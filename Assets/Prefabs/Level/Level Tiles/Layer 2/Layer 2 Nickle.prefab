@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteHealth: 3
   audioSource: {fileID: -8449856984744520982}
-  destructionClip: {fileID: 8300000, guid: 7609a96f1bc022b4ca30a40d28d3dc92, type: 3}
+  destructionClip: {fileID: 8300000, guid: 2dcf4e7f80a5e9f48a039746bea7cbfe, type: 3}
 --- !u!82 &-8449856984744520982
 AudioSource:
   m_ObjectHideFlags: 0
