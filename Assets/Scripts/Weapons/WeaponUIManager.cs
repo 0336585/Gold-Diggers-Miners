@@ -32,17 +32,22 @@ public class WeaponUIManager : MonoBehaviour
         {
             ammoGO.SetActive(true);
             projectileShooter = GetComponentInChildren<ProjectileShooter>();
+            ammoText.text = $"{projectileShooter.CurrentAmmo}|{projectileShooter.ReserveAmmo}";
             //Debug.Log("Ik ben het wapen: " + projectileShooter.transform.name);
         }
         else if(item.itemType == ItemType.Throwable)
         {
             ammoGO.SetActive(true);
             projectileThrowing = GetComponentInChildren<ProjectileThrowing>();
+            ammoText.text = $"{projectileThrowing.CurrentAmmo}";
+
         }
         else
         {
             ammoGO.SetActive(false);
         }
+
+        UpdateAmmoText();
     }
     private void UpdateAmmoText()
     {

@@ -81,6 +81,8 @@ public class Hotbar : MonoBehaviour
     {
         if (MenuManager.Instance.inMenu) return;
 
+        weaponUIManager.ChangeToolUI(equipedItem);
+
         if (Input.GetKeyDown(KeyCode.Alpha1) && !projectileShooter.IsReloading)
         {
             if (hotbarItems[0] != null)
@@ -135,47 +137,68 @@ public class Hotbar : MonoBehaviour
             projectileShooter = GetComponentInChildren<ProjectileShooter>();
 
         weaponUIManager.ChangeToolUI(equipedItem);
+
+        //for (int i = 0; i < hotbarItems.Count; i++)
+        //{
+        //    if (_item == hotbarItems[i]) return;
+        //}
     }
 
     public void AddItemToHotbar(InventoryItem _item)
     {
+        // Check if the exact same item is already in the hotbar
         for (int i = 0; i < hotbarItems.Count; i++)
         {
-            if (_item == hotbarItems[i])
-                return;
-        }
-
-        for (int i = 0; i < hotbarItems.Count; i++)
-        {
-            if (hotbarItems[i].itemType == _item.itemType)
-                hotbarItems[i] = _item;
-        }
-
-        for (int i = 0; i < instantiatedItems.Count; i++)
-        {
-            Destroy(instantiatedItems[i].gameObject);
-        }
-
-        instantiatedItems.Clear();
-
-        // Instantiate all items in the hotbar and store them in a list
-        foreach (var item in hotbarItems)
-        {
-            if (item != null)
+            if (hotbarItems[i] == _item) // If the same item is already in the hotbar, do nothing
             {
-                GameObject instantiatedItem = Instantiate(item.prefab, itemHolder.transform);
-                instantiatedItem.SetActive(false); // Deactivate all items initially
-                instantiatedItems.Add(instantiatedItem);
+                return;
             }
         }
 
-        // Update the hotbar UI
+        // Check if an item of the same type exists in the hotbar
         for (int i = 0; i < hotbarItems.Count; i++)
         {
-            if (hotbarItems[i] == null) break;
+            if (hotbarItems[i] != null && hotbarItems[i].itemType == _item.itemType)
+            {
+                // Replace the old item in the hotbar
+                hotbarItems[i] = _item;
 
-            if (hotbarSlots[i].transform.name.Contains("Item"))
-                hotbarSlots[i].sprite = hotbarItems[i].icon;
+                // Destroy the old instantiated item
+                if (instantiatedItems[i] != null)
+                {
+                    Destroy(instantiatedItems[i]);
+                }
+
+                // Instantiate the new item at the correct position
+                GameObject instantiatedItem = Instantiate(_item.prefab, itemHolder.transform);
+                instantiatedItem.SetActive(false); // Deactivate initially
+                instantiatedItems[i] = instantiatedItem; // Replace in list
+
+                // Update the hotbar UI slot
+                if (hotbarSlots[i].transform.name.Contains("Item"))
+                    hotbarSlots[i].sprite = _item.icon;
+
+                return; // Exit function after replacing the item
+            }
+        }
+
+        // If no existing item of the same type was found, add the new item (if there is space)
+        if (hotbarItems.Count < hotbarSlots.Count)
+        {
+            hotbarItems.Add(_item);
+
+            // Instantiate the new item and add it to the list
+            GameObject instantiatedItem = Instantiate(_item.prefab, itemHolder.transform);
+            instantiatedItem.SetActive(false);
+            instantiatedItems.Add(instantiatedItem);
+
+            // Update UI slot
+            int newIndex = hotbarItems.Count - 1;
+            if (hotbarSlots[newIndex].transform.name.Contains("Item"))
+                hotbarSlots[newIndex].sprite = _item.icon;
         }
     }
+
+
+
 }

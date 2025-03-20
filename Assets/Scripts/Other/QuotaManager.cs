@@ -41,6 +41,11 @@ public class QuotaManager : MonoBehaviour
 
     private void Start()
     {
+        SetWinQuotaText();
+    }
+
+    private void SetWinQuotaText()
+    {
         winQuotaText.text = $"{mineral1.mineralName}: {mineral1CurrentAmount}/{mineral1AmountNeeded}\n" +
                             $"{mineral2.mineralName}: {mineral2CurrentAmount}/{mineral2AmountNeeded}\n" +
                             $"{mineral3.mineralName}: {mineral3CurrentAmount}/{mineral3AmountNeeded}";
@@ -105,9 +110,7 @@ public class QuotaManager : MonoBehaviour
         }
 
 
-        winQuotaText.text = $"{mineral1.mineralName}: {mineral1CurrentAmount}/{mineral1AmountNeeded}\n" +
-                            $"{mineral2.mineralName}: {mineral2CurrentAmount}/{mineral2AmountNeeded}\n" +
-                            $"{mineral3.mineralName}: {mineral3CurrentAmount}/{mineral3AmountNeeded}";
+        SetWinQuotaText();
 
     }
 
