@@ -24,7 +24,9 @@ public class NodeHealth : MonoBehaviour
 
         if (noteHealth <= 0)
         {
-            AudioSource.PlayClipAtPoint(destructionClip, transform.position);
+            if (destructionClip != null)
+                AudioSource.PlayClipAtPoint(destructionClip, transform.position);
+
             Destroy(gameObject);
         }
     }

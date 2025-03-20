@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class Interact : MonoBehaviour
 {
     [SerializeField] private GameObject keyPressPopUp;
+    [SerializeField] private GameObject otherCanvas;
     [SerializeField] private bool canPlaySoundeffect = true;
     [SerializeField] private UnityEvent onInteract;
 
@@ -26,7 +27,7 @@ public class Interact : MonoBehaviour
         {
             onInteract.Invoke();
             if(canPlaySoundeffect)
-                audioPlayer.Play();
+                audioPlayer?.Play();
         }
     }
 
@@ -36,6 +37,9 @@ public class Interact : MonoBehaviour
         {
             inRange = true;
             keyPressPopUp.SetActive(true);
+
+            if (otherCanvas != null)
+                otherCanvas.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -44,6 +48,9 @@ public class Interact : MonoBehaviour
         {
             inRange = false;
             keyPressPopUp.SetActive(false);
+
+            if (otherCanvas != null)
+                otherCanvas.SetActive(false);
         }
     }
 }
