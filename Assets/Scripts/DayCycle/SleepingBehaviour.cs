@@ -9,13 +9,18 @@ public class SleepingBehaviour : MonoBehaviour
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private LevelGenerator levelGenerator;
     [SerializeField] private OxygenManager oxygenManager;
-    private uint survivedDaysAmount; 
+    [SerializeField] private DataManager saveDataManager;
+
+    private uint survivedDaysAmount; // uInt can't get in the negative
     private AudioSource sleepSFX;
     private Animator menuAnimator;
-
-
-
     private bool playerIsSleeping = false;
+
+    public uint SurvivedDaysAmount
+    {
+        get { return survivedDaysAmount; }
+        set { survivedDaysAmount = value; }
+    }
 
     private void Start()
     {
@@ -29,8 +34,11 @@ public class SleepingBehaviour : MonoBehaviour
             if (playerIsSleeping) return;
 
             playerIsSleeping = true;
-            // TODO: Make fade in fade out
             survivedDaysAmount++;
+
+            saveDataManager.saveData.days = survivedDaysAmount;
+            saveDataManager.SaveData();
+
             sleepSFX.Play();
 
             if (survivedDaysAmount == 1)
@@ -49,17 +57,23 @@ public class SleepingBehaviour : MonoBehaviour
         }
         else
         {
-            // TODO: Add more conditions to this, for gambling and quota
-            daysUI.text = $"Can't sleep just yet...";
+            Debug.Log("Text is called"); 
+            daysUI.gameObject.SetActive(true);  
+            daysUI.text = "I need to Gamble...";
+            StartCoroutine(HideTextAfterDelay(3)); 
         }
-
-        
     }
 
     private IEnumerator TimeToSleepAgain(float _time)
     {
         yield return new WaitForSeconds(_time);
         playerIsSleeping = false;
+    }
+
+    private IEnumerator HideTextAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        daysUI.gameObject.SetActive(false);
     }
 
     public void SleepEvent()

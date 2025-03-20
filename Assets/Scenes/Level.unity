@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 1137403296}
+    - target: {fileID: 2356447406596363966, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: saveDataManager
+      value: 
+      objectReference: {fileID: 1154817820}
     - target: {fileID: 3234258329588101976, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: deathScreen
       value: 
@@ -453,22 +457,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407797755}
     m_Modifications:
-    - target: {fileID: 4259650355082069169, guid: eb37375fd7653d849bfbd2b69be585a6, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274510946807196219, guid: eb37375fd7653d849bfbd2b69be585a6, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274510946807196219, guid: eb37375fd7653d849bfbd2b69be585a6, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274510946807196219, guid: eb37375fd7653d849bfbd2b69be585a6, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -25
-      objectReference: {fileID: 0}
     - target: {fileID: 4302055844608756733, guid: eb37375fd7653d849bfbd2b69be585a6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9279,6 +9267,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3596520310250499564, guid: d3542376b291b474d9b54f6b6c6b4d33, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.699951
+      objectReference: {fileID: 0}
     - target: {fileID: 6491055264186925433, guid: d3542376b291b474d9b54f6b6c6b4d33, type: 3}
       propertyPath: m_Name
       value: ShopMenu
@@ -9744,6 +9736,7 @@ MonoBehaviour:
   playerHealth: {fileID: 14664890}
   levelGenerator: {fileID: 1060338515}
   oxygenManager: {fileID: 227751821}
+  saveDataManager: {fileID: 1154817820}
 --- !u!1 &923647766
 GameObject:
   m_ObjectHideFlags: 0
@@ -10871,6 +10864,7 @@ GameObject:
   - component: {fileID: 1154817817}
   - component: {fileID: 1154817818}
   - component: {fileID: 1154817819}
+  - component: {fileID: 1154817820}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10950,7 +10944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e193b3416b4e72f4882b818caef545e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinsToReachQuota: 5
+  spinsToReachQuota: 0
   quotaText: {fileID: 1397526951}
 --- !u!114 &1154817818
 MonoBehaviour:
@@ -10974,6 +10968,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c8deac48064a3e43bce90bc257915b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1154817820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154817812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba6205d9492689468a3102aa9fbb500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1176756507

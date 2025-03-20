@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,11 +7,13 @@ public class Hotbar : MonoBehaviour
 {
     private GameObject equipedItemGO;
     public InventoryItem equipedItem;
+
     public InventoryItem EquipedItem
     {
         get { return equipedItem; }
         private set { equipedItem = value; }
     }
+
     private PlayerMining playerMining;
     private WeaponUIManager weaponUIManager;
     private ProjectileShooter projectileShooter;
