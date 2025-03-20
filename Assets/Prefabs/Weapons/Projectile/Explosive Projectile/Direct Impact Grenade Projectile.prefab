@@ -180,8 +180,8 @@ MonoBehaviour:
   detonationTime: 2
   explosionRadius: 3
   audioSource: {fileID: 4928558980818389915}
-  fuseSound: {fileID: 8300000, guid: 7609a96f1bc022b4ca30a40d28d3dc92, type: 3}
-  explosionSound: {fileID: 8300000, guid: 7609a96f1bc022b4ca30a40d28d3dc92, type: 3}
+  fuseSound: {fileID: 8300000, guid: 683367df53c710a458e790c1b40ff6ee, type: 3}
+  explosionSound: {fileID: 8300000, guid: e68a1e7b7c779c34ca7a4681913866d4, type: 3}
 --- !u!82 &4928558980818389915
 AudioSource:
   m_ObjectHideFlags: 0

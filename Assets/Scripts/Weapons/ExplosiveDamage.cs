@@ -120,7 +120,7 @@ public class ExplosiveDamage : MonoBehaviour
     {
         if (audioSource != null && fuseSound != null)
         {
-            audioSource.PlayOneShot(fuseSound, defaultVolume); 
+            audioSource.PlayOneShot(fuseSound, defaultVolume * 0.6f); 
         }
     }
 
@@ -129,7 +129,7 @@ public class ExplosiveDamage : MonoBehaviour
         if (explosionSound != null)
         {
             // Play explosion sound at 6x the default volume at the object's position
-            AudioSource.PlayClipAtPoint(explosionSound, transform.position, defaultVolume * 6f);
+            AudioSource.PlayClipAtPoint(explosionSound, transform.position, defaultVolume * 1000f);
         }
     }
 }
