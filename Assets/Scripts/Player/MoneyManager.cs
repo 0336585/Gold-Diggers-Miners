@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
+    [SerializeField] private DataManager saveDataManager;
+
     public static MoneyManager Instance;
 
     private int money;
@@ -10,7 +12,7 @@ public class MoneyManager : MonoBehaviour
     public int Money
     {
         get { return money; }
-        private set { money = value; }
+        set { money = value; }
     }
 
     [SerializeField] private TextMeshProUGUI moneyText;
@@ -33,11 +35,13 @@ public class MoneyManager : MonoBehaviour
     public void AddMoney(int _amount)
     {
         money += _amount;
+        saveDataManager.saveData.money = money;
         moneyText.text = money.ToString();
     }
     public void RemoveMoney(int _amount)
     {
         money -= _amount;
+        saveDataManager.saveData.money = money;
         moneyText.text = money.ToString();
     }
 }
