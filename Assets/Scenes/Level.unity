@@ -294,6 +294,10 @@ PrefabInstance:
       propertyPath: hotbarUI
       value: 
       objectReference: {fileID: 1819725184}
+    - target: {fileID: 6244489027050304768, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: dataManager
+      value: 
+      objectReference: {fileID: 1154817820}
     - target: {fileID: 6490688001680501119, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: m_Name
       value: Player
@@ -11003,6 +11007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyManager: {fileID: 227751825}
   sleepingBehaviour: {fileID: 923492377}
+  hotbar: {fileID: 14664889}
 --- !u!1 &1176756507
 GameObject:
   m_ObjectHideFlags: 0

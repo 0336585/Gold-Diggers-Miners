@@ -55,8 +55,6 @@ public class SleepingBehaviour : MonoBehaviour
             menuAnimator = sleepMenu.GetComponent<Animator>();
             menuAnimator.SetTrigger("SleepAnim");
 
-            Debug.Log(survivedDaysAmount);
-
             StartCoroutine(TimeToSleepAgain(6));
         }
         else

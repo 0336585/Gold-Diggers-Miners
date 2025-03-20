@@ -18,17 +18,20 @@ public class Hotbar : MonoBehaviour
     private WeaponUIManager weaponUIManager;
     private ProjectileShooter projectileShooter;
 
-
     [SerializeField] private List<InventoryItem> hotbarItems = new List<InventoryItem>();
+
+    public List<InventoryItem> HotbarItems
+    {
+        get { return hotbarItems; }
+        set { hotbarItems = value; }
+    }
+
     [SerializeField] private List<Image> hotbarSlots;
 
     [Header("References")]
     [SerializeField] private GameObject itemHolder;
     [SerializeField] private GameObject hotbarUI;
-
-    [Header("Items")]
-    [SerializeField] private GameObject pickaxe;
-    [SerializeField] private GameObject revolver;
+    [SerializeField] private DataManager dataManager;
 
     private List<GameObject> instantiatedItems = new List<GameObject>();
 
@@ -69,6 +72,8 @@ public class Hotbar : MonoBehaviour
             if (hotbarSlots[i].transform.name.Contains("Item"))
                 hotbarSlots[i].sprite = hotbarItems[i].icon;
         }
+
+        dataManager.FillDefaultHotbarItems(hotbarItems);
     }
 
     // Update is called once per frame
@@ -172,12 +177,5 @@ public class Hotbar : MonoBehaviour
             if (hotbarSlots[i].transform.name.Contains("Item"))
                 hotbarSlots[i].sprite = hotbarItems[i].icon;
         }
-    }
-
-    private IEnumerator WarningMessage(GameObject _warningGO)
-    {
-        _warningGO.SetActive(true);
-        yield return new WaitForSeconds(5);
-        _warningGO.SetActive(false);
     }
 }
