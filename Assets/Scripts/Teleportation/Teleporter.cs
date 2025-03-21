@@ -14,7 +14,6 @@ public class Teleporter : MonoBehaviour
     [SerializeField] private bool shouldSwitchPostProcess = false;
     [SerializeField] private bool shouldSwitchMusic = false;
     [SerializeField] private bool shouldCountEnemiesForMusic = false;
-    private bool isTeleporting = false;
 
     [Header("UI")]
     [SerializeField] private GameObject switchScreen;
@@ -94,33 +93,22 @@ public class Teleporter : MonoBehaviour
     {
         if (musicPlayer != null)
         {
-            // Select the playlist based on the selected enum value
+            musicPlayer.isInSpecialArea = true; // Ensure it's in a special area
+
             switch (selectedPlaylist)
             {
-                case PlaylistType.Ambient:
-                    musicPlayer.SwitchPlaylist(musicPlayer.ambientClips);
-                    musicPlayer.isInSpecialArea = false;
-                    break;
-                case PlaylistType.Action:
-                    musicPlayer.SwitchPlaylist(musicPlayer.actionClips);
-                    musicPlayer.isInSpecialArea = false;
-                    break;
                 case PlaylistType.Town:
-                    musicPlayer.SwitchPlaylist(musicPlayer.townClips);
-                    musicPlayer.isInSpecialArea = true;
+                    musicPlayer.SetSpecialZoneStatus(true, MusicPlayer.StartingLocation.Town);
                     break;
                 case PlaylistType.Casino:
-                    musicPlayer.SwitchPlaylist(musicPlayer.casinoClips);
-                    musicPlayer.isInSpecialArea = true;
+                    musicPlayer.SetSpecialZoneStatus(true, MusicPlayer.StartingLocation.Casino);
                     break;
                 case PlaylistType.Shop:
-                    musicPlayer.SwitchPlaylist(musicPlayer.shopClips);
-                    musicPlayer.isInSpecialArea = true;
+                    musicPlayer.SetSpecialZoneStatus(true, MusicPlayer.StartingLocation.Shop);
                     break;
                 default:
-                    // If None is selected, do nothing or switch to a default
-                    musicPlayer.SwitchPlaylist(musicPlayer.ambientClips);
                     musicPlayer.isInSpecialArea = false;
+                    musicPlayer.SwitchPlaylist(musicPlayer.ambientClips);
                     break;
             }
         }
