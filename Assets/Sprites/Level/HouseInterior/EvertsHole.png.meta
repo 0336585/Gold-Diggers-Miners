@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      EvertsHole_0: -1278306138773971617
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

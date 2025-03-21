@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Background_Sideways_BrickHouse_0: 585673623461256081
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

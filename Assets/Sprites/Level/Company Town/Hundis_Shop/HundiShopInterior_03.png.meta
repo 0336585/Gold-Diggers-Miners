@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HundiShopInterior_03_0: -406805297456014559
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

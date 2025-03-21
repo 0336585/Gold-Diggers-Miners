@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      StreetBlock_05_0: 8888602444819082363
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PoorStreetWall_7_0: 2440008305886038987
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

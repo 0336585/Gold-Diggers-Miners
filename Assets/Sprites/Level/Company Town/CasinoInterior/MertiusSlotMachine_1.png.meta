@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MertiusSlotMachine_1_0: 1117091064868023110
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
