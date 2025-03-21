@@ -45,9 +45,9 @@ public class BasePlayer : Entity
         stateMachine = new StateMachine();
 
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
-        walkState = new PlayerWalkState(this, stateMachine, "Run");
-        jumpState = new PlayerJumpState(this, stateMachine, "Jump", jumpForce);
-        fallingState = new PlayerFallingState(this, stateMachine, "Falling");
+        walkState = new PlayerWalkState(this, stateMachine, "Walk");
+        jumpState = new PlayerJumpState(this, stateMachine, "Air", jumpForce);
+        fallingState = new PlayerFallingState(this, stateMachine, "Air");
         dashState = new PlayerDashState(this, stateMachine, "Dash", dashSpeed);
 
         stateMachine.Initialize(idleState);

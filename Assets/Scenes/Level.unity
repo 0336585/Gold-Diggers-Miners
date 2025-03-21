@@ -203,6 +203,14 @@ PrefabInstance:
       propertyPath: reloadText
       value: 
       objectReference: {fileID: 579689051}
+    - target: {fileID: 5062410065100720429, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: m_Size.x
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062410065100720429, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6
+      objectReference: {fileID: 0}
     - target: {fileID: 6244489027050304768, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: hotbarUI
       value: 
@@ -215,6 +223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7036115172528769419, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 957e9e0e92c0e384086f53e90b76ecfd, type: 2}
     - target: {fileID: 7233721711882435501, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.15
@@ -255,7 +267,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5215567944020753159, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -565,6 +578,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4302055844608756733, guid: eb37375fd7653d849bfbd2b69be585a6, type: 3}
   m_PrefabInstance: {fileID: 42143942}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &43146807 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3365150074229285389, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
+  m_PrefabInstance: {fileID: 1659301835}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &81455635 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2998743901371008614, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
@@ -3940,7 +3964,7 @@ MonoBehaviour:
   mineral3AmountNeeded: 100
   spinsToReachSleepQuota: 5
   sleepQuotaText: {fileID: 1397526951}
-  winQuotaText: {fileID: 1946076435}
+  winQuotaText: {fileID: 43146807}
   winScreen: {fileID: 548223810}
 --- !u!114 &1154817818
 MonoBehaviour:
@@ -5350,6 +5374,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3625128083701713815, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3987300823757476782, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
       propertyPath: keyPressPopUp
       value: 
@@ -5375,6 +5403,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1154817816}
     - target: {fileID: 5013997471339496861, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124045533040034520, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
