@@ -25,6 +25,7 @@ public class Teleporter : MonoBehaviour
     [SerializeField] private MusicPlayer musicPlayer;
 
     // Enum for selecting which playlist to switch to
+    // TODO: Make that it just uses the one from music player exept this copy
     public enum PlaylistType
     {
         None,
