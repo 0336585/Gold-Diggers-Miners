@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tin
   m_EditorClassIdentifier: 
   mineralName: Tin
-  icon: {fileID: 6398492527668056779, guid: 22bb6621fa2b51c47b6eae01e67078a2, type: 3}
+  icon: {fileID: 3705340349713357007, guid: 21b92053778d61248b09e14bed4bc4cf, type: 3}
   dropAmount: 2
   maxStack: 99
   sellPrice: 30

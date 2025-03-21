@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Silver
   m_EditorClassIdentifier: 
   mineralName: Silver
-  icon: {fileID: 6398492527668056779, guid: 22bb6621fa2b51c47b6eae01e67078a2, type: 3}
+  icon: {fileID: -665077907434480214, guid: cf178e172f23b544ab58cbf3666983d9, type: 3}
   dropAmount: 2
   maxStack: 99
   sellPrice: 40

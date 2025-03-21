@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cobalt
   m_EditorClassIdentifier: 
   mineralName: Cobalt
-  icon: {fileID: -228819513787663229, guid: c07e970ccc92add41a5b3c7ae6826092, type: 3}
+  icon: {fileID: -6736854091154687595, guid: 36a1fcbc4cea4af4dbd2c21cae646024, type: 3}
   dropAmount: 3
   maxStack: 99
   sellPrice: 35

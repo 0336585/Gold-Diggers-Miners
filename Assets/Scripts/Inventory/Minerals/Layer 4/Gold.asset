@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gold
   m_EditorClassIdentifier: 
   mineralName: Gold
-  icon: {fileID: 6398492527668056779, guid: 22bb6621fa2b51c47b6eae01e67078a2, type: 3}
+  icon: {fileID: -5714196178206836283, guid: 5a7bbdc6f6df2734b977e754f8bb6eca, type: 3}
   dropAmount: 2
   maxStack: 99
   sellPrice: 45

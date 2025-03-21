@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nickle
   m_EditorClassIdentifier: 
   mineralName: Nickle
-  icon: {fileID: 6398492527668056779, guid: 22bb6621fa2b51c47b6eae01e67078a2, type: 3}
+  icon: {fileID: 1452509295898167437, guid: 63e54fc8326694b48a3b8f37b263279d, type: 3}
   dropAmount: 2
   maxStack: 99
   sellPrice: 25

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Iron
   m_EditorClassIdentifier: 
   mineralName: Iron
-  icon: {fileID: -228819513787663229, guid: c07e970ccc92add41a5b3c7ae6826092, type: 3}
+  icon: {fileID: 3147661080336768328, guid: 9ea6ad698f0f6ec47ac020a20bb140dc, type: 3}
   dropAmount: 3
   maxStack: 99
   sellPrice: 20

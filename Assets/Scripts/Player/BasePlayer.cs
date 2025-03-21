@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(BaseMovement))]
 public class BasePlayer : Entity
 {
-    private StateMachine stateMachine;
+    public StateMachine stateMachine { get; private set; }
 
     public static BasePlayer Instance;
 

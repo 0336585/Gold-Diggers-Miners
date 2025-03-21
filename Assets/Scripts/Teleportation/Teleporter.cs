@@ -53,6 +53,7 @@ public class Teleporter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && BasePlayer.Instance.PlayerCanTeleport())
         {
             BasePlayer.Instance.SetCanTeleport(false);
+            BasePlayer.Instance.stateMachine.ChangeState(BasePlayer.Instance.idleState);
             generalEvent?.Invoke();
             switchScreen.SetActive(true);
             StartCoroutine(Teleport());
