@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CasinoPartyLights_0: 6645077653115151731
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

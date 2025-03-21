@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Everts_BrickHouse_0: -552540474793983254
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

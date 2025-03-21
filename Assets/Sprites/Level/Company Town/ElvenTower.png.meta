@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ElvenTower_0: 6379009865181987487
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

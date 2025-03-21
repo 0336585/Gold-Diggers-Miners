@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CasinoInterior_01_0: 4072419292172962284
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
