@@ -92,7 +92,12 @@ public class ProjectileShooter : MonoBehaviour
             }
             else
             {
-                PlaySound(emptyAmmoSound);
+                // Check if enough time has passed since the last empty fire sound
+                if (Time.time >= nextFireTime)
+                {
+                    nextFireTime = Time.time + 0.2f; // Set the next allowed time to play the empty fire sound
+                    PlaySound(emptyAmmoSound);
+                }
             }
         }
 
