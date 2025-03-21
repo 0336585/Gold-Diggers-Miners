@@ -241,16 +241,18 @@ public class MusicPlayer : MonoBehaviour
     // Method to switch to special area music
     public void SetSpecialZoneStatus(bool isActive, StartingLocation location)
     {
+        //Debug.Log($"SetSpecialZoneStatus called: isActive = {isActive}, location = {location}");
         isInSpecialArea = isActive;
         startingLocation = location;
 
         if (isActive)
         {
+            //Debug.Log($"Switching to {location} playlist.");
             SwitchPlaylist(GetCurrentSpecialAreaPlaylist());
         }
         else
         {
-            SwitchPlaylist(ambientClips); // Switch back to ambient/combat
+            SwitchPlaylist(ambientClips);
         }
     }
 
