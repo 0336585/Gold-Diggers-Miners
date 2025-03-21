@@ -36,6 +36,8 @@ public class QuotaManager : MonoBehaviour
         }
 
         Instance = this;
+
+        Debug.Log("Spins to reach quota: " + spinsToReachSleepQuota);
         sleepQuotaText.text = $"Casino spins: {spinsAmount}/{spinsToReachSleepQuota}";
     }
 
