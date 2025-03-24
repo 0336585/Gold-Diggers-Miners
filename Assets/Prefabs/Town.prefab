@@ -1236,8 +1236,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3504203450551413351}
   - component: {fileID: 3428568769477132177}
+  - component: {fileID: 1682266280103798798}
+  - component: {fileID: 3586944903282191053}
   m_Layer: 0
-  m_Name: Silinia_Moni_0
+  m_Name: 'Silinia Moni '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1313,6 +1315,77 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1682266280103798798
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268481062169513644}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.82, y: 2}
+    newSize: {x: 0.82, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.82, y: 2}
+  m_EdgeRadius: 0
+--- !u!114 &3586944903282191053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268481062169513644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Silinia Moni
+  dialogueLines:
+  - "I hope you won\u2019t bring in the dirt"
+  - "I won\u2019t bring you a drink, ask the waiters"
+  - Have a nice day, Mr. Dolf
+  - Try to be careful, will you?
+  - Hope everything will work out for you
+  - "I hope you\u2019re a lucky dwarf"
+  chanceToSpeakChance: 50
+  timeToShow: 2
+  maxDistance: 2
+  dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
 --- !u!1 &326246472159889354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,8 +2209,9 @@ GameObject:
   - component: {fileID: 5862643331941199878}
   - component: {fileID: 5764728956317561442}
   - component: {fileID: 2544083552568856511}
+  - component: {fileID: 8543771672603065587}
   m_Layer: 0
-  m_Name: Hundi_Bertes_0
+  m_Name: 'Hundi Bertes '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2290,6 +2364,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.9636211, y: 2.9472976}
   m_EdgeRadius: 0
+--- !u!114 &8543771672603065587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509640087747734362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: 'Hundi Bertes '
+  dialogueLines:
+  - "How it\u2019s going, Mr. Dolf?"
+  - 'Have you looked at my new wears? '
+  - I have some nice things, shall we check them out?
+  chanceToSpeakChance: 50
+  timeToShow: 2
+  maxDistance: 2
+  dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
 --- !u!1 &513178996431281792
 GameObject:
   m_ObjectHideFlags: 0
@@ -6751,7 +6847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1334325955982480133}
   m_Layer: 0
-  m_Name: Evert_House
+  m_Name: Evert House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7073,8 +7169,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9079061581228217390}
   - component: {fileID: 4607553030863567494}
+  - component: {fileID: 4106066946131767911}
+  - component: {fileID: 4950548575846302083}
   m_Layer: 0
-  m_Name: Toerine Sanne_0
+  m_Name: 'Toerine Sanne '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7150,6 +7248,74 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4106066946131767911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270780653488848742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: 'Toerine Sanne '
+  dialogueLines:
+  - "I\u2019m not in a good mood right now, Evert"
+  - "They say they don\u2019t need any Dwarfs in the casino anymore "
+  - By the Gods, I hate those Elfs
+  chanceToSpeakChance: 50
+  timeToShow: 2
+  maxDistance: 2
+  dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
+--- !u!61 &4950548575846302083
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270780653488848742}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.01, y: 1.51}
+    newSize: {x: 1.01, y: 1.51}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.01, y: 1.51}
+  m_EdgeRadius: 0
 --- !u!1 &2340487352101014469
 GameObject:
   m_ObjectHideFlags: 0
@@ -16675,8 +16841,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4938497377388734604}
   - component: {fileID: 6290891089804645161}
+  - component: {fileID: 4574317762734882703}
+  - component: {fileID: 55449597296554743}
   m_Layer: 0
-  m_Name: Gerard_Boen_0
+  m_Name: 'Gerard Boen '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16752,6 +16920,78 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4574317762734882703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5873023815424775891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: 'Gerard Boen '
+  dialogueLines:
+  - '*Cough* *Cough*'
+  - Don't let the bastards grind you down, Dolf
+  - Hey Evert
+  - How's Going?
+  - "Let\u2019s Blouse"
+  - "Don\u2019t forget to pay the rent this month"
+  - The landlord is such a vampire
+  chanceToSpeakChance: 50
+  timeToShow: 2
+  maxDistance: 2
+  dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
+--- !u!61 &55449597296554743
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5873023815424775891}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.02, y: 1.6}
+    newSize: {x: 1.02, y: 1.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.02, y: 1.6}
+  m_EdgeRadius: 0
 --- !u!1 &5899775576759392893
 GameObject:
   m_ObjectHideFlags: 0
@@ -16851,7 +17091,7 @@ GameObject:
   - component: {fileID: 2781985516553847949}
   - component: {fileID: 2231245643490839649}
   m_Layer: 5
-  m_Name: Shop
+  m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16985,8 +17225,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4500292071499451811}
   - component: {fileID: 5648554933554023398}
+  - component: {fileID: 5107502629470931550}
+  - component: {fileID: 2606370943809091802}
   m_Layer: 0
-  m_Name: Pieter_Haun_0
+  m_Name: Pieter Haun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17062,6 +17304,74 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5107502629470931550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6037020680118322655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Pieter Haun
+  dialogueLines:
+  - Can you spare a dime, mister?
+  - Brother, can you spare a dime?
+  - Have some food, mister?
+  chanceToSpeakChance: 50
+  timeToShow: 2
+  maxDistance: 2
+  dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
+--- !u!61 &2606370943809091802
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6037020680118322655}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.02, y: 1.6}
+    newSize: {x: 1.02, y: 1.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.02, y: 1.6}
+  m_EdgeRadius: 0
 --- !u!1 &6057014130355241374
 GameObject:
   m_ObjectHideFlags: 0
@@ -17359,7 +17669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &935770115503116014
 Transform:
   m_ObjectHideFlags: 0
@@ -17694,8 +18004,10 @@ GameObject:
   m_Component:
   - component: {fileID: 760788020738037903}
   - component: {fileID: 8873235966569264539}
+  - component: {fileID: 4324058973637012701}
+  - component: {fileID: 4818392793912274881}
   m_Layer: 0
-  m_Name: Humberto Sang_0
+  m_Name: 'Humberto Sang '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17771,6 +18083,74 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4324058973637012701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216124191900904421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: 'Humberto Sang '
+  dialogueLines:
+  - "Just let me sleep\u2026 "
+  - "I don\u2019t care\u2026 "
+  - "Just give me a drink to drown my sorrows\u2026 "
+  chanceToSpeakChance: 50
+  timeToShow: 2
+  maxDistance: 2
+  dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
+--- !u!61 &4818392793912274881
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216124191900904421}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 0.71}
+    newSize: {x: 1.6, y: 0.71}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.6, y: 0.71}
+  m_EdgeRadius: 0
 --- !u!1 &6238870314727376898
 GameObject:
   m_ObjectHideFlags: 0
@@ -19526,8 +19906,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4309980513642932672}
   - component: {fileID: 7770962561157921352}
+  - component: {fileID: 810427581260849016}
+  - component: {fileID: 5053171089693417836}
   m_Layer: 0
-  m_Name: Secruti_Francc_0
+  m_Name: 'Secruti Francc '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19603,6 +19985,76 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &810427581260849016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643624610192755953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: 'Secruti Francc '
+  dialogueLines:
+  - "Don\u2019t fall to your death, little lump "
+  - Those Goblins are a bunch of green bastards
+  - Try to breathe slowly down there, will you?
+  - Get deep hairy mutt!
+  - "Don\u2019t think you're important, muckraker"
+  chanceToSpeakChance: 50
+  timeToShow: 2
+  maxDistance: 2
+  dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
+--- !u!61 &5053171089693417836
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643624610192755953}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.02, y: 2}
+    newSize: {x: 1.02, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.02, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &6662195495557949782
 GameObject:
   m_ObjectHideFlags: 0
@@ -25332,7 +25784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3056603, g: 0.3056603, b: 0.3056603, a: 0.392}
+  m_Color: {r: 0.3056603, g: 0.3056603, b: 0.3056603, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

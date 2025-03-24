@@ -87,7 +87,7 @@ public class BasePlayer : Entity
 
         if (dashTimer > 0) return;
 
-        if (Input.GetKeyDown(KeyCode.Q) && stateMachine.currentState != dashState)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && stateMachine.currentState != dashState)
         {
             dashTimer = dashCooldown;
             stateMachine.ChangeState(dashState);

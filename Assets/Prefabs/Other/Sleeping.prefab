@@ -147,7 +147,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1765397722317613994}
   - component: {fileID: 674043996959424166}
-  - component: {fileID: 5640408106963875859}
   m_Layer: 5
   m_Name: Sleeping
   m_TagString: Untagged
@@ -198,22 +197,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5640408106963875859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3956456716444899926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c9e0352e0c43d428a6d29d21d53eda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  daysUI: {fileID: 7424493869770667329}
-  sleepMenu: {fileID: 3956456716444899926}
-  playerHealth: {fileID: 0}
-  levelGenerator: {fileID: 0}
 --- !u!1 &6858346987355414130
 GameObject:
   m_ObjectHideFlags: 0
