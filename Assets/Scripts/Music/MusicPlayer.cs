@@ -262,12 +262,15 @@ public class MusicPlayer : MonoBehaviour
         {
             case StartingLocation.Town:
                 currentPlaylist = townClips;
+                StartCoroutine(GraduallyRecoverVolume());
                 break;
             case StartingLocation.Casino:
                 currentPlaylist = casinoClips;
+                StartCoroutine(GraduallyRecoverVolume());
                 break;
             case StartingLocation.Shop:
                 currentPlaylist = shopClips;
+                StartCoroutine(GraduallyRecoverVolume());
                 break;
             default:
                 currentPlaylist = ambientClips;
