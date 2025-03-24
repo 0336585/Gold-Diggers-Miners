@@ -80,8 +80,6 @@ public class NPCDialogue : MonoBehaviour
         activeDialoguePrefab = Instantiate(dialogueTextPrefab, canvasTransform);
         activeNamePrefab = Instantiate(nameTextPrefab, canvasTransform);
 
-        Debug.Log("NPC is speaking");
-
         // Get Text Components
         TextMeshProUGUI dialogueText = activeDialoguePrefab.GetComponentInChildren<TextMeshProUGUI>();
         TextMeshProUGUI nameText = activeNamePrefab.GetComponentInChildren<TextMeshProUGUI>();
