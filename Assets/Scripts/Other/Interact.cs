@@ -6,7 +6,7 @@ public class Interact : MonoBehaviour
 {
     [SerializeField] private GameObject keyPressPopUp;
     [SerializeField] private GameObject otherCanvas;
-    [SerializeField] private bool canPlaySoundeffect = true;
+    [SerializeField] private bool canPlaySoundeffect = false;
     [SerializeField] private UnityEvent onInteract;
 
     private AudioSource audioPlayer;

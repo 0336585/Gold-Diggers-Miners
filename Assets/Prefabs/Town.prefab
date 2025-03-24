@@ -2208,8 +2208,8 @@ GameObject:
   - component: {fileID: 4235599031483147418}
   - component: {fileID: 5862643331941199878}
   - component: {fileID: 5764728956317561442}
-  - component: {fileID: 2544083552568856511}
   - component: {fileID: 8543771672603065587}
+  - component: {fileID: 2544083552568856511}
   m_Layer: 0
   m_Name: 'Hundi Bertes '
   m_TagString: Untagged
@@ -2318,6 +2318,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8543771672603065587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509640087747734362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: 'Hundi Bertes '
+  dialogueLines:
+  - "How it\u2019s going, Mr. Dolf?"
+  - 'Have you looked at my new wears? '
+  - I have some nice things, shall we check them out?
+  chanceToSpeakChance: 50
+  timeToShow: 2
+  maxDistance: 2
+  dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
+  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
 --- !u!61 &2544083552568856511
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2364,28 +2386,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.9636211, y: 2.9472976}
   m_EdgeRadius: 0
---- !u!114 &8543771672603065587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 509640087747734362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2533d5fc8f8ba8241a65a0dfb3c357f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcName: 'Hundi Bertes '
-  dialogueLines:
-  - "How it\u2019s going, Mr. Dolf?"
-  - 'Have you looked at my new wears? '
-  - I have some nice things, shall we check them out?
-  chanceToSpeakChance: 50
-  timeToShow: 2
-  maxDistance: 2
-  dialogueTextPrefab: {fileID: 6319930909462096932, guid: a23d98f95d0528542ab1acd064f81e60, type: 3}
-  nameTextPrefab: {fileID: 6319930909462096932, guid: 4ddd1e92e3987f84fa1165c03da6a492, type: 3}
 --- !u!1 &513178996431281792
 GameObject:
   m_ObjectHideFlags: 0

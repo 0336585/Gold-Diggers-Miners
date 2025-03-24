@@ -4704,6 +4704,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1154817820}
     - target: {fileID: 3987300823757476782, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
+      propertyPath: canPlaySoundeffect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987300823757476782, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 637081669}
@@ -4727,6 +4731,10 @@ PrefabInstance:
       propertyPath: townEntryChecker
       value: 
       objectReference: {fileID: 1154817816}
+    - target: {fileID: 5764728956317561442, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
+      propertyPath: canPlaySoundeffect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5764728956317561442, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4812,6 +4820,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8321539682324704956, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
+      propertyPath: canPlaySoundeffect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321539682324704956, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1154817817}
@@ -4822,6 +4834,10 @@ PrefabInstance:
     - target: {fileID: 8335511837684211954, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
       propertyPath: m_Name
       value: Town
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543771672603065587, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
+      propertyPath: timeToShow
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8970533828995389906, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
       propertyPath: player
@@ -5419,7 +5435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -901, y: 214}
+  m_AnchoredPosition: {x: -901, y: 212.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1751765272
