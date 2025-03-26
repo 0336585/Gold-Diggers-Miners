@@ -256,8 +256,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1789.5386}
-  m_SizeDelta: {x: 0, y: 1403.4465}
+  m_AnchoredPosition: {x: 0, y: -1879.1195}
+  m_SizeDelta: {x: 0, y: 1582.6086}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624066490
 MonoBehaviour:
@@ -280,21 +280,22 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Programmers:\r\nMert K\xFC\xE7\xFCk\r\nLuuk Raijmakers\r\nSimon Verhoeff\r\n\r\nPixel
-    Artist:\r\nSimon Verhoeff\nLuuk Raijmakers\r\n\r\nWriters:\r\nLuuk Raijmakers\r\n\r\nMusic
-    & Soundeffects:\r\nSimon Verhoeff\r\n\r\nGame Designers:\r\nLuuk Raijmakers\r\nSimon
-    Verhoeff\r\nMert K\xFC\xE7\xFCk\r\n\r\nExternal Credits:\r\nNullTale:  Pixelation
-    Fx  &  Old Movie - Old Film Screen Effect\r\nChequered Ink:  Ancient Modern Tales
-    Font\r\n\r\nCyberwave-Orchestra:  Creepy Suspense Horror Background Music\r\nnickpanek620: 
-    The Russian Gunfighter | Western Movie Instrumental\r\nUniversfield:  Tense Music
-    for Tense Scenes\r\nMusic_For_Videos:  Big Band\r\nRoybushband:  Western Acoustic
-    Guitar\r\naudiomirage:  26-And-January\r\nJoelFazhari:  Dark Adrenaline - Epic
-    Tribal Percussion Soundtrack\r\nklankbeeld:  horror ambience 39 130206_02.wav\r\nnewlocknew: 
-    AMBDsgn_Creepy Troll cave.Drops.Rumble.Bats.Sticky worms.Monk whispers_EM.mp3\r\nLittleRobotSoundFactory: 
-    Ambience_Cave_00.wav\r\nSolarPhasing:  Dark Cave Background 2.wav\r\nszegvari: 
-    North Shaman Ambiance\r\n\r\nAtoMediaDesign:  Startled, gasping for breath 1\r\nmaximumplay3r: 
-    Fuse Ignition\r\nFlashTrauma:  Explosion\r\njorickhoofd:  Metal short tick\r\nDeathx1: 
-    Segue Organ\r\nUberproduktion:  Shot Rifle 39 mm\r\ngattoangus:  9mm pistol shoot
-    short reverb\r\nnettimato:  mag slide in\r\nKlawyKogut:  Empty Gun Shot"
+    Artist:\r\nSimon Verhoeff\r\n\r\nWriters:\r\nLuuk Raijmakers\r\n\r\nMusic & Soundeffects:\r\nSimon
+    Verhoeff\r\n\r\nGame Designers:\r\nLuuk Raijmakers\r\nSimon Verhoeff\r\nMert
+    K\xFC\xE7\xFCk\r\n\r\nAftercare (Bug fixes and such after launch):\r\nLuuk Raijmakers\r\n\r\nExternal
+    Credits:\r\nNullTale:  Pixelation Fx  &  Old Movie - Old Film Screen Effect\r\nChequered
+    Ink:  Ancient Modern Tales Font\r\n\r\nCyberwave-Orchestra:  Creepy Suspense
+    Horror Background Music\r\nnickpanek620:  The Russian Gunfighter | Western Movie
+    Instrumental\r\nUniversfield:  Tense Music for Tense Scenes\r\nMusic_For_Videos: 
+    Big Band\r\nRoybushband:  Western Acoustic Guitar\r\naudiomirage:  26-And-January\r\nJoelFazhari: 
+    Dark Adrenaline - Epic Tribal Percussion Soundtrack\r\nklankbeeld:  horror ambience
+    39 130206_02.wav\r\nnewlocknew:  AMBDsgn_Creepy Troll cave.Drops.Rumble.Bats.Sticky
+    worms.Monk whispers_EM.mp3\r\nLittleRobotSoundFactory:  Ambience_Cave_00.wav\r\nSolarPhasing: 
+    Dark Cave Background 2.wav\r\nszegvari:  North Shaman Ambiance\r\n\r\nAtoMediaDesign: 
+    Startled, gasping for breath 1\r\nmaximumplay3r:  Fuse Ignition\r\nFlashTrauma: 
+    Explosion\r\njorickhoofd:  Metal short tick\r\nDeathx1:  Segue Organ\r\nUberproduktion: 
+    Shot Rifle 39 mm\r\ngattoangus:  9mm pistol shoot short reverb\r\nnettimato: 
+    mag slide in\r\nKlawyKogut:  Empty Gun Shot\r\n\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 592364786c2562b4da1eeebd383dfb79, type: 2}
   m_sharedMaterial: {fileID: 7745365479156329707, guid: 592364786c2562b4da1eeebd383dfb79, type: 2}
