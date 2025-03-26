@@ -1003,6 +1003,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28d1132aa58de042985b1630ad26760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &227751822 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1542398819121531145, guid: fb7e4304890ff254aa63bcde80de9837, type: 3}
+  m_PrefabInstance: {fileID: 14664887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &270054114
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,7 +2199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You have perished
+  m_text: Lost to the Mines
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 592364786c2562b4da1eeebd383dfb79, type: 2}
   m_sharedMaterial: {fileID: 7745365479156329707, guid: 592364786c2562b4da1eeebd383dfb79, type: 2}
@@ -4016,6 +4021,8 @@ MonoBehaviour:
   sleepQuotaText: {fileID: 1397526951}
   winQuotaText: {fileID: 43146807}
   winScreen: {fileID: 548223810}
+  audioSource: {fileID: 227751822}
+  winSound: {fileID: 8300000, guid: 0ea8ea8217f979140b3d8298222766ee, type: 3}
 --- !u!114 &1154817818
 MonoBehaviour:
   m_ObjectHideFlags: 0

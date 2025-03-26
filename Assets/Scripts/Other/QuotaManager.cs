@@ -24,6 +24,10 @@ public class QuotaManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI winQuotaText;
     [SerializeField] private GameObject winScreen;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip winSound;
+
     private int spinsAmount;
 
     private void Awake()
@@ -127,6 +131,9 @@ public class QuotaManager : MonoBehaviour
     public void ShowWinScreen()
     {
         if (PlayerReachedWinQuota())
+        {
+            audioSource.PlayOneShot(winSound);
             winScreen.SetActive(true);
+        }
     }
 }

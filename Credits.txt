@@ -17,7 +17,7 @@ Luuk Raijmakers
 Simon Verhoeff
 Mert Küçük
 
-Aftercare (Bug fixes and such after launch):
+Aftercare (Post-Launch Support):
 Luuk Raijmakers
 
 External Credits:
@@ -46,3 +46,5 @@ Uberproduktion:  Shot Rifle 39 mm
 gattoangus:  9mm pistol shoot short reverb
 nettimato:  mag slide in
 KlawyKogut:  Empty Gun Shot
+LittleRobotSoundFactory: Jingle Achievement 00 
+LittleRobotSoundFactory: Jingle Win Synth 05

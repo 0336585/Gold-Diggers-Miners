@@ -256,8 +256,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1879.1195}
-  m_SizeDelta: {x: 0, y: 1582.6086}
+  m_AnchoredPosition: {x: 0, y: -1923.5698}
+  m_SizeDelta: {x: 0, y: 1671.509}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624066490
 MonoBehaviour:
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_text: "Programmers:\r\nMert K\xFC\xE7\xFCk\r\nLuuk Raijmakers\r\nSimon Verhoeff\r\n\r\nPixel
     Artist & Thumbnail:\r\nSimon Verhoeff\r\n\r\nWriters:\r\nLuuk Raijmakers\r\n\r\nMusic
     & Soundeffects:\r\nSimon Verhoeff\r\n\r\nGame Designers:\r\nLuuk Raijmakers\r\nSimon
-    Verhoeff\r\nMert K\xFC\xE7\xFCk\r\n\r\nAftercare (Bug fixes and such after launch):\r\nLuuk
+    Verhoeff\r\nMert K\xFC\xE7\xFCk\r\n\r\nAftercare (Post-Launch Support):\r\nLuuk
     Raijmakers\r\n\r\nExternal Credits:\r\nNullTale:  Pixelation Fx  &  Old Movie
     - Old Film Screen Effect\r\nChequered Ink:  Ancient Modern Tales Font\r\n\r\nCyberwave-Orchestra: 
     Creepy Suspense Horror Background Music\r\nnickpanek620:  The Russian Gunfighter
@@ -295,7 +295,8 @@ MonoBehaviour:
     Startled, gasping for breath 1\r\nmaximumplay3r:  Fuse Ignition\r\nFlashTrauma: 
     Explosion\r\njorickhoofd:  Metal short tick\r\nDeathx1:  Segue Organ\r\nUberproduktion: 
     Shot Rifle 39 mm\r\ngattoangus:  9mm pistol shoot short reverb\r\nnettimato: 
-    mag slide in\r\nKlawyKogut:  Empty Gun Shot"
+    mag slide in\r\nKlawyKogut:  Empty Gun Shot\r\nLittleRobotSoundFactory: Jingle
+    Achievement 00 \r\nLittleRobotSoundFactory: Jingle Win Synth 05\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 592364786c2562b4da1eeebd383dfb79, type: 2}
   m_sharedMaterial: {fileID: 7745365479156329707, guid: 592364786c2562b4da1eeebd383dfb79, type: 2}
