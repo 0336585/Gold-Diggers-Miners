@@ -445,6 +445,7 @@ MonoBehaviour:
   - {fileID: 0}
   audioSource: {fileID: 5333089754565001629}
   takingDamageClip: {fileID: 8300000, guid: 30c41e9b16632374c9d605b7095f6952, type: 3}
+  deathClip: {fileID: 8300000, guid: 39917edfd1bd39c4c9d29e6d3e49c75d, type: 3}
 --- !u!114 &4944147188587110059
 MonoBehaviour:
   m_ObjectHideFlags: 0

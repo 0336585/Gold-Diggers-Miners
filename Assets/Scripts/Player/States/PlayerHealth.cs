@@ -22,6 +22,7 @@ public class PlayerHealth : BaseHealth
     [Header("Audio Settings")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip takingDamageClip;
+    [SerializeField] private AudioClip deathClip;
 
     private List<GameObject> hearts = new List<GameObject>();
     private Vignette activeVignette; // Reference to active vignette effect
@@ -55,8 +56,9 @@ public class PlayerHealth : BaseHealth
     {
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            AudioSource.PlayClipAtPoint(deathClip, transform.position, 1f);
             deathScreen.SetActive(true);
+            Destroy(gameObject);
         }
     }
 
