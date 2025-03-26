@@ -42,7 +42,7 @@ public class DataManager : MonoBehaviour
             string json = File.ReadAllText(filePath);
             saveData = JsonUtility.FromJson<SaveData>(json);
 
-            if(moneyManager != null && sleepingBehaviour != null && hotbar != null)
+            if (moneyManager != null && sleepingBehaviour != null && hotbar != null)
             {
                 moneyManager.Money = saveData.money;
                 sleepingBehaviour.SurvivedDaysAmount = saveData.days;
@@ -57,14 +57,25 @@ public class DataManager : MonoBehaviour
             if (saveData.hotbarItems == null || saveData.hotbarItems.Count == 0)
             {
                 saveData.hotbarItems = defaultHotbarItems;
-                Debug.Log("No weapons found in save data");
+                Debug.Log("No weapons found in save data. Using default weapons.");
             }
 
             Debug.Log("Data Loaded: " + json);
         }
         else
         {
-            Debug.LogWarning("No save file found!");
+            Debug.LogWarning("No save file found! Creating a new save file with default values.");
+
+            // Initialize saveData with default values
+            saveData = new SaveData
+            {
+                money = 0,
+                days = 0,
+                hotbarItems = defaultHotbarItems
+            };
+
+            // Save the new file
+            SaveData();
         }
     }
 

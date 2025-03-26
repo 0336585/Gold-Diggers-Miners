@@ -9,6 +9,7 @@ public class ButtonManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         MenuManager.Instance.OnMenuOpen += ClosePauseMenu;
     }
 
