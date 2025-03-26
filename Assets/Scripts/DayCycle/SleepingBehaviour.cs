@@ -26,7 +26,9 @@ public class SleepingBehaviour : MonoBehaviour
     private void Start()
     {
         sleepSFX = GetComponent<AudioSource>();
-        survivedDaysAmount = saveDataManager.saveData.days;
+
+        if (saveDataManager != null)
+            survivedDaysAmount = saveDataManager.saveData.days;
     }
 
     public void Sleep()
