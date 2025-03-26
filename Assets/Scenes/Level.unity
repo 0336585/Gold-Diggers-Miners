@@ -5700,6 +5700,10 @@ PrefabInstance:
       propertyPath: generalEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 227751821}
+    - target: {fileID: 248900463905148732, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
+      propertyPath: generalEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddMaxOxygen
+      objectReference: {fileID: 0}
     - target: {fileID: 1377107710026305543, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
       propertyPath: player
       value: 
