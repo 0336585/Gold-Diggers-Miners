@@ -201,7 +201,6 @@ public class MusicPlayer : MonoBehaviour
         {
             if (!audioSource.isPlaying)
             {
-                Debug.LogWarning("AudioSource stopped unexpectedly. Playing default clip.");
                 PlayRandomClip();
             }
 
