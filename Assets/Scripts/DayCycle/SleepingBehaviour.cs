@@ -5,6 +5,7 @@ using System.Collections;
 public class SleepingBehaviour : MonoBehaviour
 {
     [SerializeField] private TMP_Text daysUI;
+    [SerializeField] private TMP_Text addictUI;
     [SerializeField] private GameObject sleepMenu;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private LevelGenerator levelGenerator;
@@ -59,10 +60,9 @@ public class SleepingBehaviour : MonoBehaviour
         }
         else
         {
-            Debug.Log("Text is called"); 
-            daysUI.gameObject.SetActive(true);  
-            daysUI.text = "I need to Gamble...";
-            StartCoroutine(HideTextAfterDelay(3)); 
+            addictUI.gameObject.SetActive(true);
+            addictUI.text = "I need to Gamble...";
+            StartCoroutine(HideTextAfterDelay(2)); 
         }
     }
 
@@ -75,7 +75,7 @@ public class SleepingBehaviour : MonoBehaviour
     private IEnumerator HideTextAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        daysUI.gameObject.SetActive(false);
+        addictUI.gameObject.SetActive(false);
     }
 
     public void SleepEvent()
