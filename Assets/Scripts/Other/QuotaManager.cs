@@ -126,7 +126,7 @@ public class QuotaManager : MonoBehaviour
 
     public void ShowWinScreen()
     {
-        if (PlayerReachedQuota())
+        if (PlayerReachedWinQuota())
             winScreen.SetActive(true);
     }
 }
