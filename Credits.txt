@@ -3,7 +3,7 @@ Mert Küçük
 Luuk Raijmakers
 Simon Verhoeff
 
-Pixel Artist:
+Pixel Artist & Thumbnail:
 Simon Verhoeff
 
 Writers:
@@ -46,5 +46,3 @@ Uberproduktion:  Shot Rifle 39 mm
 gattoangus:  9mm pistol shoot short reverb
 nettimato:  mag slide in
 KlawyKogut:  Empty Gun Shot
-
-
