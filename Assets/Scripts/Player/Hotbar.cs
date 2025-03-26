@@ -72,8 +72,6 @@ public class Hotbar : MonoBehaviour
             if (hotbarSlots[i].transform.name.Contains("Item"))
                 hotbarSlots[i].sprite = hotbarItems[i].icon;
         }
-
-        dataManager.FillDefaultHotbarItems(hotbarItems);
     }
 
     // Update is called once per frame

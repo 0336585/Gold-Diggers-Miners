@@ -18,7 +18,7 @@ public class DataManager : MonoBehaviour
     [SerializeField] private Hotbar hotbar;
 
     private string filePath;
-    private List<InventoryItem> defaultHotbarItems = new List<InventoryItem>();
+    [SerializeField] private List<InventoryItem> defaultHotbarItems = new List<InventoryItem>();
 
     private void Awake()
     {
@@ -77,10 +77,5 @@ public class DataManager : MonoBehaviour
             // Save the new file
             SaveData();
         }
-    }
-
-    public void FillDefaultHotbarItems(List<InventoryItem> _defaultHotbarItems)
-    {
-        defaultHotbarItems = _defaultHotbarItems;
     }
 }

@@ -4199,10 +4199,17 @@ MonoBehaviour:
   saveData:
     days: 0
     money: 0
-    hotbarItems: []
+    hotbarItems:
+    - {fileID: 11400000, guid: e84dabe4baddcdc4d88ec4c2ce333577, type: 2}
+    - {fileID: 11400000, guid: 003d47c99669b7944afac30707491265, type: 2}
+    - {fileID: 11400000, guid: 70d0b1e7e6131ac4c906a8cb67fd5061, type: 2}
   moneyManager: {fileID: 14664891}
   sleepingBehaviour: {fileID: 1445700461}
   hotbar: {fileID: 14664889}
+  defaultHotbarItems:
+  - {fileID: 11400000, guid: e84dabe4baddcdc4d88ec4c2ce333577, type: 2}
+  - {fileID: 11400000, guid: 003d47c99669b7944afac30707491265, type: 2}
+  - {fileID: 11400000, guid: 70d0b1e7e6131ac4c906a8cb67fd5061, type: 2}
 --- !u!114 &1154817821
 MonoBehaviour:
   m_ObjectHideFlags: 0
