@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Light Machine Gun
   m_EditorClassIdentifier: 
   itemName: Light Machine Gun
+  instanceID: 1
   icon: {fileID: 21300000, guid: eca99fbdd7c6ae14183ee99fe5b8ccb8, type: 3}
   prefab: {fileID: 7510308398312001136, guid: 22d3344ae804fa94fa08e7adce61d798, type: 3}
   itemType: 0

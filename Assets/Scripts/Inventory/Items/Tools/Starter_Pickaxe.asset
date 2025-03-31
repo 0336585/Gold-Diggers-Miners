@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Starter_Pickaxe
   m_EditorClassIdentifier: 
   itemName: Starter Pickaxe
+  instanceID: 12
   icon: {fileID: 7251479573422591001, guid: 49c00d95e36e4e04681f73c67bd5964f, type: 3}
   prefab: {fileID: 8268255958864661807, guid: dbf4bf4445acf9d44a8de3561949b813, type: 3}
   itemType: 3

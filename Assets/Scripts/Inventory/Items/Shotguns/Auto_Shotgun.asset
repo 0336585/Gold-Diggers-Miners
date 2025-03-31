@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Auto_Shotgun
   m_EditorClassIdentifier: 
   itemName: Auto Shotgun
+  instanceID: 7
   icon: {fileID: 964084502782582573, guid: 35c250d41a9a17e449d8114ba414c879, type: 3}
   prefab: {fileID: 537383252699764253, guid: 24db81c0c46869847ab365c07079e36e, type: 3}
   itemType: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Dynamite
   m_EditorClassIdentifier: 
   itemName: Dynamite
+  instanceID: 4
   icon: {fileID: -4003982261762975687, guid: 262b5651606827c46b4941544991cd7f, type: 3}
   prefab: {fileID: 3130459444772633118, guid: 4813d4eb4945d30479203daa872b0285, type: 3}
   itemType: 2

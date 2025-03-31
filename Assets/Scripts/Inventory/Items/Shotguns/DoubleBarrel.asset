@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DoubleBarrel
   m_EditorClassIdentifier: 
   itemName: Double Barrel
+  instanceID: 8
   icon: {fileID: 4887961830948674737, guid: 48de542b9bdeebe4c88973c67f60567e, type: 3}
   prefab: {fileID: 6012019817404269406, guid: 3ec5cf830db43674e81d8be1c22f5c4e, type: 3}
   itemType: 0
