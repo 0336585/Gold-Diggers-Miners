@@ -31,7 +31,6 @@ public class Hotbar : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject itemHolder;
     [SerializeField] private GameObject hotbarUI;
-    [SerializeField] private DataManager dataManager;
 
     private List<GameObject> instantiatedItems = new List<GameObject>();
 

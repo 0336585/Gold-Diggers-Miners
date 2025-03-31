@@ -4152,11 +4152,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mineral1: {fileID: 11400000, guid: c3ca2a4f279a173448c473784d36fbde, type: 2}
-  mineral1AmountNeeded: 30
+  mineral1AmountNeeded: 10
   mineral2: {fileID: 11400000, guid: 585f0611a45942042ae88ab50c4bd926, type: 2}
-  mineral2AmountNeeded: 50
+  mineral2AmountNeeded: 30
   mineral3: {fileID: 11400000, guid: f81a0529d912dbe4db3d7ceb9c960924, type: 2}
-  mineral3AmountNeeded: 100
+  mineral3AmountNeeded: 50
   spinsToReachSleepQuota: 5
   sleepQuotaText: {fileID: 1397526951}
   winQuotaText: {fileID: 43146807}
@@ -4202,17 +4202,9 @@ MonoBehaviour:
   saveData:
     days: 0
     money: 0
-    hotbarItems:
-    - {fileID: 11400000, guid: e84dabe4baddcdc4d88ec4c2ce333577, type: 2}
-    - {fileID: 11400000, guid: 003d47c99669b7944afac30707491265, type: 2}
-    - {fileID: 11400000, guid: 70d0b1e7e6131ac4c906a8cb67fd5061, type: 2}
   moneyManager: {fileID: 14664891}
   sleepingBehaviour: {fileID: 1445700461}
   hotbar: {fileID: 14664889}
-  defaultHotbarItems:
-  - {fileID: 11400000, guid: e84dabe4baddcdc4d88ec4c2ce333577, type: 2}
-  - {fileID: 11400000, guid: 003d47c99669b7944afac30707491265, type: 2}
-  - {fileID: 11400000, guid: 70d0b1e7e6131ac4c906a8cb67fd5061, type: 2}
 --- !u!114 &1154817821
 MonoBehaviour:
   m_ObjectHideFlags: 0
