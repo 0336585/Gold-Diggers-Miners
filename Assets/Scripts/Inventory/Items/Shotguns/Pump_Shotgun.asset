@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Pump_Shotgun
   m_EditorClassIdentifier: 
   itemName: Pump Shotgun
-  instanceID: 9
   icon: {fileID: 8723138600472548988, guid: 45c4a8b1f06775540847fd5288c2bc1c, type: 3}
   prefab: {fileID: 7548309685758823321, guid: b99e2f54f5c5f9c499318efea3d02924, type: 3}
   itemType: 0

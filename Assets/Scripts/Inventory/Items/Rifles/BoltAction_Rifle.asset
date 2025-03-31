@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: BoltAction_Rifle
   m_EditorClassIdentifier: 
   itemName: Bolt Action Rifle
-  instanceID: 5
   icon: {fileID: 5383339199987586450, guid: f72c61f5869a0234ba2c55ef0dc1ad0e, type: 3}
   prefab: {fileID: 7892653625281690121, guid: dff48c253c397fc41a6dd199e15b1b24, type: 3}
   itemType: 0

@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Direct Impact Grenade
   m_EditorClassIdentifier: 
   itemName: Direct Impact Grenade
-  instanceID: 3
   icon: {fileID: 21300000, guid: 583e26ae3437b984c9680333a66893ed, type: 3}
   prefab: {fileID: 3130459444772633118, guid: 40c7fc0cf4197b543b075f7ee50847ec, type: 3}
   itemType: 2

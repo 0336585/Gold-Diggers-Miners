@@ -42,27 +42,22 @@ public class DataManager : MonoBehaviour
             string json = File.ReadAllText(filePath);
             saveData = JsonUtility.FromJson<SaveData>(json);
 
-            // Handle days and money
-            if (moneyManager != null && sleepingBehaviour != null)
+            if (moneyManager != null && sleepingBehaviour != null && hotbar != null)
             {
                 moneyManager.Money = saveData.money;
                 sleepingBehaviour.SurvivedDaysAmount = saveData.days;
+                hotbar.HotbarItems = saveData.hotbarItems;
             }
             else
             {
                 Debug.Log("Note: Can't set days and money data");
             }
 
-            // Handle hotbar items
-            if (hotbar != null)
+            // Check if hotbarItems is empty and replace with default values if needed
+            if (saveData.hotbarItems == null || saveData.hotbarItems.Count == 0)
             {
-                if (saveData.hotbarItems == null || saveData.hotbarItems.Count == 0)
-                {
-                    saveData.hotbarItems = new List<InventoryItem>(defaultHotbarItems);
-                    Debug.Log("No weapons found in save data. Using default weapons.");
-                }
-
-                hotbar.HotbarItems = new List<InventoryItem>(saveData.hotbarItems);
+                saveData.hotbarItems = defaultHotbarItems;
+                Debug.Log("No weapons found in save data. Using default weapons.");
             }
 
             Debug.Log("Data Loaded: " + json);
@@ -71,13 +66,15 @@ public class DataManager : MonoBehaviour
         {
             Debug.LogWarning("No save file found! Creating a new save file with default values.");
 
+            // Initialize saveData with default values
             saveData = new SaveData
             {
                 money = 0,
                 days = 0,
-                hotbarItems = new List<InventoryItem>(defaultHotbarItems)
+                hotbarItems = defaultHotbarItems
             };
 
+            // Save the new file
             SaveData();
         }
     }

@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Revolver
   m_EditorClassIdentifier: 
   itemName: Revolver
-  instanceID: 11
   icon: {fileID: -6377026778157574555, guid: e60ccb96eb4679c49a8a2904bc5c6667, type: 3}
   prefab: {fileID: 7777505889801214277, guid: 45a5d130706c392459046757af185067, type: 3}
   itemType: 0
