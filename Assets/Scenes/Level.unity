@@ -969,7 +969,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3956456716444899926, guid: 88a1125f811c8874cb5161a72ad0a285, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1823393980}
   m_SourcePrefab: {fileID: 100100000, guid: 88a1125f811c8874cb5161a72ad0a285, type: 3}
 --- !u!224 &205869330 stripped
 RectTransform:
@@ -5767,7 +5770,7 @@ PrefabInstance:
     - target: {fileID: 3273713682154996712, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
       propertyPath: daysUI
       value: 
-      objectReference: {fileID: 1397526951}
+      objectReference: {fileID: 1910315112}
     - target: {fileID: 3273713682154996712, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
       propertyPath: addictUI
       value: 
@@ -5775,7 +5778,7 @@ PrefabInstance:
     - target: {fileID: 3273713682154996712, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
       propertyPath: sleepMenu
       value: 
-      objectReference: {fileID: 227751812}
+      objectReference: {fileID: 1823393978}
     - target: {fileID: 3273713682154996712, guid: a4e565995da290b4eb0aad904d3f08ce, type: 3}
       propertyPath: playerHealth
       value: 
@@ -6799,6 +6802,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822913800}
   m_CullTransparentMesh: 1
+--- !u!1 &1823393978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3956456716444899926, guid: 88a1125f811c8874cb5161a72ad0a285, type: 3}
+  m_PrefabInstance: {fileID: 205869329}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1823393980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823393978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c9e0352e0c43d428a6d29d21d53eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  daysUI: {fileID: 0}
+  addictUI: {fileID: 0}
+  sleepMenu: {fileID: 1823393978}
+  playerHealth: {fileID: 14664890}
+  levelGenerator: {fileID: 1060338515}
+  oxygenManager: {fileID: 227751821}
+  saveDataManager: {fileID: 1154817820}
 --- !u!1 &1861135346
 GameObject:
   m_ObjectHideFlags: 0
@@ -7125,6 +7152,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1910315112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7424493869770667329, guid: 88a1125f811c8874cb5161a72ad0a285, type: 3}
+  m_PrefabInstance: {fileID: 205869329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1945777685
 GameObject:
   m_ObjectHideFlags: 0
